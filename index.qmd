@@ -1,0 +1,6 @@
+---
+title: "IDS 702: Data Modeling and Representation"
+subtitle: "Duke University <br> Fall 2023"
+---
+
+Welcome to the IDS 702 course site!
