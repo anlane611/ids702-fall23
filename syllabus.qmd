@@ -1,0 +1,30 @@
+---
+title: "IDS 702: Data Modeling and Representation"
+subtitle: "Fall 2023 </br> Duke University"
+---
+
+## Course Objectives
+
+Developing an understanding of statistical modeling is a key component of becoming a data scientist. Statistical models are used to answer research questions and obtain meaningful insights from many kinds of data.
+
+Broadly, this course will cover the following topics:
+
+1.  Linear Regression
+2.  Generalized Linear Models
+3.  Special topics, including survival models and hierarchical models
+
+But here in the MIDS program, understanding the content is only the beginning. Successful data scientists are **critical thinkers**, **problem solvers**, **effective communicators**, and **enthusiastic collaborators**. With that in mind, this course aims to meet four key learning objectives:
+
+By the end of the course, students should be able to
+
+1.  Fit and interpret statistical models, including linear and generalized linear models.
+2.  Map a research question and dataset to the appropriate statistical model
+3.  Make careful and critical decisions about model building and real-world implications
+4.  Communicate (through written and oral communication) model results to a broad audience
+
+```{=html}
+<a>Required textbook:</a> <br/>
+```
+[An Introduction to Statistical Learning with Applications in R, 2nd edition](https://www.statlearning.com/) by James, G., Witten, D., Hastie, T., and Tibshirani, R.
+
+*Use the link above to download a PDF of the book*

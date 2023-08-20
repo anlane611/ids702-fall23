@@ -3,7 +3,3 @@ title: "test page"
 ---
 
 Linear regression
-
-```{=html}
-<iframe height=600 width=100% src=https://classwise.org/home/openItem/202308-1420-5604-4e7806a6-6447-4d49-a436-b2dfe9983291&video&embed></iframe>
-```

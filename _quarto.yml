@@ -3,15 +3,28 @@ project:
 
 website:
   title: "IDS 702"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    background: "#099E9C"
+    contents:
+       - section:
+         href: syllabus.qmd
+         text: Syllabus
+       - section: Course Materials
+         contents:
+          - section: "Unit 0: Bootcamp"
+          - section: unit1.qmd
+            contents:
+            - href: introMLR.qmd
+              text: "1.1: Intro to LR"
+          - section: unit2.qmd
+          - section: unit3.qmd
 
 format:
   html:
-    theme: lux
+    theme: 
+      light: [lux, custom.scss]
     css: styles.css
     toc: true
 
