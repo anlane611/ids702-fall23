@@ -2,13 +2,28 @@
 title: webR in Quarto HTML Documents
 format: html
 engine: knitr
+webr: 
+  show-startup-message: false
+  show-header-message: false
+  home-dir: '/home/r-user/'
+  packages: ['ggplot2', 'dplyr']
 filters:
   - webr
 ---
 
 This is a webr-enabled code cell in a Quarto HTML document.
 
+```{r}
+#webr::install("ggplot2")
+#webr::install("dplyr")
+```
+
 ```{webr-r}
-fit = lm(mpg ~ am, data = mtcars)
-summary(fit)
+library(dplyr)
+library(ggplot2)
+```
+
+```{webr-r}
+dat <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/main/STA101Survey.csv")
+#glimpse(dat)
 ```
