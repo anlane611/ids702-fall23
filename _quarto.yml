@@ -14,6 +14,7 @@ website:
        - section: Course Materials
          contents:
           - section: "Unit 0: Bootcamp"
+            hreft: unit0.qmd
           - section: unit1.qmd
             contents:
             - href: introMLR.qmd
