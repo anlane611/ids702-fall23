@@ -527,7 +527,7 @@ library(tidyverse)`,
   let editor;
   require(['vs/editor/editor.main'], function () {
     editor = monaco.editor.create(editorDiv, {
-      value: `survey <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/main/STA101Survey.csv", row.names=1)
+      value: `survey <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/main/BootcampSurvey.csv", row.names=1)
 glimpse(survey)`,
       language: 'r',
       theme: 'vs-light',
@@ -1153,6 +1153,11 @@ glimpse(survey)`,
     executeCode(editor.getValue());
   };
 </script>
+<p>Always always always:</p>
+<ul>
+<li><p>create a new variable instead of overwriting the original</p></li>
+<li><p>perform a quality control check</p></li>
+</ul>
 <button class="btn btn-default btn-webr" disabled="" type="button" id="webr-run-button-6">Loading
   webR...</button>
 <div id="webr-editor-6"></div>
@@ -1177,7 +1182,8 @@ glimpse(survey)`,
 survey |> mutate(Siblings_clean = case_when(
   Siblings== ~ ,
   TRUE ~ as.numeric(Siblings)
-))`,
+))
+`,
       language: 'r',
       theme: 'vs-light',
       automaticLayout: true,           // TODO: Could be problematic for slide decks
