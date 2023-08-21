@@ -21,10 +21,3 @@ By the end of the course, students should be able to
 2.  Map a research question and dataset to the appropriate statistical model
 3.  Make careful and critical decisions about model building and real-world implications
 4.  Communicate (through written and oral communication) model results to a broad audience
-
-```{=html}
-<a>Required textbook:</a> <br/>
-```
-[An Introduction to Statistical Learning with Applications in R, 2nd edition](https://www.statlearning.com/) by James, G., Witten, D., Hastie, T., and Tibshirani, R.
-
-*Use the link above to download a PDF of the book*
