@@ -61,7 +61,7 @@ library(tidyverse)
 ```
 
 ```{webr-r}
-survey <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/main/STA101Survey.csv", row.names=1)
+survey <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/main/BootcampSurvey.csv", row.names=1)
 glimpse(survey)
 ```
 
@@ -87,6 +87,12 @@ Let's start with the Siblings variable. What information do we need to know to c
 survey |> count(Siblings)
 ```
 
+Always always always:
+
+-   create a new variable instead of overwriting the original
+
+-   perform a quality control check
+
 ```{webr-r}
 survey |> count(Siblings)
 
@@ -94,6 +100,7 @@ survey |> mutate(Siblings_clean = case_when(
   Siblings== ~ ,
   TRUE ~ as.numeric(Siblings)
 ))
+
 ```
 
 Now that the variable is clean, let's explore it more:
