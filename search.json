@@ -14,6 +14,13 @@
     "text": "Course Overview\nMeeting times: Tuesdays and Thursdays 3:05-4:20 PM, Gross Hall 107\nInstructor \nAndrea Lane, PhD \nandrea.lane@duke.edu \nGross Hall 223 \nOffice hours: Tues/Thurs 4:20-5:20 PM\n \nTeaching Assistants \nXiaoquan Liu \nx.liu@duke.edu \nOffice hours: \n \nDingkun Yang \ndingkun.yang@duke.edu \nOffice hours:"
   },
   {
+    "objectID": "index.html#textbook",
+    "href": "index.html#textbook",
+    "title": "IDS 702: Data Modeling and Representation",
+    "section": "Textbook",
+    "text": "Textbook\nAn Introduction to Statistical Learning with Applications in R, 2nd edition by James, G., Witten, D., Hastie, T., and Tibshirani, R.\nUse the link above to download a PDF of the book"
+  },
+  {
     "objectID": "index.html#important-dates",
     "href": "index.html#important-dates",
     "title": "IDS 702: Data Modeling and Representation",
@@ -30,15 +37,43 @@
   {
     "objectID": "unit0.html",
     "href": "unit0.html",
-    "title": "Cleaning and exploring data",
+    "title": "Cleaning and exploring data in R",
     "section": "",
-    "text": "Loading\n  webR...\n\n\n  \n\n\nLoading\n  webR..."
+    "text": "A crucial first step of data analysis is exploring the dataset (and then cleaning, as needed). Today, we will practice exploring and cleaning data in R."
+  },
+  {
+    "objectID": "unit0.html#types-of-variables",
+    "href": "unit0.html#types-of-variables",
+    "title": "Cleaning and exploring data in R",
+    "section": "Types of variables",
+    "text": "Types of variables\nNumeric variables take numerical values and it makes sense to perform calculations on the values (e.g., addition, mean)\n\nDiscrete variables can not take decimal values (e.g., Number of required statistics courses in a major)\nContinuous variables can take decimal values (e.g., height in cm)\n\nCategorical variables are variables that have categories, where each category is called a level\n\nNominal variables do not have an order (e.g., eye color)\nOrdinal variables do have an order (e.g., education categories)\n\n\nExercise\nIn your group, discuss the following:\n\nClassify each of the survey questions as discrete, continuous, nominal, or ordinal.\nWhat does it mean to explore data?\nWhat does it mean to clean data? Identify how the survey data may need to be cleaned just by looking at the questions."
+  },
+  {
+    "objectID": "unit0.html#first-steps-in-r",
+    "href": "unit0.html#first-steps-in-r",
+    "title": "Cleaning and exploring data in R",
+    "section": "First steps in R",
+    "text": "First steps in R\nHopefully you have already installed R/RStudio on your computer. If so, you can copy and paste the code below into your own script. If you haven’t yet installed R/RStudio, you can run code directly from this page.\nLoading\n  webR...\n\n\n  \n\n\nLoading\n  webR...\n\n\n  \n\n\nLet’s remove the timestamp variable\nLoading\n  webR...\n\n\n  \n\n\nLet’s make our variable names more concise (but still descriptive!)\nLoading\n  webR..."
+  },
+  {
+    "objectID": "unit0.html#cleaning-and-exploring-variables",
+    "href": "unit0.html#cleaning-and-exploring-variables",
+    "title": "Cleaning and exploring data in R",
+    "section": "Cleaning and exploring variables",
+    "text": "Cleaning and exploring variables\n\nSiblings\nLet’s start with the Siblings variable. What information do we need to know to clean the variable?\nLoading\n  webR...\n\n\n  \n\n\nLoading\n  webR...\n\n\n  \n\n\nNow that the variable is clean, let’s explore it more:\nLoading\n  webR...\n\n\n  \n\n\nLoading\n  webR...\n\n\n  \n\n\n\n\nSushi\nNow consider the sushi variable.\nLoading\n  webR...\n\n\n  \n\n\nIt’s important to pay attention to implausible values. What would be an implausible value in this case? How should we handle it?\nLoading\n  webR...\n\n\n  \n\n\nNow let’s generate a plot to visualize the sushi variable\nLoading\n  webR...\n\n\n  \n\n\n\n\nLanguages\nLoading\n  webR...\n\n\n  \n\n\nOften, we need to combine categories if we have too few observations in multiple categories. How should we combine categories in this case?"
+  },
+  {
+    "objectID": "unit0.html#exercises",
+    "href": "unit0.html#exercises",
+    "title": "Cleaning and exploring data in R",
+    "section": "Exercises",
+    "text": "Exercises\nIn your group, complete the following:\n\nFor the application area of interest variable, how many students responded with “other”? What does this say about the survey design?\nExplore, clean, and visualize the remaining variables in the dataset. Note that you may have to look up some functions to help. For example, the “substr” function will be useful for the course excitement variable."
   },
   {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "IDS 702: Data Modeling and Representation",
     "section": "",
-    "text": "Developing an understanding of statistical modeling is a key component of becoming a data scientist. Statistical models are used to answer research questions and obtain meaningful insights from many kinds of data.\nBroadly, this course will cover the following topics:\n\nLinear Regression\nGeneralized Linear Models\nSpecial topics, including survival models and hierarchical models\n\nBut here in the MIDS program, understanding the content is only the beginning. Successful data scientists are critical thinkers, problem solvers, effective communicators, and enthusiastic collaborators. With that in mind, this course aims to meet four key learning objectives:\nBy the end of the course, students should be able to\n\nFit and interpret statistical models, including linear and generalized linear models.\nMap a research question and dataset to the appropriate statistical model\nMake careful and critical decisions about model building and real-world implications\nCommunicate (through written and oral communication) model results to a broad audience\n\nRequired textbook: \nAn Introduction to Statistical Learning with Applications in R, 2nd edition by James, G., Witten, D., Hastie, T., and Tibshirani, R.\nUse the link above to download a PDF of the book"
+    "text": "Developing an understanding of statistical modeling is a key component of becoming a data scientist. Statistical models are used to answer research questions and obtain meaningful insights from many kinds of data.\nBroadly, this course will cover the following topics:\n\nLinear Regression\nGeneralized Linear Models\nSpecial topics, including survival models and hierarchical models\n\nBut here in the MIDS program, understanding the content is only the beginning. Successful data scientists are critical thinkers, problem solvers, effective communicators, and enthusiastic collaborators. With that in mind, this course aims to meet four key learning objectives:\nBy the end of the course, students should be able to\n\nFit and interpret statistical models, including linear and generalized linear models.\nMap a research question and dataset to the appropriate statistical model\nMake careful and critical decisions about model building and real-world implications\nCommunicate (through written and oral communication) model results to a broad audience"
   }
 ]
