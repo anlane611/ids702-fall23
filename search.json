@@ -1,5 +1,75 @@
 [
   {
+    "objectID": "unit0b.html",
+    "href": "unit0b.html",
+    "title": "Cleaning and exploring data in R",
+    "section": "",
+    "text": "A crucial first step of data analysis is exploring the dataset (and then cleaning, as needed). Today, we will practice exploring and cleaning data in R."
+  },
+  {
+    "objectID": "unit0b.html#types-of-variables",
+    "href": "unit0b.html#types-of-variables",
+    "title": "Cleaning and exploring data in R",
+    "section": "Types of variables",
+    "text": "Types of variables\nNumeric variables take numerical values and it makes sense to perform calculations on the values (e.g., addition, mean)\n\nDiscrete variables can not take decimal values (e.g., Number of required statistics courses in a major)\nContinuous variables can take decimal values (e.g., height in cm)\n\nCategorical variables are variables that have categories, where each category is called a level\n\nNominal variables do not have an order (e.g., eye color)\nOrdinal variables do have an order (e.g., education categories)\n\n\nExercise\nIn your group, discuss the following:\n\nClassify each of the survey questions as discrete, continuous, nominal, or ordinal.\nWhat does it mean to explore data?\nWhat does it mean to clean data? Identify how the survey data may need to be cleaned just by looking at the questions."
+  },
+  {
+    "objectID": "unit0b.html#first-steps-in-r",
+    "href": "unit0b.html#first-steps-in-r",
+    "title": "Cleaning and exploring data in R",
+    "section": "First steps in R",
+    "text": "First steps in R\nHopefully you have already installed R/RStudio on your computer. If so, you can copy and paste the code below into your own script. If you haven’t yet installed R/RStudio, you can run code directly from this page.\nLoading\n  webR...\n\n\n  \n\n\nLoading\n  webR...\n\n\n  \n\n\nLet’s remove the timestamp variable\nLoading\n  webR...\n\n\n  \n\n\nLet’s make our variable names more concise (but still descriptive!)\nLoading\n  webR..."
+  },
+  {
+    "objectID": "unit0b.html#cleaning-and-exploring-variables",
+    "href": "unit0b.html#cleaning-and-exploring-variables",
+    "title": "Cleaning and exploring data in R",
+    "section": "Cleaning and exploring variables",
+    "text": "Cleaning and exploring variables\n\nSiblings\nLet’s start with the Siblings variable. What information do we need to know to clean the variable?\nLoading\n  webR...\n\n\n  \n\n\nAlways always always:\n\ncreate a new variable instead of overwriting the original\nperform a quality control check\n\nLoading\n  webR...\n\n\n  \n\n\nNow that the variable is clean, let’s explore it more:\nLoading\n  webR...\n\n\n  \n\n\nLoading\n  webR...\n\n\n  \n\n\n\n\nSushi\nNow consider the sushi variable.\nLoading\n  webR...\n\n\n  \n\n\nIt’s important to pay attention to implausible values. What would be an implausible value in this case? How should we handle it?\nLoading\n  webR...\n\n\n  \n\n\nNow let’s generate a plot to visualize the sushi variable\nLoading\n  webR...\n\n\n  \n\n\n\n\nLanguages\nLoading\n  webR...\n\n\n  \n\n\nOften, we need to combine categories if we have too few observations in multiple categories. How should we combine categories in this case?"
+  },
+  {
+    "objectID": "unit0b.html#exercises",
+    "href": "unit0b.html#exercises",
+    "title": "Cleaning and exploring data in R",
+    "section": "Exercises",
+    "text": "Exercises\nIn your group, complete the following:\n\nFor the application area of interest variable, how many students responded with “other”? What does this say about the survey design?\nExplore, clean, and visualize the remaining variables in the dataset. Note that you may have to look up some functions to help. For example, the “substr” function will be useful for the course excitement variable."
+  },
+  {
+    "objectID": "unit0a.html",
+    "href": "unit0a.html",
+    "title": "Key Principles of Statistics",
+    "section": "",
+    "text": "By the end of this session, students should be able to:\n\ndistinguish between a population and a sample\ndescribe sampling variability\nfit a simple linear regression model in R"
+  },
+  {
+    "objectID": "unit0a.html#load-the-data",
+    "href": "unit0a.html#load-the-data",
+    "title": "Key Principles of Statistics",
+    "section": "Load the data",
+    "text": "Load the data\nToday we will use the births14 dataset in the openintro R package. You can read more about the dataset and see a data dictionary at this link.\n\n#load the packages we need\nlibrary(openintro)\nlibrary(tidyverse)\nlibrary(tidymodels)\n\n#load the dataset from the openintro package\ndata(births14)\n\n#get an overview of the data\nglimpse(births14)"
+  },
+  {
+    "objectID": "unit0a.html#exercise",
+    "href": "unit0a.html#exercise",
+    "title": "Key Principles of Statistics",
+    "section": "Exercise",
+    "text": "Exercise\nExplore the births14 data:\n\nUsing the data dictionary at the link above, classify the variables as numeric or categorical. Do the variables seem to be correctly structured in R?\nUse the summary() function to determine if there are missing values in the dataset"
+  },
+  {
+    "objectID": "unit0a.html#hypothetically",
+    "href": "unit0a.html#hypothetically",
+    "title": "Key Principles of Statistics",
+    "section": "Hypothetically…",
+    "text": "Hypothetically…\nImagine that this dataset contains information about the entire population of interest (e.g., all babies born in Bull City). Then, say we have the following research question:\nWhat is the relationship between length of pregnancy in weeks and weight of the baby in pounds in Bull City?\nWe can explore this relationship graphically:\n\nggplot(births14, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\", y=\"baby weight (lbs)\") \n  #always use labels!"
+  },
+  {
+    "objectID": "unit0a.html#linear-regression",
+    "href": "unit0a.html#linear-regression",
+    "title": "Key Principles of Statistics",
+    "section": "Linear Regression",
+    "text": "Linear Regression\nTo further characterize the relationship between length of pregnancy and baby weight, we can fit a line to the plot:\n\nmod_bullcity <- linear_reg() |> \n  set_engine(\"lm\") |>\n  fit(weight ~ weeks, data=births14)\n\ntidy(mod_bullcity, conf.int=TRUE)\n\n\nExercise\n\nggplot(births14, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\",y=\"baby weight (lbs)\")+\n  geom_smooth(method=\"lm\",se=F)\n\n\nLooking at the estimate column of the tidy output, how would you interpret the intercept here? how would you interpret the weeks estimate?\n\n\n\nStandard error\nTo better conceptualize the standard error, consider the premise above that these data represent the entire city. Now imagine that we could not actually obtain all of these data. Instead, we were only able to obtain a sample of 200 babies. Using only a sample of 200, if we fit a line in the same way as above, we have many different lines that we could have obtained:\n\nset.seed(823)\nbirths_sample1 <- births14 |> slice_sample(n=200)\n\nggplot(births_sample1, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\",y=\"baby weight (lbs)\")+\n  geom_smooth(method=\"lm\",se=F)\n\nmod_sample1 <- linear_reg() |> \n  set_engine(\"lm\") |>\n  fit(weight ~ weeks, data=births_sample1)\n\ntidy(mod_sample1, conf.int=TRUE)\n\n\n\nExercise\nFill in the code below to simulate the process of taking 250 different samples and store the weeks coefficient estimate in a vector\n\nweeks.coefs <- c() #create empty vector to store coefficient estimates\n\nfor(i in 1:250){ #create loop for 250 different samples\n  print(i)\n  set.seed(823+i) #set a unique seed each iteration\n  \n  #sample data\n  births_sample <-\n  \n  #fit model\n  mod_sample <- \n    \n  #store output\n  weeks.coefs[i] <- tidy(mod_sample)$estimate[2]\n}\n\n \n \n \nNow let’s plot the coefficient estimates we have for the 250 samples:\n\nweeks.coefs.dat <- data.frame(weeks.coefs)\n\nggplot(weeks.coefs.dat, aes(x=weeks.coefs))+\n  geom_histogram()+\n  labs(x=\"weeks coefficient estimate\")\n\nWe see that there is variability in the coefficient estimates for weeks. The standard deviation of this collection of possible estimates is the standard error of the estimate.\n\n\nConfidence interval and p-value\nWe can also use this collection of estimates to provide a plausible range for the “true” coefficient value:\n\nquantile(weeks.coefs, probs=c(.025,.975))\n\nOr, we can look at the collection of estimates and see that none of them are 0. So, because we collected 250 different samples and none of them had a coefficient estimate of 0, we are quite confident that the “true” coefficient is not zero.\n \n \nIn reality, we typically cannot many samples from the same population. So, we often rely on assumptions related to probability distributions to derive confidence intervals and p-values."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "IDS 702: Data Modeling and Representation",
@@ -37,37 +107,37 @@
   {
     "objectID": "unit0.html",
     "href": "unit0.html",
-    "title": "Cleaning and exploring data in R",
+    "title": "Key Principles of Statistics",
     "section": "",
-    "text": "A crucial first step of data analysis is exploring the dataset (and then cleaning, as needed). Today, we will practice exploring and cleaning data in R."
+    "text": "By the end of this session, students should be able to:\n\ndistinguish between a population and a sample\ndescribe sampling variability\nfit a simple linear regression model in R"
   },
   {
-    "objectID": "unit0.html#types-of-variables",
-    "href": "unit0.html#types-of-variables",
-    "title": "Cleaning and exploring data in R",
-    "section": "Types of variables",
-    "text": "Types of variables\nNumeric variables take numerical values and it makes sense to perform calculations on the values (e.g., addition, mean)\n\nDiscrete variables can not take decimal values (e.g., Number of required statistics courses in a major)\nContinuous variables can take decimal values (e.g., height in cm)\n\nCategorical variables are variables that have categories, where each category is called a level\n\nNominal variables do not have an order (e.g., eye color)\nOrdinal variables do have an order (e.g., education categories)\n\n\nExercise\nIn your group, discuss the following:\n\nClassify each of the survey questions as discrete, continuous, nominal, or ordinal.\nWhat does it mean to explore data?\nWhat does it mean to clean data? Identify how the survey data may need to be cleaned just by looking at the questions."
+    "objectID": "unit0.html#load-the-data",
+    "href": "unit0.html#load-the-data",
+    "title": "Key Principles of Statistics",
+    "section": "Load the data",
+    "text": "Load the data\nToday we will use the births14 dataset in the openintro R package. You can read more about the dataset and see a data dictionary at this link.\n\n#If you would like the full qmd file, you can run this in the console\ndownload.file(\"https://raw.githubusercontent.com/anlane611/datasets/main/unit0.qmd\",destfile = \"unit0.qmd\")\n\n\n#load the packages we need\nlibrary(openintro)\nlibrary(tidyverse)\nlibrary(tidymodels)\n\n#load the dataset from the openintro package\ndata(births14)\n\n#get an overview of the data\nglimpse(births14)\n\nNote: As an alternative to using RStudio on your local machine, you can use the Duke container: https://cmgr.oit.duke.edu/containers"
   },
   {
-    "objectID": "unit0.html#first-steps-in-r",
-    "href": "unit0.html#first-steps-in-r",
-    "title": "Cleaning and exploring data in R",
-    "section": "First steps in R",
-    "text": "First steps in R\nHopefully you have already installed R/RStudio on your computer. If so, you can copy and paste the code below into your own script. If you haven’t yet installed R/RStudio, you can run code directly from this page.\nLoading\n  webR...\n\n\n  \n\n\nLoading\n  webR...\n\n\n  \n\n\nLet’s remove the timestamp variable\nLoading\n  webR...\n\n\n  \n\n\nLet’s make our variable names more concise (but still descriptive!)\nLoading\n  webR..."
+    "objectID": "unit0.html#exercise",
+    "href": "unit0.html#exercise",
+    "title": "Key Principles of Statistics",
+    "section": "Exercise",
+    "text": "Exercise\nExplore the births14 data:\n\nUsing the data dictionary at the link above, classify the variables as numeric or categorical. Do the variables seem to be correctly structured in R?\nUse the summary() function to determine if there are missing values in the dataset"
   },
   {
-    "objectID": "unit0.html#cleaning-and-exploring-variables",
-    "href": "unit0.html#cleaning-and-exploring-variables",
-    "title": "Cleaning and exploring data in R",
-    "section": "Cleaning and exploring variables",
-    "text": "Cleaning and exploring variables\n\nSiblings\nLet’s start with the Siblings variable. What information do we need to know to clean the variable?\nLoading\n  webR...\n\n\n  \n\n\nAlways always always:\n\ncreate a new variable instead of overwriting the original\nperform a quality control check\n\nLoading\n  webR...\n\n\n  \n\n\nNow that the variable is clean, let’s explore it more:\nLoading\n  webR...\n\n\n  \n\n\nLoading\n  webR...\n\n\n  \n\n\n\n\nSushi\nNow consider the sushi variable.\nLoading\n  webR...\n\n\n  \n\n\nIt’s important to pay attention to implausible values. What would be an implausible value in this case? How should we handle it?\nLoading\n  webR...\n\n\n  \n\n\nNow let’s generate a plot to visualize the sushi variable\nLoading\n  webR...\n\n\n  \n\n\n\n\nLanguages\nLoading\n  webR...\n\n\n  \n\n\nOften, we need to combine categories if we have too few observations in multiple categories. How should we combine categories in this case?"
+    "objectID": "unit0.html#hypothetically",
+    "href": "unit0.html#hypothetically",
+    "title": "Key Principles of Statistics",
+    "section": "Hypothetically…",
+    "text": "Hypothetically…\nImagine that this dataset contains information about the entire population of interest (e.g., all babies born in Bull City). Then, say we have the following research question:\nWhat is the relationship between length of pregnancy in weeks and weight of the baby in pounds in Bull City?\nWe can explore this relationship graphically:\n\nggplot(births14, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\", y=\"baby weight (lbs)\") \n  #always use labels!"
   },
   {
-    "objectID": "unit0.html#exercises",
-    "href": "unit0.html#exercises",
-    "title": "Cleaning and exploring data in R",
-    "section": "Exercises",
-    "text": "Exercises\nIn your group, complete the following:\n\nFor the application area of interest variable, how many students responded with “other”? What does this say about the survey design?\nExplore, clean, and visualize the remaining variables in the dataset. Note that you may have to look up some functions to help. For example, the “substr” function will be useful for the course excitement variable."
+    "objectID": "unit0.html#linear-regression",
+    "href": "unit0.html#linear-regression",
+    "title": "Key Principles of Statistics",
+    "section": "Linear Regression",
+    "text": "Linear Regression\nTo further characterize the relationship between length of pregnancy and baby weight, we can fit a line to the plot:\n\nmod_bullcity <- linear_reg() |> \n  set_engine(\"lm\") |>\n  fit(weight ~ weeks, data=births14)\n\ntidy(mod_bullcity, conf.int=TRUE)\n\n\nExercise\n\nggplot(births14, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\",y=\"baby weight (lbs)\")+\n  geom_smooth(method=\"lm\",se=F)\n\n\nLooking at the estimate column of the tidy output, how would you interpret the intercept here? how would you interpret the weeks estimate?\n\n\n\nStandard error\nTo better conceptualize the standard error, consider the premise above that these data represent the entire city. Now imagine that we could not actually obtain all of these data. Instead, we were only able to obtain a sample of 200 babies. Using only a sample of 200, if we fit a line in the same way as above, we have many different lines that we could have obtained:\n\nset.seed(823)\nbirths_sample1 <- births14 |> slice_sample(n=200)\n\nggplot(births_sample1, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\",y=\"baby weight (lbs)\")+\n  geom_smooth(method=\"lm\",se=F)\n\nmod_sample1 <- linear_reg() |> \n  set_engine(\"lm\") |>\n  fit(weight ~ weeks, data=births_sample1)\n\ntidy(mod_sample1, conf.int=TRUE)\n\n\n\nExercise\nFill in the code below to simulate the process of taking 250 different samples and store the weeks coefficient estimate in a vector\n\nweeks.coefs <- c() #create empty vector to store coefficient estimates\n\nfor(i in 1:250){ #create loop for 250 different samples\n  print(i)\n  set.seed(823+i) #set a unique seed each iteration\n  \n  #sample data\n  births_sample <-\n  \n  #fit model\n  mod_sample <- \n    \n  #store output\n  weeks.coefs[i] <- tidy(mod_sample)$estimate[2]\n}\n\n \n \n \nNow let’s plot the coefficient estimates we have for the 250 samples:\n\nweeks.coefs.dat <- data.frame(weeks.coefs)\n\nggplot(weeks.coefs.dat, aes(x=weeks.coefs))+\n  geom_histogram()+\n  labs(x=\"weeks coefficient estimate\")\n\nWe see that there is variability in the coefficient estimates for weeks. The standard deviation of this collection of possible estimates is the standard error of the estimate.\n\n\nConfidence interval and p-value\nWe can also use this collection of estimates to provide a plausible range for the “true” coefficient value:\n\nquantile(weeks.coefs, probs=c(.025,.975))\n\nOr, we can look at the collection of estimates and see that none of them are 0. So, because we collected 250 different samples and none of them had a coefficient estimate of 0, we are quite confident that the “true” coefficient is not zero.\n \n \nIn reality, we typically cannot many samples from the same population. So, we often rely on assumptions related to probability distributions to derive confidence intervals and p-values."
   },
   {
     "objectID": "syllabus.html",
