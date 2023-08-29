@@ -1,70 +1,154 @@
 [
   {
-    "objectID": "unit0b.html",
-    "href": "unit0b.html",
+    "objectID": "materials/unit1/SLR.html",
+    "href": "materials/unit1/SLR.html",
+    "title": "8.29: Simple linear regression",
+    "section": "",
+    "text": "describe the linear regression model with statistical terminology (population parameter, estimate, random variable, probability distribution)"
+  },
+  {
+    "objectID": "materials/unit1/SLR.html#statistics-vocabulary",
+    "href": "materials/unit1/SLR.html#statistics-vocabulary",
+    "title": "8.29: Simple linear regression",
+    "section": "Statistics vocabulary",
+    "text": "Statistics vocabulary\n\nPopulation parameter: an unknown quantity related to the population of interest (e.g., true mean resting heart rate of professional athletes in Europe)\nEstimate: quantity obtained from data to estimate the population parameter (e.g., sample mean of resting heart rate of 100 professional athletes in Europe)\nRandom variable: a variable whose possible values are numerical outcomes of a random phenomenon. Random variables can be discrete or continuous\nProbability distribution: a function that maps a random variable’s numeric outcomes to their probability. Probability distributions are defined by their parameters\nThe normal distribution is a continuous probability distribution defined by two parameters: mean \\(\\mu\\) and standard deviation \\(\\sigma\\) (or variance \\(\\sigma^2\\))\ne.g., let \\(X\\) be the random variable that represents the resting heart rate of a given professional athlete. We could say that \\(X \\sim N(\\mu=70,\\sigma=5)\\)\n\n\nExercise\nWrite your own example of a continuous random variable and normal distribution. You can use the normal distribution link to obtain plausible values for the mean and standard deviation."
+  },
+  {
+    "objectID": "materials/unit1/SLR.html#simple-linear-regression-model",
+    "href": "materials/unit1/SLR.html#simple-linear-regression-model",
+    "title": "8.29: Simple linear regression",
+    "section": "Simple linear regression model",
+    "text": "Simple linear regression model\n\n\n\n\n\nWe define the simple linear regression model as:\n\\[\nY = \\beta_0 + \\beta_1X + \\epsilon, \\epsilon \\sim N(0,\\sigma^2)\n\\]\nWe can also write this as:\n\\[\nY \\sim N(\\beta_0 + \\beta_1X, \\sigma^2)\n\\]\n\nExercise\nMatch the vocabulary above with the regression model\n\nWhich variable(s) are random? Which are fixed?\nWhat is the probability distribution for the random variable(s)?\nWhat are the population parameters?"
+  },
+  {
+    "objectID": "materials/unit1/SLR.html#estimated-regression-line",
+    "href": "materials/unit1/SLR.html#estimated-regression-line",
+    "title": "8.29: Simple linear regression",
+    "section": "Estimated regression line",
+    "text": "Estimated regression line\nWe write the estimated regression line as:\n\\[\n\\hat{Y}=\\hat{\\beta_0}+\\hat{\\beta_1}X\n\\]\nand write the residuals \\(r\\) (\\(\\hat{e}\\)) as \\(r=Y-\\hat{Y}\\)"
+  },
+  {
+    "objectID": "materials/unit1/SLR.html#putting-all-the-pieces-together",
+    "href": "materials/unit1/SLR.html#putting-all-the-pieces-together",
+    "title": "8.29: Simple linear regression",
+    "section": "Putting all the pieces together",
+    "text": "Putting all the pieces together\n\nExercise\nWrite the estimated regression line for the births14 data\n\n\n# A tibble: 2 × 7\n  term        estimate std.error statistic  p.value conf.low conf.high\n  <chr>          <dbl>     <dbl>     <dbl>    <dbl>    <dbl>     <dbl>\n1 (Intercept)   -3.60     0.523      -6.88 1.03e-11   -4.62     -2.57 \n2 weeks          0.279    0.0135     20.7  1.80e-79    0.253     0.306\n\n\n \n \n \n\n\nSampling distribution of \\(\\hat{\\beta}\\)\nBecause the estimated value \\(\\hat{\\beta_1}\\) is calculated from a sample, and the sample arose from a random process, \\(\\hat{\\beta_1}\\) is a random variable with its own probability distribution!\nIt turns out that with the specification given above, \\(\\hat{\\beta_1}\\) has a normal distribution. The estimated standard deviation of this distribution is the standard error of \\(\\hat{\\beta_1}\\)\n\n\nTest statistic & p-value\n\np-value: probability of obtaining results at least as extreme as those observed assuming the null hypothesis is true\nIn other words, if we assume that nothing special is going on, what is the probability that we observe a relationship at least as extreme as what we see in the data?\n\nIn regression, the null hypothesis, or the assumption that there is no relationship between the variables, is \\(H_0: \\beta_1=0\\)\nBecause \\(\\hat{\\beta_1}\\) has a normal distribution (and skipping some technical details), we can use the following test statistic to calculate the desired probability\n\\[\n\\frac{\\hat{\\beta_1}}{SE(\\hat{\\beta_1})} \\sim t_{n-2}\n\\]\nWe use the t-distribution when the population standard deviation is unknown (as is the case for the distribution of \\(\\hat{\\beta_1}\\) . So, we can use this quantity and the t-distribution to calculate the p-value.\n\n\nConfidence interval\nSimilarly, we can use the t-distribution to calculate the confidence interval, or a plausible range for the true value of the population parameter \\(\\beta_1\\)\n\\[\n\\hat{\\beta_1} \\pm t^*_{n-2}[SE(\\hat{\\beta_1})]\n\\]\n\n\nExercise\nSee for yourself: use the estimate and standard error from the regression output to calculate the test statistic, p-value, and confidence interval. The pt() R function calculates (cumulative) probabilities for the t-distribution, and the qt() function calculates critical values."
+  },
+  {
+    "objectID": "materials/unit1/SLR.html#interpreting-regression-output",
+    "href": "materials/unit1/SLR.html#interpreting-regression-output",
+    "title": "8.29: Simple linear regression",
+    "section": "Interpreting regression output",
+    "text": "Interpreting regression output\nWhen reporting results from a regression model, we primarily focus on the estimates, p-values, and confidence intervals. (It is important to check the standard errors though! Inflated standard errors can indicate a problem with the model. We will talk about this more in a later lecture)\n\n\n# A tibble: 2 × 7\n  term        estimate std.error statistic  p.value conf.low conf.high\n  <chr>          <dbl>     <dbl>     <dbl>    <dbl>    <dbl>     <dbl>\n1 (Intercept)   -3.60     0.523      -6.88 1.03e-11   -4.62     -2.57 \n2 weeks          0.279    0.0135     20.7  1.80e-79    0.253     0.306\n\n\n\nFor each additional week of pregnancy, infant birth weight increases by 0.28 lbs, on average. The association between weeks of pregnancy and infant birth weight is statistically significant (p<.001, 95% CI: [0.25, 0.31])\nAssuming there is no association between weeks of pregnancy and infant birth weight, the probability of observing results as extreme as these is <.001. Therefore, we have evidence that there is a relationship between weeks of pregnancy and infant birth weight.\nIf we repeated this experiment 100 times and constructed a confidence interval in the same way, we would expect 95 of the intervals to contain the true value of \\(\\beta_1\\). Therefore, we are 95% confident that the true value of \\(\\beta_1\\) is between 0.25 and 0.31.\n\n\nIncorrect interpretations\n\nThe probability that the null hypothesis is false is <0.001\nThere is a 95% chance that the true value of \\(\\beta_1\\) is between 0.25 and 0.31\nWe are 95% confidence that \\(\\hat{\\beta_1}\\) is between 0.25 and 0.31"
+  },
+  {
+    "objectID": "materials/unit1/SLR.html#references",
+    "href": "materials/unit1/SLR.html#references",
+    "title": "8.29: Simple linear regression",
+    "section": "References",
+    "text": "References\nhttp://www.stat.yale.edu/Courses/1997-98/101/ranvar.htm"
+  },
+  {
+    "objectID": "materials/unit0/unit0b.html",
+    "href": "materials/unit0/unit0b.html",
     "title": "Cleaning and exploring data in R",
     "section": "",
     "text": "A crucial first step of data analysis is exploring the dataset (and then cleaning, as needed). Today, we will practice exploring and cleaning data in R."
   },
   {
-    "objectID": "unit0b.html#types-of-variables",
-    "href": "unit0b.html#types-of-variables",
+    "objectID": "materials/unit0/unit0b.html#types-of-variables",
+    "href": "materials/unit0/unit0b.html#types-of-variables",
     "title": "Cleaning and exploring data in R",
     "section": "Types of variables",
     "text": "Types of variables\nNumeric variables take numerical values and it makes sense to perform calculations on the values (e.g., addition, mean)\n\nDiscrete variables can not take decimal values (e.g., Number of required statistics courses in a major)\nContinuous variables can take decimal values (e.g., height in cm)\n\nCategorical variables are variables that have categories, where each category is called a level\n\nNominal variables do not have an order (e.g., eye color)\nOrdinal variables do have an order (e.g., education categories)\n\n\nExercise\nIn your group, discuss the following:\n\nClassify each of the survey questions as discrete, continuous, nominal, or ordinal.\nWhat does it mean to explore data?\nWhat does it mean to clean data? Identify how the survey data may need to be cleaned just by looking at the questions."
   },
   {
-    "objectID": "unit0b.html#first-steps-in-r",
-    "href": "unit0b.html#first-steps-in-r",
+    "objectID": "materials/unit0/unit0b.html#first-steps-in-r",
+    "href": "materials/unit0/unit0b.html#first-steps-in-r",
     "title": "Cleaning and exploring data in R",
     "section": "First steps in R",
     "text": "First steps in R\nHopefully you have already installed R/RStudio on your computer. If so, you can copy and paste the code below into your own script. If you haven’t yet installed R/RStudio, you can run code directly from this page.\nLoading\n  webR...\n\n\n  \n\n\nLoading\n  webR...\n\n\n  \n\n\nLet’s remove the timestamp variable\nLoading\n  webR...\n\n\n  \n\n\nLet’s make our variable names more concise (but still descriptive!)\nLoading\n  webR..."
   },
   {
-    "objectID": "unit0b.html#cleaning-and-exploring-variables",
-    "href": "unit0b.html#cleaning-and-exploring-variables",
+    "objectID": "materials/unit0/unit0b.html#cleaning-and-exploring-variables",
+    "href": "materials/unit0/unit0b.html#cleaning-and-exploring-variables",
     "title": "Cleaning and exploring data in R",
     "section": "Cleaning and exploring variables",
     "text": "Cleaning and exploring variables\n\nSiblings\nLet’s start with the Siblings variable. What information do we need to know to clean the variable?\nLoading\n  webR...\n\n\n  \n\n\nAlways always always:\n\ncreate a new variable instead of overwriting the original\nperform a quality control check\n\nLoading\n  webR...\n\n\n  \n\n\nNow that the variable is clean, let’s explore it more:\nLoading\n  webR...\n\n\n  \n\n\nLoading\n  webR...\n\n\n  \n\n\n\n\nSushi\nNow consider the sushi variable.\nLoading\n  webR...\n\n\n  \n\n\nIt’s important to pay attention to implausible values. What would be an implausible value in this case? How should we handle it?\nLoading\n  webR...\n\n\n  \n\n\nNow let’s generate a plot to visualize the sushi variable\nLoading\n  webR...\n\n\n  \n\n\n\n\nLanguages\nLoading\n  webR...\n\n\n  \n\n\nOften, we need to combine categories if we have too few observations in multiple categories. How should we combine categories in this case?"
   },
   {
-    "objectID": "unit0b.html#exercises",
-    "href": "unit0b.html#exercises",
+    "objectID": "materials/unit0/unit0b.html#exercises",
+    "href": "materials/unit0/unit0b.html#exercises",
     "title": "Cleaning and exploring data in R",
     "section": "Exercises",
     "text": "Exercises\nIn your group, complete the following:\n\nFor the application area of interest variable, how many students responded with “other”? What does this say about the survey design?\nExplore, clean, and visualize the remaining variables in the dataset. Note that you may have to look up some functions to help. For example, the “substr” function will be useful for the course excitement variable."
   },
   {
-    "objectID": "unit0a.html",
-    "href": "unit0a.html",
+    "objectID": "materials/unit0/unit0a.html",
+    "href": "materials/unit0/unit0a.html",
     "title": "Key Principles of Statistics",
     "section": "",
     "text": "By the end of this session, students should be able to:\n\ndistinguish between a population and a sample\ndescribe sampling variability\nfit a simple linear regression model in R"
   },
   {
-    "objectID": "unit0a.html#load-the-data",
-    "href": "unit0a.html#load-the-data",
+    "objectID": "materials/unit0/unit0a.html#load-the-data",
+    "href": "materials/unit0/unit0a.html#load-the-data",
     "title": "Key Principles of Statistics",
     "section": "Load the data",
     "text": "Load the data\nToday we will use the births14 dataset in the openintro R package. You can read more about the dataset and see a data dictionary at this link.\n\n#load the packages we need\nlibrary(openintro)\nlibrary(tidyverse)\nlibrary(tidymodels)\n\n#load the dataset from the openintro package\ndata(births14)\n\n#get an overview of the data\nglimpse(births14)"
   },
   {
-    "objectID": "unit0a.html#exercise",
-    "href": "unit0a.html#exercise",
+    "objectID": "materials/unit0/unit0a.html#exercise",
+    "href": "materials/unit0/unit0a.html#exercise",
     "title": "Key Principles of Statistics",
     "section": "Exercise",
     "text": "Exercise\nExplore the births14 data:\n\nUsing the data dictionary at the link above, classify the variables as numeric or categorical. Do the variables seem to be correctly structured in R?\nUse the summary() function to determine if there are missing values in the dataset"
   },
   {
-    "objectID": "unit0a.html#hypothetically",
-    "href": "unit0a.html#hypothetically",
+    "objectID": "materials/unit0/unit0a.html#hypothetically",
+    "href": "materials/unit0/unit0a.html#hypothetically",
     "title": "Key Principles of Statistics",
     "section": "Hypothetically…",
     "text": "Hypothetically…\nImagine that this dataset contains information about the entire population of interest (e.g., all babies born in Bull City). Then, say we have the following research question:\nWhat is the relationship between length of pregnancy in weeks and weight of the baby in pounds in Bull City?\nWe can explore this relationship graphically:\n\nggplot(births14, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\", y=\"baby weight (lbs)\") \n  #always use labels!"
   },
   {
-    "objectID": "unit0a.html#linear-regression",
-    "href": "unit0a.html#linear-regression",
+    "objectID": "materials/unit0/unit0a.html#linear-regression",
+    "href": "materials/unit0/unit0a.html#linear-regression",
+    "title": "Key Principles of Statistics",
+    "section": "Linear Regression",
+    "text": "Linear Regression\nTo further characterize the relationship between length of pregnancy and baby weight, we can fit a line to the plot:\n\nmod_bullcity <- linear_reg() |> \n  set_engine(\"lm\") |>\n  fit(weight ~ weeks, data=births14)\n\ntidy(mod_bullcity, conf.int=TRUE)\n\n\nExercise\n\nggplot(births14, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\",y=\"baby weight (lbs)\")+\n  geom_smooth(method=\"lm\",se=F)\n\n\nLooking at the estimate column of the tidy output, how would you interpret the intercept here? how would you interpret the weeks estimate?\n\n\n\nStandard error\nTo better conceptualize the standard error, consider the premise above that these data represent the entire city. Now imagine that we could not actually obtain all of these data. Instead, we were only able to obtain a sample of 200 babies. Using only a sample of 200, if we fit a line in the same way as above, we have many different lines that we could have obtained:\n\nset.seed(823)\nbirths_sample1 <- births14 |> slice_sample(n=200)\n\nggplot(births_sample1, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\",y=\"baby weight (lbs)\")+\n  geom_smooth(method=\"lm\",se=F)\n\nmod_sample1 <- linear_reg() |> \n  set_engine(\"lm\") |>\n  fit(weight ~ weeks, data=births_sample1)\n\ntidy(mod_sample1, conf.int=TRUE)\n\n\n\nExercise\nFill in the code below to simulate the process of taking 250 different samples and store the weeks coefficient estimate in a vector\n\nweeks.coefs <- c() #create empty vector to store coefficient estimates\n\nfor(i in 1:250){ #create loop for 250 different samples\n  print(i)\n  set.seed(823+i) #set a unique seed each iteration\n  \n  #sample data\n  births_sample <-\n  \n  #fit model\n  mod_sample <- \n    \n  #store output\n  weeks.coefs[i] <- tidy(mod_sample)$estimate[2]\n}\n\n \n \n \nNow let’s plot the coefficient estimates we have for the 250 samples:\n\nweeks.coefs.dat <- data.frame(weeks.coefs)\n\nggplot(weeks.coefs.dat, aes(x=weeks.coefs))+\n  geom_histogram()+\n  labs(x=\"weeks coefficient estimate\")\n\nWe see that there is variability in the coefficient estimates for weeks. The standard deviation of this collection of possible estimates is the standard error of the estimate.\n\n\nConfidence interval and p-value\nWe can also use this collection of estimates to provide a plausible range for the “true” coefficient value:\n\nquantile(weeks.coefs, probs=c(.025,.975))\n\nOr, we can look at the collection of estimates and see that none of them are 0. So, because we collected 250 different samples and none of them had a coefficient estimate of 0, we are quite confident that the “true” coefficient is not zero.\n \n \nIn reality, we typically cannot many samples from the same population. So, we often rely on assumptions related to probability distributions to derive confidence intervals and p-values."
+  },
+  {
+    "objectID": "materials/unit0/unit0.html",
+    "href": "materials/unit0/unit0.html",
+    "title": "Key Principles of Statistics",
+    "section": "",
+    "text": "By the end of this session, students should be able to:\n\ndistinguish between a population and a sample\ndescribe sampling variability\nfit a simple linear regression model in R"
+  },
+  {
+    "objectID": "materials/unit0/unit0.html#load-the-data",
+    "href": "materials/unit0/unit0.html#load-the-data",
+    "title": "Key Principles of Statistics",
+    "section": "Load the data",
+    "text": "Load the data\nToday we will use the births14 dataset in the openintro R package. You can read more about the dataset and see a data dictionary at this link.\n\n#If you would like the full qmd file, you can run this in the console\ndownload.file(\"https://raw.githubusercontent.com/anlane611/datasets/main/unit0.qmd\",destfile = \"unit0.qmd\")\n\n\n#load the packages we need\nlibrary(openintro)\nlibrary(tidyverse)\nlibrary(tidymodels)\n\n#load the dataset from the openintro package\ndata(births14)\n\n#get an overview of the data\nglimpse(births14)\n\nNote: As an alternative to using RStudio on your local machine, you can use the Duke container: https://cmgr.oit.duke.edu/containers"
+  },
+  {
+    "objectID": "materials/unit0/unit0.html#exercise",
+    "href": "materials/unit0/unit0.html#exercise",
+    "title": "Key Principles of Statistics",
+    "section": "Exercise",
+    "text": "Exercise\nExplore the births14 data:\n\nUsing the data dictionary at the link above, classify the variables as numeric or categorical. Do the variables seem to be correctly structured in R?\nUse the summary() function to determine if there are missing values in the dataset"
+  },
+  {
+    "objectID": "materials/unit0/unit0.html#hypothetically",
+    "href": "materials/unit0/unit0.html#hypothetically",
+    "title": "Key Principles of Statistics",
+    "section": "Hypothetically…",
+    "text": "Hypothetically…\nImagine that this dataset contains information about the entire population of interest (e.g., all babies born in Bull City). Then, say we have the following research question:\nWhat is the relationship between length of pregnancy in weeks and weight of the baby in pounds in Bull City?\nWe can explore this relationship graphically:\n\nggplot(births14, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\", y=\"baby weight (lbs)\") \n  #always use labels!"
+  },
+  {
+    "objectID": "materials/unit0/unit0.html#linear-regression",
+    "href": "materials/unit0/unit0.html#linear-regression",
     "title": "Key Principles of Statistics",
     "section": "Linear Regression",
     "text": "Linear Regression\nTo further characterize the relationship between length of pregnancy and baby weight, we can fit a line to the plot:\n\nmod_bullcity <- linear_reg() |> \n  set_engine(\"lm\") |>\n  fit(weight ~ weeks, data=births14)\n\ntidy(mod_bullcity, conf.int=TRUE)\n\n\nExercise\n\nggplot(births14, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\",y=\"baby weight (lbs)\")+\n  geom_smooth(method=\"lm\",se=F)\n\n\nLooking at the estimate column of the tidy output, how would you interpret the intercept here? how would you interpret the weeks estimate?\n\n\n\nStandard error\nTo better conceptualize the standard error, consider the premise above that these data represent the entire city. Now imagine that we could not actually obtain all of these data. Instead, we were only able to obtain a sample of 200 babies. Using only a sample of 200, if we fit a line in the same way as above, we have many different lines that we could have obtained:\n\nset.seed(823)\nbirths_sample1 <- births14 |> slice_sample(n=200)\n\nggplot(births_sample1, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\",y=\"baby weight (lbs)\")+\n  geom_smooth(method=\"lm\",se=F)\n\nmod_sample1 <- linear_reg() |> \n  set_engine(\"lm\") |>\n  fit(weight ~ weeks, data=births_sample1)\n\ntidy(mod_sample1, conf.int=TRUE)\n\n\n\nExercise\nFill in the code below to simulate the process of taking 250 different samples and store the weeks coefficient estimate in a vector\n\nweeks.coefs <- c() #create empty vector to store coefficient estimates\n\nfor(i in 1:250){ #create loop for 250 different samples\n  print(i)\n  set.seed(823+i) #set a unique seed each iteration\n  \n  #sample data\n  births_sample <-\n  \n  #fit model\n  mod_sample <- \n    \n  #store output\n  weeks.coefs[i] <- tidy(mod_sample)$estimate[2]\n}\n\n \n \n \nNow let’s plot the coefficient estimates we have for the 250 samples:\n\nweeks.coefs.dat <- data.frame(weeks.coefs)\n\nggplot(weeks.coefs.dat, aes(x=weeks.coefs))+\n  geom_histogram()+\n  labs(x=\"weeks coefficient estimate\")\n\nWe see that there is variability in the coefficient estimates for weeks. The standard deviation of this collection of possible estimates is the standard error of the estimate.\n\n\nConfidence interval and p-value\nWe can also use this collection of estimates to provide a plausible range for the “true” coefficient value:\n\nquantile(weeks.coefs, probs=c(.025,.975))\n\nOr, we can look at the collection of estimates and see that none of them are 0. So, because we collected 250 different samples and none of them had a coefficient estimate of 0, we are quite confident that the “true” coefficient is not zero.\n \n \nIn reality, we typically cannot many samples from the same population. So, we often rely on assumptions related to probability distributions to derive confidence intervals and p-values."
@@ -81,7 +165,14 @@
     "href": "index.html#course-overview",
     "title": "IDS 702: Data Modeling and Representation",
     "section": "Course Overview",
-    "text": "Course Overview\nMeeting times: Tuesdays and Thursdays 3:05-4:20 PM, Gross Hall 107\nInstructor \nAndrea Lane, PhD \nandrea.lane@duke.edu \nGross Hall 223 \nOffice hours: Tues/Thurs 4:20-5:20 PM\n \nTeaching Assistants \nXiaoquan Liu \nx.liu@duke.edu \nOffice hours: \n \nDingkun Yang \ndingkun.yang@duke.edu \nOffice hours:"
+    "text": "Course Overview\nMeeting times: Tuesdays and Thursdays 3:05-4:20 PM, Gross Hall 107\nInstructor \nAndrea Lane, PhD \nandrea.lane@duke.edu \nGross Hall 223 \nOffice hours: Tues/Thurs 4:20-5:20 PM\n \nTeaching Assistants \nXiaoquan Liu \nx.liu@duke.edu \nOffice hours: Mon 8:15-9:15AM on Zoom (click here for Zoom link), Thurs 11:30AM-12:30PM Gross Hall 2nd floor conference room\n \nDingkun Yang \ndingkun.yang@duke.edu \nOffice hours: Tues 11:35AM-12:35PM Gross Hall 2nd floor conference room, Weds 3:15-4:15PM on Zoom (click here for Zoom link)"
+  },
+  {
+    "objectID": "index.html#important-links",
+    "href": "index.html#important-links",
+    "title": "IDS 702: Data Modeling and Representation",
+    "section": "Important Links",
+    "text": "Important Links\nGradescope (join course with code 2PGWK8)\nSlack: join the 702-fa23 channel in the MIDS workspace\nDuke R container"
   },
   {
     "objectID": "index.html#textbook",
@@ -116,7 +207,7 @@
     "href": "reflections.html#instructions",
     "title": "Statistics Reflections",
     "section": "Instructions",
-    "text": "Instructions\nYou are required to complete four statistics reflections throughout the semester. You can select any four from the list of materials below.\n\nBegin your assignment with a header that includes your name and the title and source of your selected material\nReflect on the material selected. What did it make you think about? How does it affect your work as a data scientist? Note that you are required to engage with the material and provide your thoughts/reactions; you should NOT be summarizing the piece.\nWhile there is no minimum word count for the reflections, you are expected to meaningfully engage with the material (1-2 paragraphs). You can use the suggested questions to get started, but you are not required to answer them in your response.\nIn Gradescope, select the appropriate reflection assignment based on the due date. All of the assignments are already available, so you can complete them at any time!\n\nI am always available if you have any questions or comments about the content presented in these materials. Additionally, if you come across a piece that is not on this list and you would like to use it for a statistics reflection, you are welcome to send me an email. Please include a link to the piece and a brief description of how it connects data science and society."
+    "text": "Instructions\nYou are required to complete four statistics reflections throughout the semester. You can select any four from the list of materials below.\n\nBegin your assignment with a header that includes your name and the title and source of your selected material\nReflect on the material selected. What did it make you think about? How does it affect your work as a data scientist? Note that you are required to engage with the material and provide your thoughts/reactions; you should NOT be summarizing the piece.\nWhile there is no minimum word count for the reflections, you are expected to meaningfully engage with the material (2-3 paragraphs). You can use the suggested questions to get started, but you are not required to answer them in your response.\nIn Gradescope, select the appropriate reflection assignment based on the due date. All of the assignments are already available, so you can complete them at any time!\n\nI am always available if you have any questions or comments about the content presented in these materials. Additionally, if you come across a piece that is not on this list and you would like to use it for a statistics reflection, you are welcome to send me an email. Please include a link to the piece and a brief description of how it connects data science and society."
   },
   {
     "objectID": "reflections.html#deadlines",
@@ -133,45 +224,52 @@
     "text": "Materials\n\n  \n    \n      \n        A Primer on Non-Binary Gender and Big Data (article)\n      \n    \n    \n      \n        A Primer on Non-Binary Gender and Big Data \n        The author offers several questions you may want to consider in your response: \n        \n          What potential insights might we derive from working with non-binary gender and data?\n          What are the risks to gener minorities in relation to data?\n          What kinds of variation do we see across culture, context, and history?\n          How might non-binary gender and data deal with intersectionality (Click this link to learn more about intersectionality)\n        \n        Additionally, you may want to consider: \n        \n          Is it always useful/important to collect data on gender? In which domains might it be more important than others?\n        \n      \n    \n  \n  \n    \n      \n        How Eugenics Shaped Statistics (article - highly recommended!)\n      \n    \n    \n      \n        How eugenics shaped statistics \n        \n          Consider this quote: \"The separation was everything—not how much, what else might explain it, or why it mattered, just that it was there.\" Reflect on what this means for you as a data scientist\n          The article argues that you cannot separate the science from the scientist. Do you agree?\n          Reflect on the argument that Galton, Pearson, and Fisher's views are \"a product of their time.\"\n        \n        \n      \n    \n  \n  \n    \n      \n        Abolish Big Data (video)\n      \n    \n    \n      \n        Abolish Big Data \n        \n          What does Milner mean when she says \"abolish big data?\"\n          What role does data literacy play in the use of big data tools? What role do data scientists have in the implementation of these tools?\n        \n      \n    \n  \n    \n    \n      \n        Data sonification (videos)\n      \n    \n    \n      \n        Data sonification - from deep space research to improving lives through cancer research AND \n        Making data sing | Margaret Anne Schedel \n        \n          What are the advantages and disadvantages of data sonification?\n          How might data sonification make data more accessible to people with disabilities? Can you think of any other ways data could be made more accessible?\n        \n      \n    \n  \n    \n    \n      \n        Fairness in Machine Learning with Sherri Rose (podcast)\n      \n    \n    \n      \n        Fairness in Machine Learning with Sherri Rose  (interview starts at 8:15 and ends at 46:00)\n        \n          Reflect on Dr. Rose's recommendations for ensuring fairness in machine learning\n          Consider Dr. Rose's comments about the \"single metric leaderboard\" and what it means for you as a data scientist.\n        \n      \n    \n  \n    \n    \n      \n        Peter Donnelly: How stats fool juries (video)\n      \n    \n    \n      \n        Peter Donnelly: How stats fool juries (you can skip past the stats jokes and start at 3:30) \n        \n          This talk is from 2007. Can you think of more recent examples of misleading statistics/misuse of statistical principles?\n          How do you think situations like the trial Donnelly describes can be avoided?"
   },
   {
-    "objectID": "unit0.html",
-    "href": "unit0.html",
-    "title": "Key Principles of Statistics",
-    "section": "",
-    "text": "By the end of this session, students should be able to:\n\ndistinguish between a population and a sample\ndescribe sampling variability\nfit a simple linear regression model in R"
-  },
-  {
-    "objectID": "unit0.html#load-the-data",
-    "href": "unit0.html#load-the-data",
-    "title": "Key Principles of Statistics",
-    "section": "Load the data",
-    "text": "Load the data\nToday we will use the births14 dataset in the openintro R package. You can read more about the dataset and see a data dictionary at this link.\n\n#If you would like the full qmd file, you can run this in the console\ndownload.file(\"https://raw.githubusercontent.com/anlane611/datasets/main/unit0.qmd\",destfile = \"unit0.qmd\")\n\n\n#load the packages we need\nlibrary(openintro)\nlibrary(tidyverse)\nlibrary(tidymodels)\n\n#load the dataset from the openintro package\ndata(births14)\n\n#get an overview of the data\nglimpse(births14)\n\nNote: As an alternative to using RStudio on your local machine, you can use the Duke container: https://cmgr.oit.duke.edu/containers"
-  },
-  {
-    "objectID": "unit0.html#exercise",
-    "href": "unit0.html#exercise",
-    "title": "Key Principles of Statistics",
-    "section": "Exercise",
-    "text": "Exercise\nExplore the births14 data:\n\nUsing the data dictionary at the link above, classify the variables as numeric or categorical. Do the variables seem to be correctly structured in R?\nUse the summary() function to determine if there are missing values in the dataset"
-  },
-  {
-    "objectID": "unit0.html#hypothetically",
-    "href": "unit0.html#hypothetically",
-    "title": "Key Principles of Statistics",
-    "section": "Hypothetically…",
-    "text": "Hypothetically…\nImagine that this dataset contains information about the entire population of interest (e.g., all babies born in Bull City). Then, say we have the following research question:\nWhat is the relationship between length of pregnancy in weeks and weight of the baby in pounds in Bull City?\nWe can explore this relationship graphically:\n\nggplot(births14, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\", y=\"baby weight (lbs)\") \n  #always use labels!"
-  },
-  {
-    "objectID": "unit0.html#linear-regression",
-    "href": "unit0.html#linear-regression",
-    "title": "Key Principles of Statistics",
-    "section": "Linear Regression",
-    "text": "Linear Regression\nTo further characterize the relationship between length of pregnancy and baby weight, we can fit a line to the plot:\n\nmod_bullcity <- linear_reg() |> \n  set_engine(\"lm\") |>\n  fit(weight ~ weeks, data=births14)\n\ntidy(mod_bullcity, conf.int=TRUE)\n\n\nExercise\n\nggplot(births14, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\",y=\"baby weight (lbs)\")+\n  geom_smooth(method=\"lm\",se=F)\n\n\nLooking at the estimate column of the tidy output, how would you interpret the intercept here? how would you interpret the weeks estimate?\n\n\n\nStandard error\nTo better conceptualize the standard error, consider the premise above that these data represent the entire city. Now imagine that we could not actually obtain all of these data. Instead, we were only able to obtain a sample of 200 babies. Using only a sample of 200, if we fit a line in the same way as above, we have many different lines that we could have obtained:\n\nset.seed(823)\nbirths_sample1 <- births14 |> slice_sample(n=200)\n\nggplot(births_sample1, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\",y=\"baby weight (lbs)\")+\n  geom_smooth(method=\"lm\",se=F)\n\nmod_sample1 <- linear_reg() |> \n  set_engine(\"lm\") |>\n  fit(weight ~ weeks, data=births_sample1)\n\ntidy(mod_sample1, conf.int=TRUE)\n\n\n\nExercise\nFill in the code below to simulate the process of taking 250 different samples and store the weeks coefficient estimate in a vector\n\nweeks.coefs <- c() #create empty vector to store coefficient estimates\n\nfor(i in 1:250){ #create loop for 250 different samples\n  print(i)\n  set.seed(823+i) #set a unique seed each iteration\n  \n  #sample data\n  births_sample <-\n  \n  #fit model\n  mod_sample <- \n    \n  #store output\n  weeks.coefs[i] <- tidy(mod_sample)$estimate[2]\n}\n\n \n \n \nNow let’s plot the coefficient estimates we have for the 250 samples:\n\nweeks.coefs.dat <- data.frame(weeks.coefs)\n\nggplot(weeks.coefs.dat, aes(x=weeks.coefs))+\n  geom_histogram()+\n  labs(x=\"weeks coefficient estimate\")\n\nWe see that there is variability in the coefficient estimates for weeks. The standard deviation of this collection of possible estimates is the standard error of the estimate.\n\n\nConfidence interval and p-value\nWe can also use this collection of estimates to provide a plausible range for the “true” coefficient value:\n\nquantile(weeks.coefs, probs=c(.025,.975))\n\nOr, we can look at the collection of estimates and see that none of them are 0. So, because we collected 250 different samples and none of them had a coefficient estimate of 0, we are quite confident that the “true” coefficient is not zero.\n \n \nIn reality, we typically cannot many samples from the same population. So, we often rely on assumptions related to probability distributions to derive confidence intervals and p-values."
-  },
-  {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "IDS 702: Data Modeling and Representation",
     "section": "",
     "text": "Developing an understanding of statistical modeling is a key component of becoming a data scientist. Statistical models are used to answer research questions and obtain meaningful insights from many kinds of data.\nBroadly, this course will cover the following topics:\n\nLinear Regression\nGeneralized Linear Models\nSpecial topics, including survival models and hierarchical models\n\nBut here in the MIDS program, understanding the content is only the beginning. Successful data scientists are critical thinkers, problem solvers, effective communicators, and enthusiastic collaborators. With that in mind, this course aims to meet four key learning objectives:\nBy the end of the course, students should be able to\n\nFit and interpret statistical models, including linear and generalized linear models.\nMap a research question and dataset to the appropriate statistical model\nMake careful and critical decisions about model building and consider real-world implications\nCommunicate (through written and oral communication) model results to a broad audience"
+  },
+  {
+    "objectID": "syllabus.html#course-components",
+    "href": "syllabus.html#course-components",
+    "title": "IDS 702: Data Modeling and Representation",
+    "section": "Course Components",
+    "text": "Course Components\n\nClasswise\nWe will use a platform called Classwise for lecture videos before class meetings. You will be required to engage with prep materials (mostly videos) and answer comprehension questions in Classwise before coming to class. The prep materials will primarily cover theoretical modeling concepts. Class meetings will then focus on implementation in R and application exercises. Classwise materials will be posted on the course website.\nThe Classwise course component connects to the first learning objective: Fit and interpret statistical models, including linear and generalized linear models.\n\n\nApplication exercises\nDuring class meetings, we will complete application exercises. The goal of these exercises is to practice implementing and interpreting statistical models in R. You are encouraged to work on these exercises in small groups.\nThe application exercise course component connects to the first learning objective: Fit and interpret statistical models, including linear and generalized linear models.\n\n\nData analysis assignments\nYou will have three data analysis assignments to complete during the semester. Data analysis assignments require fitting and interpreting statistical models and communicating results to a broad audience. Each assignment will have a unique structure to develop written and oral communication skills.\nYou are encouraged to talk to each other about general concepts, or to the instructor/TAs. However, the write-ups, solutions, and code MUST be entirely your own work. The assignments must be typed up using Quarto and submitted on Gradescope. Note that you will not be able to make online submissions after the due date, so be sure to submit before the Gradescope-specified deadline.\nData analysis assignments connect to all four learning objectives.\n\n\nStatistics reflections\nYou will be responsible for four statistics reflections throughout the semester. I have assigned six pieces that cover various topics related to the interaction between data science and society. You are to write a written reflection about the material that you select. Questions are provided as prompts, but you are not required to answer them in your reflection. Grades will be based on completion and thoughtful engagement. The chosen articles/videos address topics that may be sensitive and/or uncomfortable, including racism, eugenics, and gender identity. It is crucial that you engage in the reflections thoughtfully and respectfully. I seek to create a classroom environment that not only acknowledges diversity in all forms, but celebrates it. In that endeavor, I would be remiss not to acknowledge the discriminatory ways statistical science has been used both historically and currently. In having these important discussions, I want you to critically examine and appreciate the power (good and bad) of statistics as you begin your career as a data scientist. More information can be found on the statistics reflections page on the course website.\nStatistics reflections connect to the third course learning objective: Make careful and critical decisions about model building and consider real-world implications\n\n\nTeam project\nYou and your team will apply the knowledge and skills learned throughout this course to analyze a dataset that interests you. The project should be an in-depth statistical analysis of a particular research question. Your team will select the dataset. Teams will be assigned. More detailed information will be available on the course website. The project will have multiple components:\n\nProposal\nExploratory data analysis report\nStatistical analysis plan\nFinal deliverable and presentation\nTeam member evaluation\n\nThe team project connects to all four course learning objectives."
+  },
+  {
+    "objectID": "syllabus.html#grade-calculation",
+    "href": "syllabus.html#grade-calculation",
+    "title": "IDS 702: Data Modeling and Representation",
+    "section": "Grade Calculation",
+    "text": "Grade Calculation\n\n\n\nComponent\nPercentage\n\n\n\n\nParticipation (Classwise)\n10%\n\n\nStatistics reflections\n15%\n\n\nData analysis assignments\n45%\n\n\nTeam project\n30%\n\n\n\nLetter grade scales may be adjusted at the end of the semester. Cumulative averages \\(\\geq 90\\%\\) are guaranteed at least an A-, cumulative averages \\(\\geq 80\\%\\) are guaranteed at least a B-, and cumulative averages \\(\\geq 70\\%\\) are guaranteed at least a C-\nRegrade requests can be made on Gradescope within 24 hours of the assignment’s grade release. Regrade requests for final project reports/presentations must be made within 12 hours of grade release.\nThere are no make-ups for any graded work except for cases of medical/personal/familial emergencies. Make-ups/extension requests must be made to the instructor BEFORE the assignment deadline."
+  },
+  {
+    "objectID": "syllabus.html#course-policies",
+    "href": "syllabus.html#course-policies",
+    "title": "IDS 702: Data Modeling and Representation",
+    "section": "Course policies",
+    "text": "Course policies\n\nLate submissions\nYou (or your team when applicable) will lose 50% of the total points on each assignment if you submit within the first 24 hours after it is due. You will lose 100% of the total points if you submit later than that without explicit approval from the instructor.\n\n\nClass meeting attendance\nI expect all students to attend all class meetings. However, I know that things come up once in a while. Therefore, I expect 90% attendance each class period. If class meeting attendance begins to consistently drop below the 90% threshold, I will institute a more stringent, individual attendance policy. Note that class meetings will not be recorded.\n\n\nAcademic integrity\nAs a student in this course, you have agreed to uphold the Duke Community Standard as well as the practices specific to this course.\n\n\nInclusive community\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength, and benefit. It is my intent to present materials and activities that are respectful of diversity and in alignment with Duke’s commitment to diversity and inclusion. Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally, or for other students or student groups.\nFurthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities. To help accomplish this:\n\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. If you prefer to speak with someone outside of the course, I encourage you to speak with MIDS administrators.\nI (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please let me or a member of the teaching team know."
+  },
+  {
+    "objectID": "syllabus.html#resources",
+    "href": "syllabus.html#resources",
+    "title": "IDS 702: Data Modeling and Representation",
+    "section": "Resources",
+    "text": "Resources\n\nDuke Counseling & Psychological Services (CAPS) helps Duke Students enhance strengths and develop abilities to successfully live, grow and learn in their personal and academic lives. CAPS offers many services to Duke students, including brief individual and group counseling, couples counseling and more. CAPS staff also provides outreach to student groups, particularly programs supportive of at-risk populations, on a wide range of issues impacting them in various aspects of campus life. CAPS provides services to students via Telehealth. To initiate services, you can contact their front desk at 919-660-1000.\nIf there is any portion of the course that is not accessible to you due to challenges with technology or the course format, please let me know so we can make appropriate accommodations. The Student Disability Access Office (SDAO) is available to ensure that students are able to engage with their courses and related assignments.\nThe Academic resource center provides learning resources to help you maximize your academic capabilities."
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Getting started with R and RStudio\nR for Data Science\nCheatsheets (RStudio, Quarto, ggplot2, dplyr)\nQuarto documentation"
+  },
+  {
+    "objectID": "resources.html#statistics",
+    "href": "resources.html#statistics",
+    "title": "Resources",
+    "section": "Statistics",
+    "text": "Statistics\nPractical Statistics for Data Scientists (available online)\nIntroduction to Modern Statistics by Mine Çetinkaya-Rundel and Johanna Hardin\nDr. Mine Çetinkaya-Rundel’s YouTube channel (includes R)"
   }
 ]
