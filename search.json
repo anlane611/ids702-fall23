@@ -1,10 +1,24 @@
 [
   {
+    "objectID": "materials/unit1/introMLR.html",
+    "href": "materials/unit1/introMLR.html",
+    "title": "8.31: Introduction to Multiple Linear Regression",
+    "section": "",
+    "text": "distinguish between the simple linear regression model and the multiple linear regression (MLR) model\ninterpret coefficient estimates for continuous and categorical variables in MLR\ninterpret interaction terms in MLR\nfit MLR models in R"
+  },
+  {
+    "objectID": "materials/unit1/introMLR.html#classwise-videos",
+    "href": "materials/unit1/introMLR.html#classwise-videos",
+    "title": "8.31: Introduction to Multiple Linear Regression",
+    "section": "Classwise videos",
+    "text": "Classwise videos\nClick this invite link to join the Classwise course: Classwise join link\nAfter joining the course, you should be able to view the videos directly from the course website"
+  },
+  {
     "objectID": "materials/unit1/SLR.html",
     "href": "materials/unit1/SLR.html",
     "title": "8.29: Simple linear regression",
     "section": "",
-    "text": "describe the linear regression model with statistical terminology (population parameter, estimate, random variable, probability distribution)\nInterpret regression output (estimates, standard errors, test statistics, p-values, and confidence intervals)"
+    "text": "describe the linear regression model with statistical terminology (population parameter, estimate, random variable, probability distribution)\nInterpret regression output (estimates, standard errors, test statistics, p-values, and confidence intervals)\n\nDownload annotated notes"
   },
   {
     "objectID": "materials/unit1/SLR.html#statistics-vocabulary",
