@@ -42,6 +42,34 @@
     "text": "Application exercise\nPalmer penguins data\nData were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.\n\nlibrary(tidymodels)\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\nUse the glimpse() output to determine the following:\n\nsample size and number of variables\nwhich variables are categorical and which are numeric? is there any missing data? are the categorical variables stored appropriately?\n\nSelect an appropriate outcome and primary (continuous) predictor of interest.\n\ngenerate a scatter plot for the two variables (remember to label your axes!)\ncolor the scatter plot by sex. Does an interaction term seem appropriate?\ncolor the scatter plot by species. Does an interaction term seem appropriate?\n\nFit a model regressing the outcome variable you selected onto the primary predictor of interest, sex, and species.\n\nWrite interpretations for the coefficient estimates, p-values, and confidence intervals\nIs the species variable statistically significant? Conduct the appropriate test.\n\nAdd an interaction term that seems appropriate based on the EDA from #2. Interpret the p-value and coefficient estimate for the interaction term in the context of the dataset."
   },
   {
+    "objectID": "materials/unit1/estimation.html",
+    "href": "materials/unit1/estimation.html",
+    "title": "9.05: Estimating coefficients and assessing the model",
+    "section": "",
+    "text": "define “sum of squared errors”\ndescribe the concept of ordinary least squares\ndescribe (adjusted) \\(R^2\\) and how it relates to model assessment"
+  },
+  {
+    "objectID": "materials/unit1/estimation.html#classwise-videos",
+    "href": "materials/unit1/estimation.html#classwise-videos",
+    "title": "9.05: Estimating coefficients and assessing the model",
+    "section": "Classwise videos",
+    "text": "Classwise videos\nIf you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.\nI know many students are having trouble with classwise recognizing videos as completed. I will not count classwise completion grades until we sort out the technical issues.\n\n\nThe third video is optional. This video shows the derivation of the OLS estimators."
+  },
+  {
+    "objectID": "materials/unit1/estimation.html#textbook",
+    "href": "materials/unit1/estimation.html#textbook",
+    "title": "9.05: Estimating coefficients and assessing the model",
+    "section": "Textbook",
+    "text": "Textbook\nISLR sections 3.1-3.3"
+  },
+  {
+    "objectID": "materials/unit1/estimation.html#application-exercise",
+    "href": "materials/unit1/estimation.html#application-exercise",
+    "title": "9.05: Estimating coefficients and assessing the model",
+    "section": "Application exercise",
+    "text": "Application exercise\nPalmer penguins data\nData were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.\n\nlibrary(tidymodels)\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\nUse the glimpse() output to determine the following:\n\nsample size and number of variables\nwhich variables are categorical and which are numeric? is there any missing data? are the categorical variables stored appropriately?\n\nSelect an appropriate outcome and primary (continuous) predictor of interest.\n\ngenerate a scatter plot for the two variables (remember to label your axes!)\ncolor the scatter plot by sex. Does an interaction term seem appropriate?\ncolor the scatter plot by species. Does an interaction term seem appropriate?\n\nFit a model regressing the outcome variable you selected onto the primary predictor of interest, sex, and species.\n\nWrite interpretations for the coefficient estimates, p-values, and confidence intervals\nIs the species variable statistically significant? Conduct the appropriate test.\n\nAdd an interaction term that seems appropriate based on the EDA from #2. Interpret the p-value and coefficient estimate for the interaction term in the context of the dataset.\nInterpret the adjusted \\(R^2\\) value for the model with the interaction term. Compare the value to the adjusted \\(R^2\\) value obtained from a model that does not include the interaction term. What do you conclude from this comparison?"
+  },
+  {
     "objectID": "materials/unit1/SLR.html",
     "href": "materials/unit1/SLR.html",
     "title": "8.29: Simple linear regression",
