@@ -67,7 +67,28 @@
     "href": "materials/unit1/estimation.html#application-exercise",
     "title": "9.05: Estimating coefficients and assessing the model",
     "section": "Application exercise",
-    "text": "Application exercise\nPalmer penguins data\nData were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.\n\nlibrary(tidymodels)\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\nUse the glimpse() output to determine the following:\n\nsample size and number of variables\nwhich variables are categorical and which are numeric? is there any missing data? are the categorical variables stored appropriately?\n\nSelect an appropriate outcome and primary (continuous) predictor of interest.\n\ngenerate a scatter plot for the two variables (remember to label your axes!)\ncolor the scatter plot by sex. Does an interaction term seem appropriate?\ncolor the scatter plot by species. Does an interaction term seem appropriate?\n\nFit a model regressing the outcome variable you selected onto the primary predictor of interest, sex, and species.\n\nWrite interpretations for the coefficient estimates, p-values, and confidence intervals\nIs the species variable statistically significant? Conduct the appropriate test.\n\nAdd an interaction term that seems appropriate based on the EDA from #2. Interpret the p-value and coefficient estimate for the interaction term in the context of the dataset.\nInterpret the adjusted \\(R^2\\) value for the model with the interaction term. Compare the value to the adjusted \\(R^2\\) value obtained from a model that does not include the interaction term. What do you conclude from this comparison?"
+    "text": "Application exercise\nPalmer penguins data\nData were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.\n\nlibrary(tidymodels)\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\nUse the glimpse() output to determine the following:\n\nsample size and number of variables\nwhich variables are categorical and which are numeric? is there any missing data? are the categorical variables stored appropriately?\n\nSelect an appropriate outcome and primary (continuous) predictor of interest.\n\ngenerate a scatter plot for the two variables (remember to label your axes!)\ncolor the scatter plot by sex. Does an interaction term seem appropriate?\ncolor the scatter plot by species. Does an interaction term seem appropriate?\n\nFit a model regressing the outcome variable you selected onto the primary predictor of interest, sex, and species.\n\nWrite interpretations for the coefficient estimates, p-values, and confidence intervals\nIs the species variable statistically significant? Conduct the appropriate test.\n\nAdd an interaction term that seems appropriate based on the EDA from #2. Interpret the p-value and coefficient estimate for the interaction term in the context of the dataset.\nInterpret the adjusted \\(R^2\\) value for the model with the interaction term. Compare the value to the adjusted \\(R^2\\) value obtained from a model that does not include the interaction term. What do you conclude from this comparison?\n\nNote: You can see the \\(R^2\\) and adjusted \\(R^2\\) values in the summary(model_object) output that we used last week"
+  },
+  {
+    "objectID": "materials/unit1/assumptions.html",
+    "href": "materials/unit1/assumptions.html",
+    "title": "9.07: Addressing the assumptions",
+    "section": "",
+    "text": "list the four assumptions of MLR\nexplain why we use residual plots to assess the assumptions\ninterpret residual plots"
+  },
+  {
+    "objectID": "materials/unit1/assumptions.html#classwise-videos",
+    "href": "materials/unit1/assumptions.html#classwise-videos",
+    "title": "9.07: Addressing the assumptions",
+    "section": "Classwise videos",
+    "text": "Classwise videos\nIf you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.\nI know many students are having trouble with classwise recognizing videos as completed. I will not count classwise completion grades until we sort out the technical issues."
+  },
+  {
+    "objectID": "materials/unit1/assumptions.html#textbook",
+    "href": "materials/unit1/assumptions.html#textbook",
+    "title": "9.07: Addressing the assumptions",
+    "section": "Textbook",
+    "text": "Textbook\nISLR sections 3.1-3.3 (specifically 3.3.3)"
   },
   {
     "objectID": "materials/unit1/SLR.html",
