@@ -91,6 +91,13 @@
     "text": "Textbook\nISLR sections 3.1-3.3 (specifically 3.3.3)"
   },
   {
+    "objectID": "materials/unit1/assumptions.html#application-exercise",
+    "href": "materials/unit1/assumptions.html#application-exercise",
+    "title": "9.07: Addressing the assumptions",
+    "section": "Application exercise",
+    "text": "Application exercise\nAccess the Auto dataset:\n\nlibrary(tidyverse)\nlibrary(ISLR2)\ndata(Auto)"
+  },
+  {
     "objectID": "materials/unit1/SLR.html",
     "href": "materials/unit1/SLR.html",
     "title": "8.29: Simple linear regression",
@@ -299,6 +306,41 @@
     "title": "test page",
     "section": "",
     "text": "Linear regression"
+  },
+  {
+    "objectID": "project/proposal.html",
+    "href": "project/proposal.html",
+    "title": "Team Project Proposal",
+    "section": "",
+    "text": "Friday, September 22, 11:59 PM"
+  },
+  {
+    "objectID": "project/proposal.html#purpose",
+    "href": "project/proposal.html#purpose",
+    "title": "Team Project Proposal",
+    "section": "Purpose",
+    "text": "Purpose\nThe purpose of the team project is to provide an opportunity to complete a data analysis project from start to finish. This includes:\n\nSelecting data\nWriting research questions\nPerforming exploratory data analysis\nDeveloping appropriate statistical models\nCommunicating results through a written report and presentation\nWorking with a team"
+  },
+  {
+    "objectID": "project/proposal.html#teams",
+    "href": "project/proposal.html#teams",
+    "title": "Team Project Proposal",
+    "section": "Teams",
+    "text": "Teams\nSee this google sheet for your team assignment. You are responsible for dividing the work equitably among team members. Every team member is required to contribute to each portion of the project: coding, writing, and presenting. Learn from each other and, most of all, be kind. You will receive individual grades for the project that incorporate feedback from fellow team members."
+  },
+  {
+    "objectID": "project/proposal.html#data",
+    "href": "project/proposal.html#data",
+    "title": "Team Project Proposal",
+    "section": "Data",
+    "text": "Data\nYour first step is to select the dataset that you are most interested in analyzing. Below is a list of datasets or sources that you can consider using to find a dataset. You are not require to use these.\nYour dataset must have at least 500 observations, 10 variables, and a mix of numeric and categorical variables. You may not use a dataset that we have used in class.\n\nR Data Sources for Regression Analysis\nFiveThirtyEight data\nWorld Health Organization\nThe National Bureau of Economic Research\nInternational Monetary Fund\nGeneral Social Survey\nUnited Nations Data\nPew Research\n2021 CDC Behavioral Risk Factor Surveillance System Survey\nWorld Inequality Database\n\nYou are welcome to specify a subset of a particular dataset (e.g., only North Carolina in the CDC BRFSS). Be sure to look at the data to understand its scope."
+  },
+  {
+    "objectID": "project/proposal.html#proposal",
+    "href": "project/proposal.html#proposal",
+    "title": "Team Project Proposal",
+    "section": "Proposal",
+    "text": "Proposal\nYour proposal should list the following:\n\nTeam member names\n2 or 3 datasets of interest (list in order of preference with 1 being the top choice). For each dataset, provide:\n\n\nThe source of the data, when and how it was originally collected, and a brief description of the observations. This information is likely found on the website where you found the data, so be sure to cite your source\nTWO research questions you are interested in exploring for each dataset. Explicitly state the outcome variables in the dataset that you will use to answer each question. You are required to use two different types of outcome variables for your research questions. For example, one research question may use a continuous outcome variable while the other uses an ordinal outcome variable. Variable types may include: continuous, binary, ordinal, nominal, time-to-event\na glimpse() of each dataset to show that you can access it in R\n\nConsult this helpful guide for writing a good research question\nNo data cleaning is required in the proposal. Your proposal should be generated with a Quarto document, but you will not be required to submit the code.\nSubmit one proposal per group. One person will submit and select the other group members in the Gradescope submission. After you submit, I will provide feedback to help you decide which dataset to choose for your project."
   },
   {
     "objectID": "reflections.html",
