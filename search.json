@@ -147,6 +147,27 @@
     "text": "References\nhttp://www.stat.yale.edu/Courses/1997-98/101/ranvar.htm"
   },
   {
+    "objectID": "materials/unit1/problems.html",
+    "href": "materials/unit1/problems.html",
+    "title": "9.12: Problems that can arise",
+    "section": "",
+    "text": "interpret plots of leverage and Cook’s distance\nunderstand the problem of multicollinearity"
+  },
+  {
+    "objectID": "materials/unit1/problems.html#classwise-videos",
+    "href": "materials/unit1/problems.html#classwise-videos",
+    "title": "9.12: Problems that can arise",
+    "section": "Classwise videos",
+    "text": "Classwise videos\nIf you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class."
+  },
+  {
+    "objectID": "materials/unit1/problems.html#textbook",
+    "href": "materials/unit1/problems.html#textbook",
+    "title": "9.12: Problems that can arise",
+    "section": "Textbook",
+    "text": "Textbook\nISLR 3.3.3"
+  },
+  {
     "objectID": "materials/unit1/introtomlrcode.html",
     "href": "materials/unit1/introtomlrcode.html",
     "title": "Intro to MLR",
