@@ -168,6 +168,34 @@
     "text": "Textbook\nISLR 3.3.3"
   },
   {
+    "objectID": "materials/unit1/problems.html#application-exercise",
+    "href": "materials/unit1/problems.html#application-exercise",
+    "title": "9.12: Problems that can arise",
+    "section": "Application exercise",
+    "text": "Application exercise\nFor this exercise, we will use the Hitters dataset from the ISLR2 package\n\nlibrary(ISLR2)\ndata(\"Hitters\")\n?Hitters #run this for the data dictionary\n\n\nWe want to understand how hitter statistics are associated with salaries. More specifically, we want to assess the model regressing Salary on the following predictors: Hits, HmRun, Runs, RBI, Years, CHits, CHmRun, CRuns, and CRBI. Let’s first create a correlation plot of the 9 predictors. Comment on what you observe in the correlation plot.\n\nlibrary(corrplot) #you will need to install this package\ncorrplot(cor(Hitters[,c(\"Hits\", \"HmRun\", \"Runs\", \"RBI\", \"Years\", \n                        \"CHits\", \"CHmRun\",\"CRuns\",\"CRBI\")]))\n\nNow, fit the model. Take note of the output.\nUse the vif() function in the car package to calculate VIF values for each predictors. Do any of the predictors have high VIF values? If so, which one(s)?\nFit another model but without the career variables (i.e., using Hits, HmRun, Runs, RBI, and Years). Note differences in the model output for these predictors between this model and the model you fit in #2 in terms of estimates, standard errors, and p-values.\nLook at the model diagnostics plots.\n\nAre there any influential points? If so, fit the model without those observation(s) and note any differences in the summary output and/or the diagnostic plots.\nDo you notice any other potential violations in model assumptions? If so, what adjustments could be made?"
+  },
+  {
+    "objectID": "materials/unit1/modelselection.html",
+    "href": "materials/unit1/modelselection.html",
+    "title": "9.14: Model selection",
+    "section": "",
+    "text": "understand forward and backward selection\nunderstand the argument against forward and backward selection"
+  },
+  {
+    "objectID": "materials/unit1/modelselection.html#classwise-videos",
+    "href": "materials/unit1/modelselection.html#classwise-videos",
+    "title": "9.14: Model selection",
+    "section": "Classwise videos",
+    "text": "Classwise videos\nIf you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.\nThere are no chat sessions for this lecture.\nThe first video explains the forward and backward model selection procedures.\n\nThe reading below presents an argument against using forward and backward selection (these methods are also known as stepwise selection). Read the full introduction (pages 1-5) and the conclusion. You can skip the methods and results sections."
+  },
+  {
+    "objectID": "materials/unit1/modelselection.html#textbook",
+    "href": "materials/unit1/modelselection.html#textbook",
+    "title": "9.14: Model selection",
+    "section": "Textbook",
+    "text": "Textbook\nISLR 6.1.2"
+  },
+  {
     "objectID": "materials/unit1/introtomlrcode.html",
     "href": "materials/unit1/introtomlrcode.html",
     "title": "Intro to MLR",
@@ -287,6 +315,34 @@
     "text": "Linear Regression\nTo further characterize the relationship between length of pregnancy and baby weight, we can fit a line to the plot:\n\nmod_bullcity <- linear_reg() |> \n  set_engine(\"lm\") |>\n  fit(weight ~ weeks, data=births14)\n\ntidy(mod_bullcity, conf.int=TRUE)\n\n\nExercise\n\nggplot(births14, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\",y=\"baby weight (lbs)\")+\n  geom_smooth(method=\"lm\",se=F)\n\n\nLooking at the estimate column of the tidy output, how would you interpret the intercept here? how would you interpret the weeks estimate?\n\n\n\nStandard error\nTo better conceptualize the standard error, consider the premise above that these data represent the entire city. Now imagine that we could not actually obtain all of these data. Instead, we were only able to obtain a sample of 200 babies. Using only a sample of 200, if we fit a line in the same way as above, we have many different lines that we could have obtained:\n\nset.seed(823)\nbirths_sample1 <- births14 |> slice_sample(n=200)\n\nggplot(births_sample1, aes(x=weeks, y=weight))+\n  geom_point()+\n  labs(x=\"length of pregnancy (weeks)\",y=\"baby weight (lbs)\")+\n  geom_smooth(method=\"lm\",se=F)\n\nmod_sample1 <- linear_reg() |> \n  set_engine(\"lm\") |>\n  fit(weight ~ weeks, data=births_sample1)\n\ntidy(mod_sample1, conf.int=TRUE)\n\n\n\nExercise\nFill in the code below to simulate the process of taking 250 different samples and store the weeks coefficient estimate in a vector\n\nweeks.coefs <- c() #create empty vector to store coefficient estimates\n\nfor(i in 1:250){ #create loop for 250 different samples\n  print(i)\n  set.seed(823+i) #set a unique seed each iteration\n  \n  #sample data\n  births_sample <-\n  \n  #fit model\n  mod_sample <- \n    \n  #store output\n  weeks.coefs[i] <- tidy(mod_sample)$estimate[2]\n}\n\n \n \n \nNow let’s plot the coefficient estimates we have for the 250 samples:\n\nweeks.coefs.dat <- data.frame(weeks.coefs)\n\nggplot(weeks.coefs.dat, aes(x=weeks.coefs))+\n  geom_histogram()+\n  labs(x=\"weeks coefficient estimate\")\n\nWe see that there is variability in the coefficient estimates for weeks. The standard deviation of this collection of possible estimates is the standard error of the estimate.\n\n\nConfidence interval and p-value\nWe can also use this collection of estimates to provide a plausible range for the “true” coefficient value:\n\nquantile(weeks.coefs, probs=c(.025,.975))\n\nOr, we can look at the collection of estimates and see that none of them are 0. So, because we collected 250 different samples and none of them had a coefficient estimate of 0, we are quite confident that the “true” coefficient is not zero.\n \n \nIn reality, we typically cannot many samples from the same population. So, we often rely on assumptions related to probability distributions to derive confidence intervals and p-values."
   },
   {
+    "objectID": "DAA/DA1.html",
+    "href": "DAA/DA1.html",
+    "title": "Data analysis assignment 1",
+    "section": "",
+    "text": "Airbnb wants to help new hosts set prices for their Airbnb listings in Asheville, NC. They have hired your data science consulting company to build a model to generate prices based on a variety of factors.\nFor this assignment, you will write your report in two parts: 1) a report (1-2 pages) describing your model to (non-technical) Airbnb executives, and 2) a report (3-4 pages) justifying your model to your (technical) data science team"
+  },
+  {
+    "objectID": "DAA/DA1.html#the-dataset",
+    "href": "DAA/DA1.html#the-dataset",
+    "title": "Data analysis assignment 1",
+    "section": "The dataset",
+    "text": "The dataset\nClick here to download the data\nThe data is from Inside Airbnb.\nClick here for the data dictionary"
+  },
+  {
+    "objectID": "DAA/DA1.html#cleaning-and-model-requirements",
+    "href": "DAA/DA1.html#cleaning-and-model-requirements",
+    "title": "Data analysis assignment 1",
+    "section": "Cleaning and model requirements",
+    "text": "Cleaning and model requirements\nYou must include the following variables in your model:\n\nroom_type (you may need to combine categories)\nnumber of bedrooms\nnumber of bathrooms (note that this variable needs to be cleaned, as the bathrooms variable is empty. I recommend using the str_sub() function from the stringr package and as.numeric() to extract the number of bathrooms\ncreate a new variable that gives the distance to downtown. There may be multiple ways to do this, but you can use the code below. This uses the apply function, which is a useful function in R to perform an operation on all rows (or columns) of a matrix. Then it uses the distm() function in the geosphere package to calculate the distance in meters from a latitude and longitude in downtown Asheville. Finally, it multiplies by the appropriate constant to convert the value to miles.\n\n\nlibrary(geosphere) #you will need to install this package\nairbnb$dist_to_dt <- apply(airbnb[,c(\"longitude\",\"latitude\")],1,function(x) distm(\n  c(-82.55481168521978,35.59701329976918),\n  x,fun=distHaversine))*0.00062137\n\nNote that you will also need to clean the price variable. You can use the str_sub() function again here.\nChoose at least one other variable to include in your model. Consider what is appropriate for a new host to set a price.\n\n  Extra credit\n  \n    Earn extra points on this assignment by finding a way to incorporate amenity features in your model. For example, a host may want to change the price based on whether or not they allow pets.\n    \n  \n\nAs you fit and assess your model, consider the following elements that we have discussed in class:\n\nWhat is the \\(R^2\\) value? Can you think of listing information that is not available that could be useful to develop a better model?\nLook at the diagnostic plots for your model. Determine if you need to transform predictor(s) or the outcome variable to improve the model. Ask yourself if model interpretability should be prioritized in this situation.\nEvaluate influential points and multicollinearity and make adjustments accordingly. If you remove any observations, be sure to include this information in your report."
+  },
+  {
+    "objectID": "DAA/DA1.html#deliverables",
+    "href": "DAA/DA1.html#deliverables",
+    "title": "Data analysis assignment 1",
+    "section": "Deliverables",
+    "text": "Deliverables\n\nReport for Airbnb executives (1-2 pages)\nThe report for the Airbnb executives should explain your model to a non-technical audience. No code or “raw” R output should be in the report.\nSpecifically, your report should contain the following elements:\n\nIntroduction: Provide an overview of the dataset and the goals of the analysis. Provide basic information about the data (e.g., sample size). You may choose to include summary statistics or basic plots.\nMethods: Explain the model you used to analyze the data without getting into technical details. Why did you decide to use that model for this dataset and how does it accomplish their goal? Which variables did you include in the model and why?\nResults: Justify your model with the appropriate model metric(s). Explain them in non-technical terms. Then, provide an example of how the model can be used by giving the projected price for a particular combination of variables in your model (e.g., “for a listing with 2 bedrooms, 2 bathrooms, …, the price would be —”)\nConclusion: Do you feel that the model is good enough to be deployed? If not, is there additional data that Airbnb could collect to improve the model?\n\n\n\nReport for data science team\nThe second part of the assignment will be a 3-4 page report that is suitable for other data scientists. Here, you will present details of your model to justify the conclusions you presented to the client. This section should present technical details that someone with a data science background can understand. This report must include the following, though you may wish to provide additional details relevant to the analysis:\n\nIntroduction: Provide details about the dataset, including any data cleaning that needed to be done. Was there any missing data? Did you make any assumptions during the data cleaning process?\nMethods: Describe your model assessment and building process. Did you include any interaction terms? Why or why not? Did you transform any variables? If so, why? Provide the model diagnostic plots. Did you exclude any observations? Did you make any adjustments because of multicollinearity?\nConclusion: What do you conclude about the validity of this analysis?\n\n\n  Submission Instructions\n  \n    You will submit two files to gradescope: 1) a PDF that contains the two requested reports, and 2) the qmd file you used to produce the reports \n    \n      All code must be hidden in the PDF\n      The PDF should be 5-6 pages: 1-2 pages for the non-technical report and 3-4 pages for the technical report\n      Any plots (including diagnostic plots) must be appropriately formatted (axis labels, legends where appropriate)"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "IDS 702: Data Modeling and Representation",
@@ -333,14 +389,7 @@
     "href": "project/proposal.html",
     "title": "Team Project Proposal",
     "section": "",
-    "text": "Friday, September 22, 11:59 PM"
-  },
-  {
-    "objectID": "project/proposal.html#purpose",
-    "href": "project/proposal.html#purpose",
-    "title": "Team Project Proposal",
-    "section": "Purpose",
-    "text": "Purpose\nThe purpose of the team project is to provide an opportunity to complete a data analysis project from start to finish. This includes:\n\nSelecting data\nWriting research questions\nPerforming exploratory data analysis\nDeveloping appropriate statistical models\nCommunicating results through a written report and presentation\nWorking with a team"
+    "text": "The purpose of the team project is to provide an opportunity to complete a data analysis project from start to finish. This includes:\n\nSelecting data\nWriting research questions\nPerforming exploratory data analysis\nDeveloping appropriate statistical models\nCommunicating results through a written report and presentation\nWorking with a team"
   },
   {
     "objectID": "project/proposal.html#teams",
