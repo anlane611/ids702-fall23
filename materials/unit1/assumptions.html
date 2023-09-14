@@ -289,6 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#classwise-videos" id="toc-classwise-videos" class="nav-link" data-scroll-target="#classwise-videos">Classwise videos</a></li>
   <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook">Textbook</a></li>
   <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -351,6 +352,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Decide if you want to use a transformation on <code>displacement</code>, <code>acceleration</code>, and/or <code>horsepower</code>, or interaction term(s). Consider the implications of estimate interpretations. Fit the model with the additional terms that you choose, and generate the residual and qq plots. What do you notice compared to what you saw in #2?</li>
 <li>Fit the model using log(mpg) as the outcome. Generate the residual and qq plots and comment on the difference(s) that you observe. Consider the implications for model interpretation. Do you think the transformation of the outcome variable is useful here?</li>
 </ol>
+</section>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key takeaways</h2>
+<ul>
+<li><p>There is an argument to be made for treating the cylinders variable as either numeric or categorical. To me, it seemed better suited as a categorical variable. A takeaway here is that when a categorical variable has very few observations for a particular level, the standard error is inflated</p></li>
+<li><p>We see that the linearity assumption appears to be violated. Upon further exploratory inspection, we see a non-linear relationship between mpg and displacement and horsepower. The relationship we see indicates that a log transformation of these predictor variables is necessary. However, when we look at the relationship with cylinder and origin, we see that an interaction term could also be used. Either one will improve the residual plot, so at this point we might consider which one is more interpretable. Since we are interested in inference, I would lean toward using an interaction term, which is easier to interpret than a log transformation.</p></li>
+<li><p>A log transformation of the outcome variable will improve the qq-plot. If we do this, the coefficient estimates are interpreted as multiplicative instead of additive (<a href="https://library.virginia.edu/data/articles/interpreting-log-transformations-in-a-linear-model#:~:text=Both%20dependent%2Fresponse%20variable%20and,increase%20in%20the%20independent%20variable.">see this link for helpful info on interpreting coefficients after log transformations</a>). Since the violation isn’t too bad, and linear regressions are robust to violations of normality, I would probably forego using the transformation here. However, it’s not incorrect to use it.</p></li>
+</ul>
 
 
 </section>

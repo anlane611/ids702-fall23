@@ -225,6 +225,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#classwise-videos" id="toc-classwise-videos" class="nav-link" data-scroll-target="#classwise-videos">Classwise videos</a></li>
   <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook">Textbook</a></li>
+  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a></li>
   </ul>
 </nav>
     </div>
@@ -267,6 +268,26 @@ ul.task-list li input[type="checkbox"] {
 <section id="textbook" class="level2">
 <h2 class="anchored" data-anchor-id="textbook">Textbook</h2>
 <p>ISLR 6.1.2</p>
+</section>
+<section id="application-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="application-exercise">Application exercise</h2>
+<p><a href="https://forms.gle/mNYD7d42wCE1rWjg6">Class exercise vote</a></p>
+<p><a href="https://duke.box.com/s/863ua9g8gdlws3aofcxtj3d7g9yn5dc8">Groups for today’s exercise</a></p>
+<p>In your group, discuss the following based on the video and article:</p>
+<ol type="1">
+<li>Summarize the forward and backward stepwise selection procedures.</li>
+<li>Why are forward and backward selection appealing?</li>
+<li>What statistical arguments does Smith make against stepwise selection?</li>
+<li>Consider this sentence: “The standard errors of the coefficient estimates are underestimated, which makes the confidence intervals too narrow, the t statistics too high, and the p-values too low…” Think about the relationship between standard errors and the other quantities mentioned. Why would underestimated standard errors lead to the outcomes listed?</li>
+<li>Explain how big data has renewed the interest in stepwise selection and why Smith argues that big data exacerbates the problems with stepwise selection</li>
+<li>What alternative approaches to model selection does Smith recommend?</li>
+<li>Imagine yourself working on a data science team in the future. A colleague recommends using the following two approaches. Based on the reading, which of these approaches seems reasonable? If none of them seem reasonable, how do you explain this to your colleague and how do you recommend moving forward?
+<ul>
+<li>Fit a model with pre-specified predictors and use backward selection to arrive at a “final model.” Interpret the output and draw conclusions based on the final model.</li>
+<li>Fit a model with pre-specified predictors. Remove any variables with p-values that are above 0.05. Re-fit the model and interpret the output.</li>
+<li>Fit simple linear regression models with each predictor individually. Then, fit a multiple linear regression model with the predictors that had significant p-values in the SLR model. Interpret the MLR output.</li>
+</ul></li>
+</ol>
 
 
 </section>

@@ -289,6 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#classwise-videos" id="toc-classwise-videos" class="nav-link" data-scroll-target="#classwise-videos">Classwise videos</a></li>
   <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook">Textbook</a></li>
   <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -353,6 +354,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Do you notice any other potential violations in model assumptions? If so, what adjustments could be made?</li>
 </ul></li>
 </ol>
+</section>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key takeaways</h2>
+<ul>
+<li><p>From the correlation plot, you should see that the single-season variables and the career variables are highly correlated with each other</p></li>
+<li><p>We see very high VIF values for the career variables. I recommended removing those because they are so high and much higher than the other predictors. I encourage you not to rely strictly on the &gt;10 threshold.</p></li>
+<li><p>After removing the career variables, we see that the standard errors for the single-season variables generally decrease. Perhaps the most notable and intuitive difference in the output is in the Years variable. We would expect that salaries generally increase as years in the league increase. In the first model, we had high collinearity between the Years variable and the career variables, and the estimate was negative. After removing the career variables with which the Years variable was highly correlated, the standard error for Years is quite a bit lower and the estimate is positive (and statistically significant)</p></li>
+<li><p>For the model diagnostic plots, we see potential violation of homoscedasticity and normality. If we log-transform the outcome, the model diagnostic plots are more “cloud-like.” Log-transformations are often necessary when outcome variables have to do with money (salary, price, income, etc.).</p></li>
+<li><p>We see a few outliers and high-leverage points, though no influential points identified with Cook’s distance. If we remove Mike Schmidt, Rickey Henderson, and Terry Kennedy, the model output is slightly different but we don’t see substantial differences (i.e., conclusions drawn from p-values are not different)</p></li>
+</ul>
 
 
 </section>
