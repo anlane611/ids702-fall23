@@ -298,7 +298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#going-further" id="toc-going-further" class="nav-link" data-scroll-target="#going-further">Going Further</a></li>
   </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#application-exercise-921" id="toc-application-exercise-921" class="nav-link" data-scroll-target="#application-exercise-921">Application Exercise (9/21)</a></li>
   </ul>
 </nav>
     </div>
@@ -376,8 +376,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </section>
 </section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<section id="application-exercise-921" class="level2">
+<h2 class="anchored" data-anchor-id="application-exercise-921">Application Exercise (9/21)</h2>
+<p>Use the same groups that you were in on Tuesday.</p>
+<p>Note: Focus on #1-4. Particularly for folks who are new to stats/R, skip the “go further” parts and come back to them if you have time.</p>
+<p>For this exercise, we will use the Boston dataset from the ISLR2 package.</p>
+<p><a href="https://rdrr.io/cran/ISLR2/man/Boston.html">Click here for the data dictionary</a></p>
+<p>We want to build a model to predict the median home value from various predictors.</p>
+<ol type="1">
+<li><p>Start by using the data dictionary to determine if any data cleaning needs to be done. Is there any missing data?</p></li>
+<li><p>Fit the full model. The code below uses the caret package to perform k-fold cross validation and produces RMSE, <span class="math inline">\(R^2\)</span> , and <a href="https://stephenallwright.com/rmse-vs-mae/#:~:text=It%20comes%20down%20to%20the,interpretable%20value%20then%20use%20MAE.">MAE</a>. The <code>trainControl</code> function establishes the method you will use to evaluate your model. In this case, we use the cross validation option for method (“cv”) and set number=10 for 10-fold cross validation. Then, the <code>train</code> function performs 10-fold CV on the indicated model. Note that the model syntax is the same as what we’ve used in <code>lm</code> (the “.” indicates that we want to regress on all variables in the dataset except the outcome). Then we specify <code>method="lm"</code> for a linear model, and <code>trControl=train_control</code> to use the 10-fold CV method we stored in the <code>train_control</code> object. Finally, the <code>print</code> function gives us the model metrics.</p>
+<ul>
+<li><p>Go further: Run <code>?R2</code> in the console to find out how caret calculates <span class="math inline">\(R^2\)</span> here. This may help to provide a more intuitive interpretation of out-of-sample <span class="math inline">\(R^2\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#note that cross validation involves a random sampling component, so we should use a seed for reproducibility</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">921</span>) </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>train_control <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"cv"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">number =</span> <span class="dv">10</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>mod_full <span class="ot">&lt;-</span> <span class="fu">train</span>(medv <span class="sc">~</span>., <span class="at">data =</span> Boston,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">trControl =</span> train_control)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#get model metrics</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mod_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ul></li>
+<li><p>Look at the diagnostics for the full model. Which assumptions appear to be violated (if any)? Would it help to transform the outcome or predictor variable(s)? Would an interaction term help? If our focus is prediction, how much should we prioritize model interpretability when we’re considering variable transformations?</p>
+<ul>
+<li>Go further: There are several R packages that can help efficiently visualize your data. As we’ve seen before, visualizing can help determine if variable transformations/interaction terms may improve the model. You can explore packages like <a href="https://cran.r-project.org/web/packages/DataExplorer/vignettes/dataexplorer-intro.html#scatterplots">DataExplorer</a> and <a href="https://cran.r-project.org/web/packages/SmartEDA/vignettes/SmartEDA.html">SmartEDA</a>.</li>
+</ul></li>
+<li><p>After you determine which transformations/interaction terms improve the model diagnostics, perform cross validation again on your new model. Do you notice a reduction in RMSE?</p></li>
+<li><p>We can also use cross validation to perform variable selection. This can help to determine which combination of features leads to the best predictions. The <code>freControl</code> function establishes that we will use linear regression and cross validation. The <code>rfe</code> function performs the variable selection procedure. Using cross validation, we will assess the out-of-sample RMSE for a 1-variable model, 2-variable model, etc, and select the optimal predictors based on the lowest RMSE.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">921</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ctrl <span class="ot">&lt;-</span> <span class="fu">rfeControl</span>(<span class="at">functions =</span> lmFuncs,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">method =</span> <span class="st">"cv"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># standardize the predictors so that they are comparable</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># You will need to edit this code if you transformed any variables or added interaction terms</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>boston_standardize <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scale</span>(Boston))</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>boston_standardize <span class="ot">&lt;-</span> boston_standardize <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">"medv"</span>))</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>lmProfile <span class="ot">&lt;-</span> <span class="fu">rfe</span>(boston_standardize, Boston<span class="sc">$</span>medv, <span class="co">#specify the X and Y variables</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                 <span class="at">sizes=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>), <span class="co"># specify the number of variables you want to compare. Here we are assessing all possible numbers from 1-12 predictor variables</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                 <span class="at">rfeControl =</span> ctrl)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>lmProfile <span class="co">#this gives the model metrics and shows which number of variables has been selected as optimal</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">predictors</span>(lmProfile) <span class="co">#this lists the predictors that were selected</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ol>
 
 
 </section>
