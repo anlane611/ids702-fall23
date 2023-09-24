@@ -77,6 +77,27 @@
     "text": "Application exercise\nPalmer penguins data\nData were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.\n\nlibrary(tidymodels)\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\nUse the glimpse() output to determine the following:\n\nsample size and number of variables\nwhich variables are categorical and which are numeric? is there any missing data? are the categorical variables stored appropriately?\n\nSelect an appropriate outcome and primary (continuous) predictor of interest.\n\ngenerate a scatter plot for the two variables (remember to label your axes!)\ncolor the scatter plot by sex. Does an interaction term seem appropriate?\ncolor the scatter plot by species. Does an interaction term seem appropriate?\n\nFit a model regressing the outcome variable you selected onto the primary predictor of interest, sex, and species.\n\nWrite interpretations for the coefficient estimates, p-values, and confidence intervals\nIs the species variable statistically significant? Conduct the appropriate test.\n\nAdd an interaction term that seems appropriate based on the EDA from #2. Interpret the p-value and coefficient estimate for the interaction term in the context of the dataset."
   },
   {
+    "objectID": "materials/unit1/miscMLR.html",
+    "href": "materials/unit1/miscMLR.html",
+    "title": "9.26: Wrapping up MLR",
+    "section": "",
+    "text": "describe the basics of the bias-variance tradeoff\ndescribe Simpson’s paradox\nexplain when it is useful to standardize predictors in linear regression"
+  },
+  {
+    "objectID": "materials/unit1/miscMLR.html#classwise-videos",
+    "href": "materials/unit1/miscMLR.html#classwise-videos",
+    "title": "9.26: Wrapping up MLR",
+    "section": "Classwise videos",
+    "text": "Classwise videos\nThese videos cover three miscellaneous topics to wrap up our conversation about linear regression.\nIf you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.\nThe first video introduces the bias-variance tradeoff. This is more relevant to machine learning than inferential statistical modeling, so you will learn more about it next semester. However, I want to go ahead and introduce the concept.\n\nThe second video discusses Simpson’s paradox. This relates to the concept of confounding and emphasizes the importance of using multiple linear regression rather than simple linear regression. The video also covers tidyverse functions group_by() and count() which will be useful as you explore data.\n\nFinally, see this tutorial on standardizing predictors. Focus on the z-score and centering, and the sections on when and when not to standardize. Note that this is much more relevant when prediction is the goal. Standardizing predictors changes the interpretation of the coefficient estimates; therefore, when inference/interpreting estimates the goal, we generally do not standardize."
+  },
+  {
+    "objectID": "materials/unit1/miscMLR.html#textbook",
+    "href": "materials/unit1/miscMLR.html#textbook",
+    "title": "9.26: Wrapping up MLR",
+    "section": "Textbook",
+    "text": "Textbook\nBias-variance tradeoff: ISLR 2.2.2"
+  },
+  {
     "objectID": "materials/unit1/estimation.html",
     "href": "materials/unit1/estimation.html",
     "title": "9.05: Estimating coefficients and assessing the model",
