@@ -112,6 +112,13 @@
     "text": "Application Exercise\nSimpson’s Paradox\n\nAir travelers would like their flights to be on time. Airlines collect data about on-time arrivals and report them to the Department of Transportation (DoT). Here is one month’s data for flights for two airlines from five western cities.\n\n\n\n\nAirline\nOn time\nLate\n\n\n\n\nAlaska Airlines\n3274\n501\n\n\nAmerica West\n6438\n787\n\n\n\n\nCalculate the percentage of flights that are on time for each airline and the percentage of flights that are late for each airline.\nBased on the calculated percentages, which airline has the better on-time record?\n\nIn the table below, the data are broken down by city.\n\n\n\nCity\nAA - on time\nAA - late\nAW - on time\nAW - late\n\n\n\n\nLos Angeles\n497\n62\n694\n117\n\n\nPhoenix\n221\n12\n4840\n415\n\n\nSan Diego\n212\n20\n383\n65\n\n\nSan Francisco\n503\n102\n320\n129\n\n\nSeattle\n1841\n305\n201\n61\n\n\nTotal\n3274\n501\n6438\n787\n\n\n\n\nCompute the percentage on-time and percentage late values for each airline and city\nWhich airline has the best on-time record for each city?\n\nLos Angeles:\nPhoenix:\nSan Diego:\nSan Francisco:\nSeattle:\n\nExplain why this is an example of Simpson’s paradox\n\n\nExplain how the following image relates to Simpson’s paradox. \nSimpson’s paradox with COVID vaccination data\n\n\nReferences\nSimpson’s paradox airline activity: http://facweb.cs.depaul.edu/brewster/lsp121/Files/Activity%206-ans.pdf\nSimpson’s paradox image: https://stats.stackexchange.com/questions/478463/examples-of-simpsons-paradox-being-resolved-by-choosing-the-aggregate-data"
   },
   {
+    "objectID": "materials/unit1/miscMLR.html#key-takeaways",
+    "href": "materials/unit1/miscMLR.html#key-takeaways",
+    "title": "9.26: Wrapping up MLR",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n\nThe key takeaway of this exercise is that aggregated data can mask the relationship between two variables that changes with the inclusion of a third variable. This is one reason that we do multiple linear regression instead of simple linear regression.\nThe exercise also helps to develop statistical literacy. When you see aggregated data/percentages in the news, consider if it might be misleading. Is there a third variable that would help to shed light on the relationship between the two variables?"
+  },
+  {
     "objectID": "materials/unit1/estimation.html",
     "href": "materials/unit1/estimation.html",
     "title": "9.05: Estimating coefficients and assessing the model",
