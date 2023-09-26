@@ -304,6 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#going-further" id="toc-going-further" class="nav-link" data-scroll-target="#going-further">Going Further</a></li>
   </ul></li>
   <li><a href="#application-exercise-921" id="toc-application-exercise-921" class="nav-link" data-scroll-target="#application-exercise-921">Application Exercise (9/21)</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -433,6 +434,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">predictors</span>(lmProfile) <span class="co">#this lists the predictors that were selected</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ol>
+</section>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><p>The first exercise is designed to help you think through the steps of cross validation.</p></li>
+<li><p>The second exericse walks through the implementation of cross validation using the caret package. Note that with prediction problems, we don’t prioritize interpretation of the model. So, there is more flexibility to add variable transformations to improve model diagnostics. The biggest takeaway here was that adding transformations improve model diagnostics and reduce RMSE, thereby improving prediction accuracy of the model.</p></li>
+<li><p>We can also perform variable selection with cross validation, which is a different process than the model selection procedures we introduced last week. Forward/backward/stepwise selection base inclusion decisions on p-values, which is frowned upon in the statistics community. The procedure in this exercise bases variable selection on cross validation and RMSE to improve predictions.</p></li>
+</ul>
 
 
 </section>

@@ -35,6 +35,13 @@
     "text": "Application Exercise (9/21)\nUse the same groups that you were in on Tuesday.\nNote: Focus on #1-4. Particularly for folks who are new to stats/R, skip the “go further” parts and come back to them if you have time.\nFor this exercise, we will use the Boston dataset from the ISLR2 package.\nClick here for the data dictionary\nWe want to build a model to predict the median home value from various predictors.\n\nStart by using the data dictionary to determine if any data cleaning needs to be done. Is there any missing data?\nFit the full model. The code below uses the caret package to perform k-fold cross validation and produces RMSE, \\(R^2\\) , and MAE. The trainControl function establishes the method you will use to evaluate your model. In this case, we use the cross validation option for method (“cv”) and set number=10 for 10-fold cross validation. Then, the train function performs 10-fold CV on the indicated model. Note that the model syntax is the same as what we’ve used in lm (the “.” indicates that we want to regress on all variables in the dataset except the outcome). Then we specify method=\"lm\" for a linear model, and trControl=train_control to use the 10-fold CV method we stored in the train_control object. Finally, the print function gives us the model metrics.\n\nGo further: Run ?R2 in the console to find out how caret calculates \\(R^2\\) here. This may help to provide a more intuitive interpretation of out-of-sample \\(R^2\\)\n\n#note that cross validation involves a random sampling component, so we should use a seed for reproducibility\nset.seed(921) \n\ntrain_control <- trainControl(method = \"cv\",\n                                          number = 10)\n\nmod_full <- train(medv ~., data = Boston,\n                     method = \"lm\",\n                     trControl = train_control)\n\n#get model metrics\nprint(mod_full)\n\n\nLook at the diagnostics for the full model. Which assumptions appear to be violated (if any)? Would it help to transform the outcome or predictor variable(s)? Would an interaction term help? If our focus is prediction, how much should we prioritize model interpretability when we’re considering variable transformations?\n\nGo further: There are several R packages that can help efficiently visualize your data. As we’ve seen before, visualizing can help determine if variable transformations/interaction terms may improve the model. You can explore packages like DataExplorer and SmartEDA.\n\nAfter you determine which transformations/interaction terms improve the model diagnostics, perform cross validation again on your new model. Do you notice a reduction in RMSE?\nWe can also use cross validation to perform variable selection. This can help to determine which combination of features leads to the best predictions. The freControl function establishes that we will use linear regression and cross validation. The rfe function performs the variable selection procedure. Using cross validation, we will assess the out-of-sample RMSE for a 1-variable model, 2-variable model, etc, and select the optimal predictors based on the lowest RMSE.\n\nset.seed(921)\n\nctrl <- rfeControl(functions = lmFuncs,\n                   method = \"cv\")\n\n# standardize the predictors so that they are comparable\n# You will need to edit this code if you transformed any variables or added interaction terms\nboston_standardize <- as.data.frame(scale(Boston))\nboston_standardize <- boston_standardize |> select(-c(\"medv\"))\n\nlmProfile <- rfe(boston_standardize, Boston$medv, #specify the X and Y variables\n                 sizes=c(1:12), # specify the number of variables you want to compare. Here we are assessing all possible numbers from 1-12 predictor variables\n                 rfeControl = ctrl)\n\nlmProfile #this gives the model metrics and shows which number of variables has been selected as optimal\npredictors(lmProfile) #this lists the predictors that were selected"
   },
   {
+    "objectID": "materials/unit1/prediction.html#key-takeaways",
+    "href": "materials/unit1/prediction.html#key-takeaways",
+    "title": "9.19 and 9.21: Prediction",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n\nThe first exercise is designed to help you think through the steps of cross validation.\nThe second exericse walks through the implementation of cross validation using the caret package. Note that with prediction problems, we don’t prioritize interpretation of the model. So, there is more flexibility to add variable transformations to improve model diagnostics. The biggest takeaway here was that adding transformations improve model diagnostics and reduce RMSE, thereby improving prediction accuracy of the model.\nWe can also perform variable selection with cross validation, which is a different process than the model selection procedures we introduced last week. Forward/backward/stepwise selection base inclusion decisions on p-values, which is frowned upon in the statistics community. The procedure in this exercise bases variable selection on cross validation and RMSE to improve predictions."
+  },
+  {
     "objectID": "materials/unit1/introMLR.html",
     "href": "materials/unit1/introMLR.html",
     "title": "8.31: Introduction to Multiple Linear Regression",
@@ -98,6 +105,13 @@
     "text": "Textbook\nBias-variance tradeoff: ISLR 2.2.2"
   },
   {
+    "objectID": "materials/unit1/miscMLR.html#application-exercise",
+    "href": "materials/unit1/miscMLR.html#application-exercise",
+    "title": "9.26: Wrapping up MLR",
+    "section": "Application Exercise",
+    "text": "Application Exercise\nSimpson’s Paradox\n\nAir travelers would like their flights to be on time. Airlines collect data about on-time arrivals and report them to the Department of Transportation (DoT). Here is one month’s data for flights for two airlines from five western cities.\n\n\n\n\nAirline\nOn time\nLate\n\n\n\n\nAlaska Airlines\n3274\n501\n\n\nAmerica West\n6438\n787\n\n\n\n\nCalculate the percentage of flights that are on time for each airline and the percentage of flights that are late for each airline.\nBased on the calculated percentages, which airline has the better on-time record?\n\nIn the table below, the data are broken down by city.\n\n\n\nCity\nAA - on time\nAA - late\nAW - on time\nAW - late\n\n\n\n\nLos Angeles\n497\n62\n694\n117\n\n\nPhoenix\n221\n12\n4840\n415\n\n\nSan Diego\n212\n20\n383\n65\n\n\nSan Francisco\n503\n102\n320\n129\n\n\nSeattle\n1841\n305\n201\n61\n\n\nTotal\n3274\n501\n6438\n787\n\n\n\n\nCompute the percentage on-time and percentage late values for each airline and city\nWhich airline has the best on-time record for each city?\n\nLos Angeles:\nPhoenix:\nSan Diego:\nSan Francisco:\nSeattle:\n\nExplain why this is an example of Simpson’s paradox\n\n\nExplain how the following image relates to Simpson’s paradox. \nSimpson’s paradox with COVID vaccination data\n\n\nReferences\nSimpson’s paradox airline activity: http://facweb.cs.depaul.edu/brewster/lsp121/Files/Activity%206-ans.pdf\nSimpson’s paradox image: https://stats.stackexchange.com/questions/478463/examples-of-simpsons-paradox-being-resolved-by-choosing-the-aggregate-data"
+  },
+  {
     "objectID": "materials/unit1/estimation.html",
     "href": "materials/unit1/estimation.html",
     "title": "9.05: Estimating coefficients and assessing the model",
@@ -131,6 +145,27 @@
     "title": "9.05: Estimating coefficients and assessing the model",
     "section": "Key takeaways",
     "text": "Key takeaways\n\nThis will vary depending on the variables you selected, but you probably saw that an interaction term appears to be necessary for the species variable but not necessarily sex. We see this because it appears that the slope is different for at least one species compared to the others.\nWhen an interaction term is meaningful, you should see an increase in the adjusted \\(R^2\\) value for the model with the interaction term compared to the model without. This means that the interaction term increases how much variance of the outcome is explained by the predictors."
+  },
+  {
+    "objectID": "materials/unit1/penalized.html",
+    "href": "materials/unit1/penalized.html",
+    "title": "9.28: Penalized Regression",
+    "section": "",
+    "text": "describe why penalized regression methods are useful\nfit and interpret a LASSO regression model"
+  },
+  {
+    "objectID": "materials/unit1/penalized.html#classwise-videos",
+    "href": "materials/unit1/penalized.html#classwise-videos",
+    "title": "9.28: Penalized Regression",
+    "section": "Classwise videos",
+    "text": "Classwise videos\nIf you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.\nThe first video introduces the challenges of high-dimensional data.\n\nThe second video discusses penalized regression with a focus on LASSO."
+  },
+  {
+    "objectID": "materials/unit1/penalized.html#textbook",
+    "href": "materials/unit1/penalized.html#textbook",
+    "title": "9.28: Penalized Regression",
+    "section": "Textbook",
+    "text": "Textbook\nShrinkage methods: 6.2\nConsiderations in high dimensions: 6.4"
   },
   {
     "objectID": "materials/unit1/assumptions.html",
