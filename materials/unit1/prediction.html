@@ -452,7 +452,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(result)</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>divide_into_arrs <span class="ot">&lt;-</span> <span class="cf">function</span>(df, k) { <span class="co">#CV function takes the data &amp; # folds</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>crossval <span class="ot">&lt;-</span> <span class="cf">function</span>(df, k) { <span class="co">#CV function takes the data &amp; # folds</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  metrics <span class="ot">=</span> <span class="fu">c</span>()</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  split_lst <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="co">#split the dataset into folds (could also use createFolds)</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>((<span class="fu">row_number</span>()<span class="sc">-</span><span class="dv">1</span>) <span class="sc">%/%</span> (<span class="fu">n</span>()<span class="sc">/</span>k)) <span class="sc">%&gt;%</span></span>
@@ -470,7 +470,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="at">meanMSE=</span><span class="fu">mean</span>(metrics)) <span class="co">#output the mean test MSE</span></span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="fu">divide_into_arrs</span>(Auto, <span class="dv">10</span>) <span class="co">#run the function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="fu">crossval</span>(<span class="at">df=</span>Auto, <span class="at">k=</span><span class="dv">10</span>) <span class="co">#run the function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>The second exericse walks through the implementation of cross validation using the caret package. Note that with prediction problems, we don’t prioritize interpretation of the model. So, there is more flexibility to add variable transformations to improve model diagnostics. The biggest takeaway here was that adding transformations improve model diagnostics and reduce RMSE, thereby improving prediction accuracy of the model.</p></li>
