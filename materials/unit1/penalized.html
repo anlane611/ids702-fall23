@@ -240,6 +240,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#classwise-videos" id="toc-classwise-videos" class="nav-link" data-scroll-target="#classwise-videos">Classwise videos</a></li>
   <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook">Textbook</a></li>
+  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a>
+  <ul class="collapse">
+  <li><a href="#go-further" id="toc-go-further" class="nav-link" data-scroll-target="#go-further">Go further</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -282,8 +286,19 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="textbook">Textbook</h2>
 <p>Shrinkage methods: ISLR 6.2</p>
 <p>Considerations in high dimensions: ISLR 6.4</p>
+</section>
+<section id="application-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="application-exercise">Application exercise</h2>
+<p>Follow <a href="https://koalatea.io/r-lasso-regression/">this tutorial</a> to fit a lasso model with the Boston housing data we used last week (the dataset is in the ISLR2 package). The tutorial does a nice job of building the code piece by piece to connect the concepts we’ve discussed: lasso, standardizing predictors, cross validation, and tuning the lambda parameter. You can skip the “Basic Lasso Regression in R” section and go straight to using the <code>caret</code> package that we’ve used before, though you will also need to install and load the <code>elasticnet</code> package.</p>
+<section id="go-further" class="level3">
+<h3 class="anchored" data-anchor-id="go-further">Go further</h3>
+<ul>
+<li><p>Compare your results to the RMSE you get from least squares estimation</p></li>
+<li><p>Compare your results to Ridge regression using <code>method='ridge'</code></p></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -175,6 +175,13 @@
     "text": "Textbook\nShrinkage methods: ISLR 6.2\nConsiderations in high dimensions: ISLR 6.4"
   },
   {
+    "objectID": "materials/unit1/penalized.html#application-exercise",
+    "href": "materials/unit1/penalized.html#application-exercise",
+    "title": "9.28: Penalized Regression",
+    "section": "Application exercise",
+    "text": "Application exercise\nFollow this tutorial to fit a lasso model with the Boston housing data we used last week (the dataset is in the ISLR2 package). The tutorial does a nice job of building the code piece by piece to connect the concepts we’ve discussed: lasso, standardizing predictors, cross validation, and tuning the lambda parameter. You can skip the “Basic Lasso Regression in R” section and go straight to using the caret package that we’ve used before, though you will also need to install and load the elasticnet package.\n\nGo further\n\nCompare your results to the RMSE you get from least squares estimation\nCompare your results to Ridge regression using method='ridge'"
+  },
+  {
     "objectID": "materials/unit1/assumptions.html",
     "href": "materials/unit1/assumptions.html",
     "title": "9.07: Addressing the assumptions",
