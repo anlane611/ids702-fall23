@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IDS 702 - 9.26: Wrapping up MLR</title>
+<title>IDS 702 - IDS 702: Data Modeling and Representation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -60,7 +60,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar docked">
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">9.26: Wrapping up MLR</h1>
+      <h1 class="quarto-secondary-nav-title">IDS 702: Data Modeling and Representation</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">IDS 702</a> 
+      <a href="./">IDS 702</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -94,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
+  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -115,85 +115,68 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit0/unit0b.html" class="sidebar-item-text sidebar-link">Cleaning and exploring data in R</a>
+  <a href="./materials/unit0/unit0b.html" class="sidebar-item-text sidebar-link">Cleaning and exploring data in R</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit0/unit0.html" class="sidebar-item-text sidebar-link">Key Principles of Statistics</a>
+  <a href="./materials/unit0/unit0.html" class="sidebar-item-text sidebar-link">Key Principles of Statistics</a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Unit 1: Linear Regression</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Unit 1: Linear Regression</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/SLR.html" class="sidebar-item-text sidebar-link">8.29: Simple linear regression</a>
+  <a href="./materials/unit1/SLR.html" class="sidebar-item-text sidebar-link">8.29: Simple linear regression</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/introMLR.html" class="sidebar-item-text sidebar-link">8.31: Introduction to Multiple Linear Regression</a>
+  <a href="./materials/unit1/introMLR.html" class="sidebar-item-text sidebar-link">8.31: Introduction to Multiple Linear Regression</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/estimation.html" class="sidebar-item-text sidebar-link">9.05: Estimating coefficients and assessing the model</a>
+  <a href="./materials/unit1/estimation.html" class="sidebar-item-text sidebar-link">9.05: Estimating coefficients and assessing the model</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/assumptions.html" class="sidebar-item-text sidebar-link">9.07: Addressing the assumptions</a>
+  <a href="./materials/unit1/assumptions.html" class="sidebar-item-text sidebar-link">9.07: Addressing the assumptions</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/problems.html" class="sidebar-item-text sidebar-link">9.12: Problems that can arise</a>
+  <a href="./materials/unit1/problems.html" class="sidebar-item-text sidebar-link">9.12: Problems that can arise</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/modelselection.html" class="sidebar-item-text sidebar-link">9.14: Model selection</a>
+  <a href="./materials/unit1/modelselection.html" class="sidebar-item-text sidebar-link">9.14: Model selection</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/prediction.html" class="sidebar-item-text sidebar-link">9.19 and 9.21: Prediction</a>
+  <a href="./materials/unit1/prediction.html" class="sidebar-item-text sidebar-link">9.19 and 9.21: Prediction</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/miscMLR.html" class="sidebar-item-text sidebar-link active">9.26: Wrapping up MLR</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/penalized.html" class="sidebar-item-text sidebar-link">9.28: Penalized Regression</a>
+  <a href="./materials/unit1/miscMLR.html" class="sidebar-item-text sidebar-link">9.26: Wrapping up MLR</a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Unit 2: Generalized Linear Models</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../materials/unit2/logisticintro.html" class="sidebar-item-text sidebar-link">10.3: Introduction to GLMs</a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">Unit 2: Generalized Linear Models</span>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">Unit 3: Special Topics</span>
@@ -202,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../reflections.html" class="sidebar-item-text sidebar-link">Statistics Reflections</a>
+  <a href="./reflections.html" class="sidebar-item-text sidebar-link">Statistics Reflections</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -215,12 +198,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../project/proposal.html" class="sidebar-item-text sidebar-link">Team Project Proposal</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../project/eda.html" class="sidebar-item-text sidebar-link">Team Project Exploratory Data Analysis Report</a>
+  <a href="./project/proposal.html" class="sidebar-item-text sidebar-link">Team Project Proposal</a>
   </div>
 </li>
       </ul>
@@ -235,14 +213,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../DAA/DA1.html" class="sidebar-item-text sidebar-link">Data analysis assignment 1</a>
+  <a href="./DAA/DA1.html" class="sidebar-item-text sidebar-link">Data analysis assignment 1</a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../resources.html" class="sidebar-item-text sidebar-link">Resources</a>
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">Resources</a>
   </div>
 </li>
     </ul>
@@ -254,11 +232,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#classwise-videos" id="toc-classwise-videos" class="nav-link" data-scroll-target="#classwise-videos">Classwise videos</a></li>
+  <li><a href="#course-overview" id="toc-course-overview" class="nav-link active" data-scroll-target="#course-overview">Course Overview</a></li>
+  <li><a href="#important-links" id="toc-important-links" class="nav-link" data-scroll-target="#important-links">Important Links</a></li>
   <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook">Textbook</a></li>
-  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application Exercise</a></li>
-  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
+  <li><a href="#important-dates" id="toc-important-dates" class="nav-link" data-scroll-target="#important-dates">Important Dates</a></li>
   </ul>
 </nav>
     </div>
@@ -267,7 +244,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">9.26: Wrapping up MLR</h1>
+<h1 class="title d-none d-lg-block">IDS 702: Data Modeling and Representation</h1>
+<p class="subtitle lead">Duke University <br> Fall 2023</p>
 </div>
 
 
@@ -282,143 +260,60 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
-<ul>
-<li><p>describe the basics of the bias-variance tradeoff</p></li>
-<li><p>describe Simpson’s paradox</p></li>
-<li><p>explain when it is useful to standardize predictors in linear regression</p></li>
-</ul>
+<p>Welcome to the IDS 702 course site!</p>
+<section id="course-overview" class="level2">
+<h2 class="anchored" data-anchor-id="course-overview">Course Overview</h2>
+<p><strong>Meeting times</strong>: Tuesdays and Thursdays 3:05-4:20 PM, Gross Hall 107</p>
+<a>Instructor</a> <br>
+Andrea Lane, PhD <br>
+andrea.lane@duke.edu <br>
+Gross Hall 223 <br>
+Office hours: Tues/Thurs 4:20-5:20 PM
+<br> <br>
+<a>Teaching Assistants</a> <br>
+Xiaoquan Liu <br>
+x.liu@duke.edu <br>
+Office hours: Mon 8:15-9:15AM on Zoom (<a href="https://duke.zoom.us/j/98245573605" target="_blank" rel="noopener noreferrer">click here for Zoom link</a>), Thurs 11:30AM-12:30PM Gross Hall 2nd floor conference room
+<br> <br>
+Dingkun Yang <br>
+dingkun.yang@duke.edu <br>
+Office hours: Tues 11:35AM-12:35PM Gross Hall 2nd floor conference room, Weds 3:15-4:15PM on Zoom (<a href="https://duke.zoom.us/my/yer1k" target="_blank" rel="noopener noreferrer">click here for Zoom link</a>)
+<br> <br>
 </section>
-<section id="classwise-videos" class="level2">
-<h2 class="anchored" data-anchor-id="classwise-videos">Classwise videos</h2>
-<p>These videos cover three miscellaneous topics to wrap up our conversation about linear regression.</p>
-<p>If you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.</p>
-<p>The first video introduces the bias-variance tradeoff. This is more relevant to machine learning than inferential statistical modeling, so you will learn more about it next semester. However, I want to go ahead and introduce the concept.</p>
-<iframe height="600" width="100%" src="https://classwise.org/home/openItem/202309-2401-0216-bb9aa6f1-eb9b-44f3-97ad-39702d2247ad&amp;video&amp;embed"></iframe>
-<p>The second video discusses Simpson’s paradox. This relates to the concept of confounding and emphasizes the importance of using multiple linear regression rather than simple linear regression. The video also covers tidyverse functions <code>group_by()</code> and <code>count()</code> which will be useful as you explore data.</p>
-<iframe height="600" width="100%" src="https://classwise.org/home/openItem/202309-2401-2522-971939e7-fbd0-4f97-811c-aa5d97ef2c0e&amp;video&amp;embed"></iframe>
-<p>Finally, see <a href="https://www.listendata.com/2017/04/how-to-standardize-variable-in-regression.html">this tutorial</a> on standardizing predictors. Focus on the z-score and centering, and the sections on when and when not to standardize. Note that this is much more relevant when prediction is the goal. Standardizing predictors changes the interpretation of the coefficient estimates; therefore, when inference/interpreting estimates the goal, we generally do not standardize.</p>
+<section id="important-links" class="level2">
+<h2 class="anchored" data-anchor-id="important-links">Important Links</h2>
+<p><a href="https://www.gradescope.com/">Gradescope</a> (join course with code 2PGWK8)</p>
+<p>Slack: join the 702-fa23 channel in the MIDS workspace</p>
+<p><a href="https://cmgr.oit.duke.edu/containers">Duke R container</a></p>
 </section>
 <section id="textbook" class="level2">
 <h2 class="anchored" data-anchor-id="textbook">Textbook</h2>
-<p>Bias-variance tradeoff: ISLR 2.2.2</p>
+<p><a href="https://www.statlearning.com/">An Introduction to Statistical Learning with Applications in R, 2nd edition</a> by James, G., Witten, D., Hastie, T., and Tibshirani, R.</p>
+<p><em>Use the link above to download a PDF of the book</em></p>
 </section>
-<section id="application-exercise" class="level2">
-<h2 class="anchored" data-anchor-id="application-exercise">Application Exercise</h2>
-<p>Simpson’s Paradox</p>
-<ol type="1">
-<li>Air travelers would like their flights to be on time. Airlines collect data about on-time arrivals and report them to the Department of Transportation (DoT). Here is one month’s data for flights for two airlines from five western cities.</li>
-</ol>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Airline</th>
-<th>On time</th>
-<th>Late</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Alaska Airlines</td>
-<td>3274</td>
-<td>501</td>
-</tr>
-<tr class="even">
-<td>America West</td>
-<td>6438</td>
-<td>787</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p>Calculate the percentage of flights that are on time for each airline and the percentage of flights that are late for each airline.</p></li>
-<li><p>Based on the calculated percentages, which airline has the better on-time record?</p></li>
-</ul>
-<p>In the table below, the data are broken down by city.</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>City</th>
-<th>AA - on time</th>
-<th>AA - late</th>
-<th>AW - on time</th>
-<th>AW - late</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Los Angeles</td>
-<td>497</td>
-<td>62</td>
-<td>694</td>
-<td>117</td>
-</tr>
-<tr class="even">
-<td>Phoenix</td>
-<td>221</td>
-<td>12</td>
-<td>4840</td>
-<td>415</td>
-</tr>
-<tr class="odd">
-<td>San Diego</td>
-<td>212</td>
-<td>20</td>
-<td>383</td>
-<td>65</td>
-</tr>
-<tr class="even">
-<td>San Francisco</td>
-<td>503</td>
-<td>102</td>
-<td>320</td>
-<td>129</td>
-</tr>
-<tr class="odd">
-<td>Seattle</td>
-<td>1841</td>
-<td>305</td>
-<td>201</td>
-<td>61</td>
-</tr>
-<tr class="even">
-<td><strong>Total</strong></td>
-<td><strong>3274</strong></td>
-<td><strong>501</strong></td>
-<td><strong>6438</strong></td>
-<td><strong>787</strong></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p>Compute the percentage on-time and percentage late values for each airline and city</p></li>
-<li><p>Which airline has the best on-time record for each city?</p>
-<ul>
-<li><p>Los Angeles:</p></li>
-<li><p>Phoenix:</p></li>
-<li><p>San Diego:</p></li>
-<li><p>San Francisco:</p></li>
-<li><p>Seattle:</p></li>
-</ul></li>
-<li><p>Explain why this is an example of Simpson’s paradox</p></li>
-</ul>
-<ol start="2" type="1">
-<li>Explain how the following image relates to Simpson’s paradox. <img src="aCzDa.png" class="img-fluid"></li>
-<li><a href="https://www.ntu.ac.uk/about-us/news/news-articles/2021/11/in-the-wrong-hands,-vaccination-statistics-can-prove-deadly-simpsons-paradox-shows-why">Simpson’s paradox with COVID vaccination data</a></li>
-</ol>
-<section id="references" class="level4">
-<h4 class="anchored" data-anchor-id="references">References</h4>
-<p>Simpson’s paradox airline activity: http://facweb.cs.depaul.edu/brewster/lsp121/Files/Activity%206-ans.pdf</p>
-<p>Simpson’s paradox image: https://stats.stackexchange.com/questions/478463/examples-of-simpsons-paradox-being-resolved-by-choosing-the-aggregate-data</p>
-</section>
-</section>
-<section id="key-takeaways" class="level2">
-<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
-<ul>
-<li><p>The key takeaway of this exercise is that aggregated data can mask the relationship between two variables that changes with the inclusion of a third variable. This is one reason that we do multiple linear regression instead of simple linear regression.</p></li>
-<li><p>The exercise also helps to develop statistical literacy. When you see aggregated data/percentages in the news, consider if it might be misleading. Is there a third variable that would help to shed light on the relationship between the two variables?</p></li>
-</ul>
+<section id="important-dates" class="level2">
+<h2 class="anchored" data-anchor-id="important-dates">Important Dates</h2>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="table-primary">
+      <th scope="row">Tuesday, Aug. 29</th>
+      <td>First day of class</td>
+    </tr>
+    <tr class="table-primary">
+      <th scope="row">Tuesday, Oct. 17</th>
+      <td>Fall break - no class meeting</td>
+    </tr>
+    <tr class="table-primary">
+      <th scope="row">Thursday, Nov. 23 </th>
+      <td>Thanksgiving holiday - no class meeting </td>
+    </tr>
+        <tr class="table-primary">
+      <th scope="row">Friday, Dec 1 </th>
+      <td>Classes end, final reports due </td>
+    </tr>
+  
+</thead></table>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IDS 702 - 9.26: Wrapping up MLR</title>
+<title>IDS 702 - 9.12: Problems that can arise</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -69,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">9.26: Wrapping up MLR</h1>
+      <h1 class="quarto-secondary-nav-title">9.12: Problems that can arise</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -155,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/problems.html" class="sidebar-item-text sidebar-link">9.12: Problems that can arise</a>
+  <a href="../../materials/unit1/problems.html" class="sidebar-item-text sidebar-link active">9.12: Problems that can arise</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -170,30 +233,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/miscMLR.html" class="sidebar-item-text sidebar-link active">9.26: Wrapping up MLR</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/penalized.html" class="sidebar-item-text sidebar-link">9.28: Penalized Regression</a>
+  <a href="../../materials/unit1/miscMLR.html" class="sidebar-item-text sidebar-link">9.26: Wrapping up MLR</a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Unit 2: Generalized Linear Models</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../materials/unit2/logisticintro.html" class="sidebar-item-text sidebar-link">10.3: Introduction to GLMs</a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">Unit 2: Generalized Linear Models</span>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">Unit 3: Special Topics</span>
@@ -216,11 +262,6 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../project/proposal.html" class="sidebar-item-text sidebar-link">Team Project Proposal</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../project/eda.html" class="sidebar-item-text sidebar-link">Team Project Exploratory Data Analysis Report</a>
   </div>
 </li>
       </ul>
@@ -257,8 +298,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#classwise-videos" id="toc-classwise-videos" class="nav-link" data-scroll-target="#classwise-videos">Classwise videos</a></li>
   <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook">Textbook</a></li>
-  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application Exercise</a></li>
-  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
+  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -267,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">9.26: Wrapping up MLR</h1>
+<h1 class="title d-none d-lg-block">9.12: Problems that can arise</h1>
 </div>
 
 
@@ -285,139 +326,53 @@ ul.task-list li input[type="checkbox"] {
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <ul>
-<li><p>describe the basics of the bias-variance tradeoff</p></li>
-<li><p>describe Simpson’s paradox</p></li>
-<li><p>explain when it is useful to standardize predictors in linear regression</p></li>
+<li><p>interpret plots of leverage and Cook’s distance</p></li>
+<li><p>understand the problem of multicollinearity</p></li>
 </ul>
 </section>
 <section id="classwise-videos" class="level2">
 <h2 class="anchored" data-anchor-id="classwise-videos">Classwise videos</h2>
-<p>These videos cover three miscellaneous topics to wrap up our conversation about linear regression.</p>
 <p>If you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.</p>
-<p>The first video introduces the bias-variance tradeoff. This is more relevant to machine learning than inferential statistical modeling, so you will learn more about it next semester. However, I want to go ahead and introduce the concept.</p>
-<iframe height="600" width="100%" src="https://classwise.org/home/openItem/202309-2401-0216-bb9aa6f1-eb9b-44f3-97ad-39702d2247ad&amp;video&amp;embed"></iframe>
-<p>The second video discusses Simpson’s paradox. This relates to the concept of confounding and emphasizes the importance of using multiple linear regression rather than simple linear regression. The video also covers tidyverse functions <code>group_by()</code> and <code>count()</code> which will be useful as you explore data.</p>
-<iframe height="600" width="100%" src="https://classwise.org/home/openItem/202309-2401-2522-971939e7-fbd0-4f97-811c-aa5d97ef2c0e&amp;video&amp;embed"></iframe>
-<p>Finally, see <a href="https://www.listendata.com/2017/04/how-to-standardize-variable-in-regression.html">this tutorial</a> on standardizing predictors. Focus on the z-score and centering, and the sections on when and when not to standardize. Note that this is much more relevant when prediction is the goal. Standardizing predictors changes the interpretation of the coefficient estimates; therefore, when inference/interpreting estimates the goal, we generally do not standardize.</p>
+<iframe height="600" width="100%" src="https://classwise.org/home/openItem/202309-1004-4531-bbaee412-77a4-4189-83d9-fd61ceeb3947&amp;lecture&amp;embed"></iframe>
+<iframe height="600" width="100%" src="https://classwise.org/home/openItem/202309-1004-4846-8948c0a9-08ca-48b8-a902-dd1bb1408cc6&amp;lecture&amp;embed"></iframe>
 </section>
 <section id="textbook" class="level2">
 <h2 class="anchored" data-anchor-id="textbook">Textbook</h2>
-<p>Bias-variance tradeoff: ISLR 2.2.2</p>
+<p>ISLR 3.3.3</p>
 </section>
 <section id="application-exercise" class="level2">
-<h2 class="anchored" data-anchor-id="application-exercise">Application Exercise</h2>
-<p>Simpson’s Paradox</p>
+<h2 class="anchored" data-anchor-id="application-exercise">Application exercise</h2>
+<p>For this exercise, we will use the Hitters dataset from the ISLR2 package</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"Hitters"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>?Hitters <span class="co">#run this for the data dictionary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ol type="1">
-<li>Air travelers would like their flights to be on time. Airlines collect data about on-time arrivals and report them to the Department of Transportation (DoT). Here is one month’s data for flights for two airlines from five western cities.</li>
-</ol>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Airline</th>
-<th>On time</th>
-<th>Late</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Alaska Airlines</td>
-<td>3274</td>
-<td>501</td>
-</tr>
-<tr class="even">
-<td>America West</td>
-<td>6438</td>
-<td>787</td>
-</tr>
-</tbody>
-</table>
+<li><p>We want to understand how hitter statistics are associated with salaries. More specifically, we want to assess the model regressing Salary on the following predictors: Hits, HmRun, Runs, RBI, Years, CHits, CHmRun, CRuns, and CRBI. Let’s first create a correlation plot of the 9 predictors. Comment on what you observe in the correlation plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot) <span class="co">#you will need to install this package</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(Hitters[,<span class="fu">c</span>(<span class="st">"Hits"</span>, <span class="st">"HmRun"</span>, <span class="st">"Runs"</span>, <span class="st">"RBI"</span>, <span class="st">"Years"</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"CHits"</span>, <span class="st">"CHmRun"</span>,<span class="st">"CRuns"</span>,<span class="st">"CRBI"</span>)]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Now, fit the model. Take note of the output.</p></li>
+<li><p>Use the <code>vif()</code> function in the car package to calculate VIF values for each predictors. Do any of the predictors have high VIF values? If so, which one(s)?</p></li>
+<li><p>Fit another model but without the career variables (i.e., using Hits, HmRun, Runs, RBI, and Years). Note differences in the model output for these predictors between this model and the model you fit in #2 in terms of estimates, standard errors, and p-values.</p></li>
+<li><p>Look at the model diagnostics plots.</p>
 <ul>
-<li><p>Calculate the percentage of flights that are on time for each airline and the percentage of flights that are late for each airline.</p></li>
-<li><p>Based on the calculated percentages, which airline has the better on-time record?</p></li>
-</ul>
-<p>In the table below, the data are broken down by city.</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>City</th>
-<th>AA - on time</th>
-<th>AA - late</th>
-<th>AW - on time</th>
-<th>AW - late</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Los Angeles</td>
-<td>497</td>
-<td>62</td>
-<td>694</td>
-<td>117</td>
-</tr>
-<tr class="even">
-<td>Phoenix</td>
-<td>221</td>
-<td>12</td>
-<td>4840</td>
-<td>415</td>
-</tr>
-<tr class="odd">
-<td>San Diego</td>
-<td>212</td>
-<td>20</td>
-<td>383</td>
-<td>65</td>
-</tr>
-<tr class="even">
-<td>San Francisco</td>
-<td>503</td>
-<td>102</td>
-<td>320</td>
-<td>129</td>
-</tr>
-<tr class="odd">
-<td>Seattle</td>
-<td>1841</td>
-<td>305</td>
-<td>201</td>
-<td>61</td>
-</tr>
-<tr class="even">
-<td><strong>Total</strong></td>
-<td><strong>3274</strong></td>
-<td><strong>501</strong></td>
-<td><strong>6438</strong></td>
-<td><strong>787</strong></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p>Compute the percentage on-time and percentage late values for each airline and city</p></li>
-<li><p>Which airline has the best on-time record for each city?</p>
-<ul>
-<li><p>Los Angeles:</p></li>
-<li><p>Phoenix:</p></li>
-<li><p>San Diego:</p></li>
-<li><p>San Francisco:</p></li>
-<li><p>Seattle:</p></li>
+<li>Are there any influential points? If so, fit the model without those observation(s) and note any differences in the summary output and/or the diagnostic plots.</li>
+<li>Do you notice any other potential violations in model assumptions? If so, what adjustments could be made?</li>
 </ul></li>
-<li><p>Explain why this is an example of Simpson’s paradox</p></li>
-</ul>
-<ol start="2" type="1">
-<li>Explain how the following image relates to Simpson’s paradox. <img src="aCzDa.png" class="img-fluid"></li>
-<li><a href="https://www.ntu.ac.uk/about-us/news/news-articles/2021/11/in-the-wrong-hands,-vaccination-statistics-can-prove-deadly-simpsons-paradox-shows-why">Simpson’s paradox with COVID vaccination data</a></li>
 </ol>
-<section id="references" class="level4">
-<h4 class="anchored" data-anchor-id="references">References</h4>
-<p>Simpson’s paradox airline activity: http://facweb.cs.depaul.edu/brewster/lsp121/Files/Activity%206-ans.pdf</p>
-<p>Simpson’s paradox image: https://stats.stackexchange.com/questions/478463/examples-of-simpsons-paradox-being-resolved-by-choosing-the-aggregate-data</p>
-</section>
 </section>
 <section id="key-takeaways" class="level2">
-<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<h2 class="anchored" data-anchor-id="key-takeaways">Key takeaways</h2>
 <ul>
-<li><p>The key takeaway of this exercise is that aggregated data can mask the relationship between two variables that changes with the inclusion of a third variable. This is one reason that we do multiple linear regression instead of simple linear regression.</p></li>
-<li><p>The exercise also helps to develop statistical literacy. When you see aggregated data/percentages in the news, consider if it might be misleading. Is there a third variable that would help to shed light on the relationship between the two variables?</p></li>
+<li><p>From the correlation plot, you should see that the single-season variables and the career variables are highly correlated with each other</p></li>
+<li><p>We see very high VIF values for the career variables. I recommended removing those because they are so high and much higher than the other predictors. I encourage you not to rely strictly on the &gt;10 threshold.</p></li>
+<li><p>After removing the career variables, we see that the standard errors for the single-season variables generally decrease. Perhaps the most notable and intuitive difference in the output is in the Years variable. We would expect that salaries generally increase as years in the league increase. In the first model, we had high collinearity between the Years variable and the career variables, and the estimate was negative. After removing the career variables with which the Years variable was highly correlated, the standard error for Years is quite a bit lower and the estimate is positive (and statistically significant)</p></li>
+<li><p>For the model diagnostic plots, we see potential violation of homoscedasticity and normality. If we log-transform the outcome, the model diagnostic plots are more “cloud-like.” Log-transformations are often necessary when outcome variables have to do with money (salary, price, income, etc.).</p></li>
+<li><p>We see a few outliers and high-leverage points, though no influential points identified with Cook’s distance. If we remove Mike Schmidt, Rickey Henderson, and Terry Kennedy, the model output is slightly different but we don’t see substantial differences (i.e., conclusions drawn from p-values are not different)</p></li>
 </ul>
 
 

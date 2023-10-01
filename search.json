@@ -539,6 +539,27 @@
     "text": "Linear regression"
   },
   {
+    "objectID": "project/eda.html",
+    "href": "project/eda.html",
+    "title": "Team Project Exploratory Data Analysis Report",
+    "section": "",
+    "text": "The purpose of the exploratory data analysis report is to practice thinking critically about your dataset and how it connects to your research questions. You will always need to explore data before you analyze it, but this should be an intentional process. Additionally, when you present EDA results to a client, they should always be well-formatted and clearly connected to the research question. Therefore, the purpose of this part of the group project is to practice exploring data and effectively communicating the results of the exploratory data analysis."
+  },
+  {
+    "objectID": "project/eda.html#eda-report",
+    "href": "project/eda.html#eda-report",
+    "title": "Team Project Exploratory Data Analysis Report",
+    "section": "EDA Report",
+    "text": "EDA Report\nYou will generate a report (in Quarto) detailing your exploratory data analysis results. The report is required to be at most 5 pages, including tables and figures. Tables and figures must be well-formatted with clear labels and descriptions. This means you should always use variable descriptions instead of “raw” variable names (e.g., “Salary ($)” instead of “salary_in_usd”).\nThe report should be organized in the following sections.\n\nData Overview: Provide the chief characteristics of your data, including sample size, number of variables, and source (you can use any citation format, but include more than just the link). Briefly describe how the data were collected. What does each row represent? Include your research questions in this section.\nOutcome variables: Present a plot for each of your outcome variables. Describe the plots.\nPrimary relationships of interest: Present descriptive statistics and exploratory plots in whichever format you think is best (tables, figures) for your primary relationship of interest (dependent variable and primary independent variable, if applicable). Describe your findings. Whether you have one primary independent variable of interest or multiple will depend on your research question.\nOther characteristics: Briefly describe other variables in the data. If there are many, do not list them all. Rather, describe the types of variables that are present (e.g., “demographic information”).\nPotential challenges: Describe aspects of the data that may present challenges in the modeling stage. For example, might certain categorical variables need to be collapsed? Do you have any missingness, particularly in key variables of interest? Could the size of the dataset present model selection challenges?\n\nNo data cleaning is required for the EDA report, with the exception of combining datasets or creating an outcome variable, if applicable. Your report is required to be generated with Quarto and rendered directly to PDF. You will not be required to submit the quarto file. You will submit a single qmd when you submit your final report at the end of the semester.\nSubmit one report per group. One person will submit and select the other group members in the Gradescope submission. Be sure to assign pages in Gradescope when you submit."
+  },
+  {
+    "objectID": "project/eda.html#suggestions",
+    "href": "project/eda.html#suggestions",
+    "title": "Team Project Exploratory Data Analysis Report",
+    "section": "Suggestions",
+    "text": "Suggestions\n\nYou might consider using one of the EDA packages mentioned in one of the class exercises: DataExplorer and SmartEDA. Make sure you can modify the table and figure labels.\nIf you have a binary/categorical variable of interest, you should consider generating a table 1, in which descriptive statistics are given for different levels of a categorical variable. This page has examples, but if you use the package, make sure it will render to pdf.\nIt is fine to use visual editor to produce tables. However, if you want to generate a more advanced (and “prettier”) table, the kableExtra package is a good option.\nUse github to share code among group members. As a group, plan the tables and figures you want to generate, and split them up among the group members. Then you can consolidate your code to generate the report."
+  },
+  {
     "objectID": "project/proposal.html",
     "href": "project/proposal.html",
     "title": "Team Project Proposal",
