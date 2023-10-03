@@ -2,106 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit2/logisticintro.html</loc>
-    <lastmod>2023-10-01T22:44:01.943Z</lastmod>
+    <lastmod>2023-10-03T19:06:21.494Z</lastmod>
+  </url>
+  <url>
+    <loc>https://anlane611.github.io/ids702-fall23/materials/unit2/logisticestimation.html</loc>
+    <lastmod>2023-10-03T19:06:22.029Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit1/prediction.html</loc>
-    <lastmod>2023-10-01T22:44:02.777Z</lastmod>
+    <lastmod>2023-10-03T19:06:23.050Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit1/introMLR.html</loc>
-    <lastmod>2023-10-01T22:44:03.564Z</lastmod>
+    <lastmod>2023-10-03T19:06:23.841Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit1/miscMLR.html</loc>
-    <lastmod>2023-10-01T22:44:04.206Z</lastmod>
+    <lastmod>2023-10-03T19:06:24.378Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit1/estimation.html</loc>
-    <lastmod>2023-10-01T22:44:04.802Z</lastmod>
+    <lastmod>2023-10-03T19:06:25.220Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit1/penalized.html</loc>
-    <lastmod>2023-10-01T22:44:05.197Z</lastmod>
+    <lastmod>2023-10-03T19:06:25.679Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit1/assumptions.html</loc>
-    <lastmod>2023-10-01T22:44:05.803Z</lastmod>
+    <lastmod>2023-10-03T19:06:26.478Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit1/SLR.html</loc>
-    <lastmod>2023-10-01T22:44:06.233Z</lastmod>
+    <lastmod>2023-10-03T19:06:27.067Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit1/problems.html</loc>
-    <lastmod>2023-10-01T22:44:06.853Z</lastmod>
+    <lastmod>2023-10-03T19:06:27.951Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit1/modelselection.html</loc>
-    <lastmod>2023-10-01T22:44:07.207Z</lastmod>
+    <lastmod>2023-10-03T19:06:28.545Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit1/introtomlrcode.html</loc>
-    <lastmod>2023-10-01T22:44:12.779Z</lastmod>
+    <lastmod>2023-10-03T19:06:35.460Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit0/unit0b.html</loc>
-    <lastmod>2023-10-01T22:44:13.224Z</lastmod>
+    <lastmod>2023-10-03T19:06:35.977Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit0/unit0a.html</loc>
-    <lastmod>2023-10-01T22:44:13.830Z</lastmod>
+    <lastmod>2023-10-03T19:06:36.736Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/materials/unit0/unit0.html</loc>
-    <lastmod>2023-10-01T22:44:14.579Z</lastmod>
+    <lastmod>2023-10-03T19:06:37.560Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/DAA/DA1.html</loc>
-    <lastmod>2023-10-01T22:44:15.806Z</lastmod>
+    <lastmod>2023-10-03T19:06:39.287Z</lastmod>
+  </url>
+  <url>
+    <loc>https://anlane611.github.io/ids702-fall23/DAA/DA2.html</loc>
+    <lastmod>2023-10-03T19:06:41.652Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/index.html</loc>
-    <lastmod>2023-10-01T22:44:16.123Z</lastmod>
+    <lastmod>2023-10-03T19:06:42.174Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/unit2.html</loc>
-    <lastmod>2023-10-01T22:44:16.457Z</lastmod>
+    <lastmod>2023-10-03T19:06:42.687Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/about.html</loc>
-    <lastmod>2023-10-01T22:44:16.816Z</lastmod>
+    <lastmod>2023-10-03T19:06:43.191Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/project/eda.html</loc>
-    <lastmod>2023-10-01T22:44:17.198Z</lastmod>
+    <lastmod>2023-10-03T19:06:43.769Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/project/proposal.html</loc>
-    <lastmod>2023-10-01T22:44:17.590Z</lastmod>
+    <lastmod>2023-10-03T19:06:44.329Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/reflections.html</loc>
-    <lastmod>2023-10-01T22:44:18.010Z</lastmod>
+    <lastmod>2023-10-03T19:06:44.868Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/unit3.html</loc>
-    <lastmod>2023-10-01T22:44:18.343Z</lastmod>
+    <lastmod>2023-10-03T19:06:45.384Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/unit1.html</loc>
-    <lastmod>2023-10-01T22:44:18.729Z</lastmod>
+    <lastmod>2023-10-03T19:06:45.808Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/syllabus.html</loc>
-    <lastmod>2023-10-01T22:44:19.227Z</lastmod>
+    <lastmod>2023-10-03T19:06:46.856Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/introtomlrcode.html</loc>
-    <lastmod>2023-10-01T22:44:24.133Z</lastmod>
+    <lastmod>2023-10-03T19:06:53.038Z</lastmod>
   </url>
   <url>
     <loc>https://anlane611.github.io/ids702-fall23/resources.html</loc>
-    <lastmod>2023-10-01T22:44:24.457Z</lastmod>
+    <lastmod>2023-10-03T19:06:53.443Z</lastmod>
   </url>
 </urlset>
