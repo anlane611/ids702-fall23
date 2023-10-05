@@ -53,7 +53,7 @@
     "href": "materials/unit2/logisticestimation.html#application-exercise",
     "title": "10.5: Logistic Regression estimation and interpretation",
     "section": "Application exercise",
-    "text": "Application exercise\nGroups for this week"
+    "text": "Application exercise\nGroups for this week\nThis exercise uses a dataset that contains information on patients and whether or not they were diagnosed with heart disease.\nSource and data dictionary\nKaggle link (may have more info on variables)\nRead in the data:\n\nheart <- read.csv(\"https://raw.githubusercontent.com/anlane611/datasets/main/heart.csv\")\n\n\nExplore the data. Use the data dictionary to determine which variables are numeric and which are categorical. Create factor variables for the categorical variables.\nProvide summary statistics (N and %) for the outcome variable\nCalculate summary statistics for those with and without heart disease for the following variables: age, sex, chest pain type, cholesterol. (which summary statistics are appropriate for each variable?)\nFit a logistic regression model regressing heart disease status on the predictors listed in #3.\n\nWhich variables are significantly associated with heart disease status?\nWhat are the reference levels for the categorical variables?\nWrite interpretations for the coefficient estimates. Interpret the coefficient estimates in terms of log odds and odds/odds ratios.\nObtain confidence intervals for the coefficient estimates on the log odds and the odds scale. Write interpretations."
   },
   {
     "objectID": "materials/unit1/prediction.html",
@@ -536,7 +536,14 @@
     "href": "DAA/DA2.html",
     "title": "Data analysis assignment 2",
     "section": "",
-    "text": "An important part of being a data scientist is documenting your modeling process. You are often not the only person who will analyze a given dataset. A data scientist who analyzes data after you should be able to clearly understand (and be able to replicate) your modeling decisions.\nFor this assignment, you will be assigned one of two datasets. Your deliverable will be a model documentation report for your dataset. Then, you will swap with someone with the other dataset, and you will each evaluate the documentation based on clarity. After the peer review, you will be able to revise your documentation before final submission.\nGiven this structure, your grade will be based on the following three components:\n\nQuality of your peer review for a classmate (Oct 19)\nFeedback from peer review of your initial document (Oct 19)\nYour final documentation report (due Oct 27)"
+    "text": "First due date for peer review: Thursday, October 19 in class\nFinal product due date: Friday, October 27, 11:59 PM"
+  },
+  {
+    "objectID": "DAA/DA2.html#logistic-regression-model-documentation",
+    "href": "DAA/DA2.html#logistic-regression-model-documentation",
+    "title": "Data analysis assignment 2",
+    "section": "Logistic regression model documentation",
+    "text": "Logistic regression model documentation\nAn important part of being a data scientist is documenting your modeling process. You are often not the only person who will analyze a given dataset. A data scientist who analyzes data after you should be able to clearly understand (and be able to replicate) your modeling decisions.\nFor this assignment, you will be assigned one of two datasets. Your deliverable will be a model documentation report for your dataset. Then, you will swap with someone with the other dataset, and you will each evaluate the documentation based on clarity. After the peer review, you will be able to revise your documentation before final submission.\nGiven this structure, your grade will be based on the following three components:\n\nQuality of your peer review for a classmate (Oct 19)\nFeedback from peer review of your initial document (Oct 19)\nYour final documentation report (due Oct 27)"
   },
   {
     "objectID": "DAA/DA2.html#the-datasets",
@@ -592,7 +599,7 @@
     "href": "index.html#important-dates",
     "title": "IDS 702: Data Modeling and Representation",
     "section": "Important Dates",
-    "text": "Important Dates\n\n\n  \n    \n      Tuesday, Aug. 29\n      First day of class\n    \n    \n      Tuesday, Oct. 17\n      Fall break - no class meeting\n    \n    \n      Thursday, Nov. 23 \n      Thanksgiving holiday - no class meeting \n    \n        \n      Friday, Dec 1 \n      Classes end, final reports due"
+    "text": "Important Dates\n\n\n  \n    \n      Tuesday, Aug. 29\n      First day of class\n    \n    \n      Friday, Oct. 6 11:59 PM\n      Statistics reflection due\n    \n    \n      Tuesday, Oct. 17\n      Fall break - no class meeting\n    \n    \n      Thursday, Oct. 19 IN CLASS\n      DA2 due for peer review in class\n    \n    \n      Tuesday, Oct. 24 11:59 PM\n      Project - EDA Report due\n    \n    \n      Friday, Oct. 27 11:59 PM\n      DA2 due\n    \n    \n      Friday, Oct. 27 11:59 PM\n      Statistics reflection due\n    \n    \n      Thursday, Nov. 23 \n      Thanksgiving holiday - no class meeting \n    \n        \n      Friday, Dec 1 \n      Classes end, final reports due"
   },
   {
     "objectID": "about.html",
