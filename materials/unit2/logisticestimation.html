@@ -328,7 +328,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#supplemental-videos" id="toc-supplemental-videos" class="nav-link" data-scroll-target="#supplemental-videos">Supplemental videos:</a></li>
   </ul></li>
   <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook">Textbook</a></li>
-  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a></li>
+  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a>
+  <ul class="collapse">
+  <li><a href="#interpretation-example" id="toc-interpretation-example" class="nav-link" data-scroll-target="#interpretation-example">Interpretation example</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -397,8 +400,90 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Obtain confidence intervals for the coefficient estimates on the log odds and the odds scale. Write interpretations.</li>
 </ul></li>
 </ol>
+<section id="interpretation-example" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation-example">Interpretation example</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>logistic_mod <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="fu">factor</span>(target)<span class="sc">~</span>age<span class="sc">+</span><span class="fu">factor</span>(sex)<span class="sc">+</span><span class="fu">factor</span>(cp)<span class="sc">+</span>chol,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data=</span>heart,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">family=</span><span class="st">"binomial"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(logistic_mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = factor(target) ~ age + factor(sex) + factor(cp) + 
+    chol, family = "binomial", data = heart)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.3725  -0.7048   0.2500   0.7283   2.3014  
+
+Coefficients:
+              Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)   4.996949   1.272158   3.928 8.57e-05 ***
+age          -0.063873   0.017857  -3.577 0.000348 ***
+factor(sex)1 -1.893397   0.362270  -5.226 1.73e-07 ***
+factor(cp)1   2.539393   0.448455   5.663 1.49e-08 ***
+factor(cp)2   2.369649   0.356264   6.651 2.90e-11 ***
+factor(cp)3   2.239028   0.536138   4.176 2.96e-05 ***
+chol         -0.004843   0.002860  -1.693 0.090421 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 417.64  on 302  degrees of freedom
+Residual deviance: 290.08  on 296  degrees of freedom
+AIC: 304.08
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(logistic_mod))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> (Intercept)          age factor(sex)1  factor(cp)1  factor(cp)2  factor(cp)3 
+ 147.9610497    0.9381237    0.1505595   12.6719713   10.6936382    9.3842018 
+        chol 
+   0.9951684 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(logistic_mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Waiting for profiling to be done...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   2.5 %        97.5 %
+(Intercept)   2.56601978  7.5719389233
+age          -0.09988456 -0.0296383710
+factor(sex)1 -2.63098019 -1.2062295548
+factor(cp)1   1.69939388  3.4701380328
+factor(cp)2   1.69363365  3.0951948249
+factor(cp)3   1.22495261  3.3471173833
+chol         -0.01052805  0.0007980208</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">confint</span>(logistic_mod))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Waiting for profiling to be done...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   2.5 %       97.5 %
+(Intercept)  13.01392295 1942.9037732
+age           0.90494188    0.9707965
+factor(sex)1  0.07200785    0.2993237
+factor(cp)1   5.47063055   32.1411787
+factor(cp)2   5.43920900   22.0915421
+factor(cp)3   3.40400477   28.4206895
+chol          0.98952718    1.0007983</code></pre>
+</div>
+</div>
+<p>Log odds scale:</p>
+<p>With each additional year, the log odds of heart disease decrease by 0.06, all else held constant.</p>
+<p>The log odds of heart disease for males are 1.89 lower than the log odds of heart disease for females.</p>
+<p>We are 95% confident that the true difference in log odds of heart disease between males and females is between -2.6 and -1.2.</p>
+<p>Odds/odds ratio scale:</p>
+<p>With each additional year, the odds of heart disease decrease 0.94 times (or: the odds decrease by 6%).</p>
+<p>The odds of heart disease for males are .15 times the odds of heart disease for females (or: the odds are 85% lower).</p>
+<p>We are 95% confidence that the true odds ratio of heart disease for males to females is between 0.07 and 0.3.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
