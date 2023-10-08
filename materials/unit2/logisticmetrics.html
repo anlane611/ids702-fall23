@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IDS 702 - Unit 2: Generalized Linear Models</title>
+<title>IDS 702 - 10.10: Logistic Regression assessment</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -60,7 +60,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked">
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Unit 2: Generalized Linear Models</h1>
+      <h1 class="quarto-secondary-nav-title">10.10: Logistic Regression assessment</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">IDS 702</a> 
+      <a href="../../">IDS 702</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -94,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -115,12 +115,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit0/unit0b.html" class="sidebar-item-text sidebar-link">Cleaning and exploring data in R</a>
+  <a href="../../materials/unit0/unit0b.html" class="sidebar-item-text sidebar-link">Cleaning and exploring data in R</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit0/unit0.html" class="sidebar-item-text sidebar-link">Key Principles of Statistics</a>
+  <a href="../../materials/unit0/unit0.html" class="sidebar-item-text sidebar-link">Key Principles of Statistics</a>
   </div>
 </li>
       </ul>
@@ -135,72 +135,72 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit1/SLR.html" class="sidebar-item-text sidebar-link">8.29: Simple linear regression</a>
+  <a href="../../materials/unit1/SLR.html" class="sidebar-item-text sidebar-link">8.29: Simple linear regression</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit1/introMLR.html" class="sidebar-item-text sidebar-link">8.31: Introduction to Multiple Linear Regression</a>
+  <a href="../../materials/unit1/introMLR.html" class="sidebar-item-text sidebar-link">8.31: Introduction to Multiple Linear Regression</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit1/estimation.html" class="sidebar-item-text sidebar-link">9.05: Estimating coefficients and assessing the model</a>
+  <a href="../../materials/unit1/estimation.html" class="sidebar-item-text sidebar-link">9.05: Estimating coefficients and assessing the model</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit1/assumptions.html" class="sidebar-item-text sidebar-link">9.07: Addressing the assumptions</a>
+  <a href="../../materials/unit1/assumptions.html" class="sidebar-item-text sidebar-link">9.07: Addressing the assumptions</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit1/problems.html" class="sidebar-item-text sidebar-link">9.12: Problems that can arise</a>
+  <a href="../../materials/unit1/problems.html" class="sidebar-item-text sidebar-link">9.12: Problems that can arise</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit1/modelselection.html" class="sidebar-item-text sidebar-link">9.14: Model selection</a>
+  <a href="../../materials/unit1/modelselection.html" class="sidebar-item-text sidebar-link">9.14: Model selection</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit1/prediction.html" class="sidebar-item-text sidebar-link">9.19 and 9.21: Prediction</a>
+  <a href="../../materials/unit1/prediction.html" class="sidebar-item-text sidebar-link">9.19 and 9.21: Prediction</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit1/miscMLR.html" class="sidebar-item-text sidebar-link">9.26: Wrapping up MLR</a>
+  <a href="../../materials/unit1/miscMLR.html" class="sidebar-item-text sidebar-link">9.26: Wrapping up MLR</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit1/penalized.html" class="sidebar-item-text sidebar-link">9.28: Penalized Regression</a>
+  <a href="../../materials/unit1/penalized.html" class="sidebar-item-text sidebar-link">9.28: Penalized Regression</a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Unit 2: Generalized Linear Models</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Unit 2: Generalized Linear Models</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit2/logisticintro.html" class="sidebar-item-text sidebar-link">10.3: Introduction to GLMs</a>
+  <a href="../../materials/unit2/logisticintro.html" class="sidebar-item-text sidebar-link">10.3: Introduction to GLMs</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit2/logisticestimation.html" class="sidebar-item-text sidebar-link">10.5: Logistic Regression estimation and interpretation</a>
+  <a href="../../materials/unit2/logisticestimation.html" class="sidebar-item-text sidebar-link">10.5: Logistic Regression estimation and interpretation</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./materials/unit2/logisticmetrics.html" class="sidebar-item-text sidebar-link">10.10: Logistic Regression assessment</a>
+  <a href="../../materials/unit2/logisticmetrics.html" class="sidebar-item-text sidebar-link active">10.10: Logistic Regression assessment</a>
   </div>
 </li>
       </ul>
@@ -212,7 +212,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reflections.html" class="sidebar-item-text sidebar-link">Statistics Reflections</a>
+  <a href="../../reflections.html" class="sidebar-item-text sidebar-link">Statistics Reflections</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -225,12 +225,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./project/proposal.html" class="sidebar-item-text sidebar-link">Team Project Proposal</a>
+  <a href="../../project/proposal.html" class="sidebar-item-text sidebar-link">Team Project Proposal</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./project/eda.html" class="sidebar-item-text sidebar-link">Team Project Exploratory Data Analysis Report</a>
+  <a href="../../project/eda.html" class="sidebar-item-text sidebar-link">Team Project Exploratory Data Analysis Report</a>
   </div>
 </li>
       </ul>
@@ -245,19 +245,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./DAA/DA1.html" class="sidebar-item-text sidebar-link">Data analysis assignment 1</a>
+  <a href="../../DAA/DA1.html" class="sidebar-item-text sidebar-link">Data analysis assignment 1</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./DAA/DA2.html" class="sidebar-item-text sidebar-link">Data analysis assignment 2</a>
+  <a href="../../DAA/DA2.html" class="sidebar-item-text sidebar-link">Data analysis assignment 2</a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./resources.html" class="sidebar-item-text sidebar-link">Resources</a>
+  <a href="../../resources.html" class="sidebar-item-text sidebar-link">Resources</a>
   </div>
 </li>
     </ul>
@@ -265,14 +265,26 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#classwise-videos" id="toc-classwise-videos" class="nav-link" data-scroll-target="#classwise-videos">Classwise videos</a>
+  <ul class="collapse">
+  <li><a href="#supplemental-resource" id="toc-supplemental-resource" class="nav-link" data-scroll-target="#supplemental-resource">Supplemental resource:</a></li>
+  </ul></li>
+  <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook">Textbook</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Unit 2: Generalized Linear Models</h1>
+<h1 class="title d-none d-lg-block">10.10: Logistic Regression assessment</h1>
 </div>
 
 
@@ -287,8 +299,33 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
+<ul>
+<li><p>Identify which metrics from linear regression can be extended to logistic regression and why</p></li>
+<li><p>Assess a logistic regression model with a confusion matrix</p></li>
+<li><p>Explain what an ROC curve shows and generate one in R</p></li>
+</ul>
+</section>
+<section id="classwise-videos" class="level2">
+<h2 class="anchored" data-anchor-id="classwise-videos">Classwise videos</h2>
+<p>If you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.</p>
+<iframe height="600" width="100%" src="https://classwise.org/home/openItem/202310-0820-4658-2e579a10-26e5-4f73-9e08-6bf5e1925f6b&amp;video&amp;embed"></iframe>
+<iframe height="600" width="100%" src="https://classwise.org/home/openItem/202310-0820-5234-06601900-2946-4c33-876c-509e1360329a&amp;video&amp;embed"></iframe>
+<section id="supplemental-resource" class="level3">
+<h3 class="anchored" data-anchor-id="supplemental-resource">Supplemental resource:</h3>
+<p><a href="https://www.cantab.net/users/filimon/cursoFCDEF/will/logistic_interact.pdf">Resource on interpreting interactions</a></p>
+</section>
+</section>
+<section id="textbook" class="level2">
+<h2 class="anchored" data-anchor-id="textbook">Textbook</h2>
+<p>ISLR doesn’t explicitly cover metrics for logistic regression, but section 4.4.2 describes some of the same concepts (confusion matrix, sensitivity and specificity, ROC curve). Start on page 148.</p>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

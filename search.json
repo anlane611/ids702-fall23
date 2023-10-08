@@ -1,5 +1,26 @@
 [
   {
+    "objectID": "materials/unit2/logisticmetrics.html",
+    "href": "materials/unit2/logisticmetrics.html",
+    "title": "10.10: Logistic Regression assessment",
+    "section": "",
+    "text": "Identify which metrics from linear regression can be extended to logistic regression and why\nAssess a logistic regression model with a confusion matrix\nExplain what an ROC curve shows and generate one in R"
+  },
+  {
+    "objectID": "materials/unit2/logisticmetrics.html#classwise-videos",
+    "href": "materials/unit2/logisticmetrics.html#classwise-videos",
+    "title": "10.10: Logistic Regression assessment",
+    "section": "Classwise videos",
+    "text": "Classwise videos\nIf you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.\n\n\n\nSupplemental resource:\nResource on interpreting interactions"
+  },
+  {
+    "objectID": "materials/unit2/logisticmetrics.html#textbook",
+    "href": "materials/unit2/logisticmetrics.html#textbook",
+    "title": "10.10: Logistic Regression assessment",
+    "section": "Textbook",
+    "text": "Textbook\nISLR doesn’t explicitly cover metrics for logistic regression, but section 4.4.2 describes some of the same concepts (confusion matrix, sensitivity and specificity, ROC curve). Start on page 148."
+  },
+  {
     "objectID": "materials/unit2/logisticintro.html",
     "href": "materials/unit2/logisticintro.html",
     "title": "10.3: Introduction to GLMs",
