@@ -11,7 +11,7 @@
     "href": "materials/unit2/logisticmetrics.html#classwise-videos",
     "title": "10.10: Logistic Regression assessment",
     "section": "Classwise videos",
-    "text": "Classwise videos\nIf you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.\n\n\n\nSupplemental resource:\nResource on interpreting interactions"
+    "text": "Classwise videos\nIf you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.\nIf you’d like to run the code yourself as you go through the lecture, you can download the pumpkin seeds dataset at this link. Note that the ROC curve on the last slide of the second video uses a model with only Area and Perimeter as predictors, but the confusion matrix is based on the model that was used in video 1, which uses Area, Perimeter, Major axis length, and Solidity as predictors.\n\n\n\nSupplemental resource:\nResource on interpreting interactions"
   },
   {
     "objectID": "materials/unit2/logisticmetrics.html#textbook",
