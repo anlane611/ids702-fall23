@@ -42,6 +42,34 @@
     "text": "Textbook\nISLR doesn’t explicitly cover metrics for logistic regression, but section 4.4.2 describes some of the same concepts (confusion matrix, sensitivity and specificity, ROC curve). Start on page 148."
   },
   {
+    "objectID": "materials/unit2/logisticmetrics.html#application-exercise",
+    "href": "materials/unit2/logisticmetrics.html#application-exercise",
+    "title": "10.10: Logistic Regression assessment",
+    "section": "Application exercise",
+    "text": "Application exercise\nGroups for this week\nGo through the logistic regression lab in ISLR: 4.7.1 and 4.7.2\nAdd: Generate the ROC curve"
+  },
+  {
+    "objectID": "materials/unit2/poisson.html",
+    "href": "materials/unit2/poisson.html",
+    "title": "10.26: Poisson regression",
+    "section": "",
+    "text": "Identify when to use a poisson regression model\nInterpret a poisson regression model\nGenerate a poisson regression model in R"
+  },
+  {
+    "objectID": "materials/unit2/poisson.html#classwise-videos",
+    "href": "materials/unit2/poisson.html#classwise-videos",
+    "title": "10.26: Poisson regression",
+    "section": "Classwise videos",
+    "text": "Classwise videos\nIf you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.\nIf you want to type the code as you follow along the lecture, you can use the following code to load the data:\n\nlibrary(foreign) #install the package in the console! The package contains the function `read.dta` that is used to access the data\nml <- read.dta(\"https://stats.idre.ucla.edu/stat/data/hsbdemo.dta\")"
+  },
+  {
+    "objectID": "materials/unit2/poisson.html#textbook",
+    "href": "materials/unit2/poisson.html#textbook",
+    "title": "10.26: Poisson regression",
+    "section": "Textbook",
+    "text": "Textbook\nISLR briefly covers multinomial logistic regression in section 4.3.5"
+  },
+  {
     "objectID": "materials/unit2/logisticintro.html",
     "href": "materials/unit2/logisticintro.html",
     "title": "10.3: Introduction to GLMs",
