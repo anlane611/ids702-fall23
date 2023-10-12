@@ -21,6 +21,13 @@
     "text": "Textbook\nISLR briefly covers multinomial logistic regression in section 4.3.5"
   },
   {
+    "objectID": "materials/unit2/multinomial.html#application-exercise",
+    "href": "materials/unit2/multinomial.html#application-exercise",
+    "title": "10.12: Multinomial logistic regression",
+    "section": "Application exercise",
+    "text": "Application exercise\nUsing the dataset from the lecture (code provided above to access), select your own predictors and fit, interpret, and assess a multinomial model. Select at least one categorical predictor and at least one continuous predictor (do not use only ses and write since those were the two used in the lecture).\n\nPractice writing out the separate logistic models for each level of the outcome\nWrite interpretations for the coefficient estimates and 95% confidence intervals\nAssess the model with the confusion matrix metrics\nGenerate the plot of the predicted probabilities"
+  },
+  {
     "objectID": "materials/unit2/logisticmetrics.html",
     "href": "materials/unit2/logisticmetrics.html",
     "title": "10.10: Logistic Regression assessment",
@@ -60,7 +67,7 @@
     "href": "materials/unit2/poisson.html#classwise-videos",
     "title": "10.26: Poisson regression",
     "section": "Classwise videos",
-    "text": "Classwise videos\nIf you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.\nIf you want to type the code as you follow along the lecture, you can use the following code to load the data:\n\nlibrary(foreign) #install the package in the console! The package contains the function `read.dta` that is used to access the data\nml <- read.dta(\"https://stats.idre.ucla.edu/stat/data/hsbdemo.dta\")"
+    "text": "Classwise videos\nIf you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.\nIf you want to type the code as you follow along the lecture, you can use the following code to load the data:\n\npdat <- read.csv(\"https://stats.idre.ucla.edu/stat/data/poisson_sim.csv\")"
   },
   {
     "objectID": "materials/unit2/poisson.html#textbook",
