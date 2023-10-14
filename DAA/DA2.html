@@ -279,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-datasets" id="toc-the-datasets" class="nav-link" data-scroll-target="#the-datasets">The datasets</a></li>
   <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables">Deliverables:</a>
   <ul class="collapse">
-  <li><a href="#model-documentation-3-4-pages" id="toc-model-documentation-3-4-pages" class="nav-link" data-scroll-target="#model-documentation-3-4-pages">Model documentation (3-4 pages)</a></li>
+  <li><a href="#model-documentation-3-5-pages" id="toc-model-documentation-3-5-pages" class="nav-link" data-scroll-target="#model-documentation-3-5-pages">Model documentation (3-5 pages)</a></li>
   <li><a href="#peer-review" id="toc-peer-review" class="nav-link" data-scroll-target="#peer-review">Peer Review</a></li>
   </ul></li>
   </ul>
@@ -307,7 +307,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="deadlines" class="level2">
 <h2 class="anchored" data-anchor-id="deadlines">Deadlines</h2>
-<p>First due date for peer review: Thursday, October 19 in class</p>
+<p>First due date for peer review: Thursday, October 19 in class (Log in to <a href="canvas.duke.edu">canvas.duke.edu</a> with your Duke netID and click “Assignments &gt; Data analysis assignment 2 - peer review” to submit your assignment for peer review. You can do this before class or during the first few minutes of class)</p>
 <p>Final product due date: Friday, October 27, 11:59 PM</p>
 </section>
 <section id="logistic-regression-model-documentation" class="level2">
@@ -360,8 +360,8 @@ ul.task-list li input[type="checkbox"] {
 </strong></strong></section><strong><strong>
 <section id="deliverables" class="level2">
 <h2 class="anchored" data-anchor-id="deliverables">Deliverables:</h2>
-<section id="model-documentation-3-4-pages" class="level3">
-<h3 class="anchored" data-anchor-id="model-documentation-3-4-pages">Model documentation (3-4 pages)</h3>
+<section id="model-documentation-3-5-pages" class="level3">
+<h3 class="anchored" data-anchor-id="model-documentation-3-5-pages">Model documentation (3-5 pages)</h3>
 <p>Your model documentation should demonstrate how you analyzed the dataset and justify the decisions you made during the analysis. The intended audience is someone who is familiar with statistical modeling but new to the project/dataset. You can choose how to organize and format your report. For example, you may choose to use bullet points in some sections instead of paragraphs. You may also include code chunks in the documentation, but presenting code should have a clear purpose.</p>
 <p>Your documentation should cover the following elements:</p>
 <ul>
@@ -370,26 +370,28 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Modeling:</p>
 <ul>
 <li><p>Justify the choice to use logistic regression to answer the research question.</p></li>
-<li><p>Variable selection: Which variables did you include in your model? (Start with <em>a priori</em> variable selection)</p></li>
+<li><p>Variable selection: Which variables did you include in your model? Start with <em>a priori</em> variable selection, keeping in mind the principle of confounding. If you decide to exclude variables after the initial <em>a priori</em> selection, explain why/how you selected the variables. You do not need to do feature selection with cross validation, but you can if you want to. Remember that we should not select variables based on p-values.</p></li>
 <li><p>Summary output table: coefficient estimates, standard errors, p-values, confidence intervals</p></li>
-<li><p>Model assessment: Which metric did you use to assess your model and why? Include at least one figure for model assessment</p></li>
+<li><p>Model assessment: Which metric did you use to assess your model and why? Include at least one figure that relates to the model assessment.</p></li>
 </ul></li>
-<li><p>Results: Interpret key results that relate to the research question. Include at least one figure to illustrate results</p></li>
+<li><p>Results: Interpret key results that relate to the research question. Include at least one figure to illustrate results. Note that this should be a descriptive figure related to the relationship of interest in the research question; this should not be a diagnostic plot.</p></li>
 <li><p>Future work: What are the strengths and limitations of this analysis?</p></li>
 </ul>
 </section>
 <section id="peer-review" class="level3">
 <h3 class="anchored" data-anchor-id="peer-review">Peer Review</h3>
 <p>In class on Oct 19, you will evaluate a classmate’s documentation. Detailed instructions will be provided on that day. Part of your grade for this assignment is based on the quality of the feedback you give your classmate and the feedback you receive from your classmate.</p>
+<p>Log in to <a href="canvas.duke.edu">canvas.duke.edu</a> to submit your assignment for peer review. You can do this before class or at the beginning of class.</p>
+<p>Submit the review of your peer’s assignment by Friday, Oct 20 11:59 PM.</p>
 <div class="alert alert-dismissible alert-warning">
   <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
   <h4 class="alert-heading anchored">Important!</h4>
-  <p class="mb-0">You need to tell me ahead of time if you cannot be in class on Oct 19. Contact me by Oct 12 if you know you will not be in class that day so that I can make alternative arrangements for your peer review.</p>
+  <p class="mb-0">You need to tell me ahead of time if you cannot be in class on Oct 19. Contact me by Oct 12 if you know you will not be in class that day so that I can make alternative arrangements for your peer review.<br><br> The peer review should be anonymous, but to do this, you will need to make sure your name is not shown in the pdf that you submit.</p>
 </div>
 <div class="card border-info mb-3" style="max-width: 60rem;">
   <div class="card-header">Submission &amp; Formatting Instructions/Tips</div>
   <div class="card-body">
-    <p class="card-text">You will submit two files to gradescope: 1) a PDF that contains the documentation report, and 2) the qmd file you used to produce the reports <br>
+    <p class="card-text">You will submit two files to gradescope for the final submission on Oct 27: 1) a PDF that contains the documentation report, and 2) the qmd file you used to produce the reports <br>
     </p><ul>
       <li>Your quarto document should be rendered directly to PDF, not to HTML and then saved as a PDF, and not with a different word processor.</li>
       <li>Any plots must be appropriately formatted (axis labels, legends where appropriate)</li>
