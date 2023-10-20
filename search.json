@@ -133,6 +133,27 @@
     "text": "Application exercise\nGroups for this week\nThis exercise uses a dataset that contains information on patients and whether or not they were diagnosed with heart disease.\nSource and data dictionary\nKaggle link (may have more info on variables)\nRead in the data:\n\nheart <- read.csv(\"https://raw.githubusercontent.com/anlane611/datasets/main/heart.csv\")\n\n\nExplore the data. Use the data dictionary to determine which variables are numeric and which are categorical. Create factor variables for the categorical variables.\nProvide summary statistics (N and %) for the outcome variable\nCalculate summary statistics for those with and without heart disease for the following variables: age, sex, chest pain type, cholesterol. (which summary statistics are appropriate for each variable?)\nFit a logistic regression model regressing heart disease status on the predictors listed in #3.\n\nWhich variables are significantly associated with heart disease status?\nWhat are the reference levels for the categorical variables?\nWrite interpretations for the coefficient estimates. Interpret the coefficient estimates in terms of log odds and odds/odds ratios.\nObtain confidence intervals for the coefficient estimates on the log odds and the odds scale. Write interpretations.\n\n\n\nInterpretation example\n\nlogistic_mod <- glm(factor(target)~age+factor(sex)+factor(cp)+chol,\n                    data=heart,\n                    family=\"binomial\")\nsummary(logistic_mod)\n\n\nCall:\nglm(formula = factor(target) ~ age + factor(sex) + factor(cp) + \n    chol, family = \"binomial\", data = heart)\n\nDeviance Residuals: \n    Min       1Q   Median       3Q      Max  \n-2.3725  -0.7048   0.2500   0.7283   2.3014  \n\nCoefficients:\n              Estimate Std. Error z value Pr(>|z|)    \n(Intercept)   4.996949   1.272158   3.928 8.57e-05 ***\nage          -0.063873   0.017857  -3.577 0.000348 ***\nfactor(sex)1 -1.893397   0.362270  -5.226 1.73e-07 ***\nfactor(cp)1   2.539393   0.448455   5.663 1.49e-08 ***\nfactor(cp)2   2.369649   0.356264   6.651 2.90e-11 ***\nfactor(cp)3   2.239028   0.536138   4.176 2.96e-05 ***\nchol         -0.004843   0.002860  -1.693 0.090421 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 417.64  on 302  degrees of freedom\nResidual deviance: 290.08  on 296  degrees of freedom\nAIC: 304.08\n\nNumber of Fisher Scoring iterations: 5\n\nexp(coef(logistic_mod))\n\n (Intercept)          age factor(sex)1  factor(cp)1  factor(cp)2  factor(cp)3 \n 147.9610497    0.9381237    0.1505595   12.6719713   10.6936382    9.3842018 \n        chol \n   0.9951684 \n\nconfint(logistic_mod)\n\nWaiting for profiling to be done...\n\n\n                   2.5 %        97.5 %\n(Intercept)   2.56601978  7.5719389233\nage          -0.09988456 -0.0296383710\nfactor(sex)1 -2.63098019 -1.2062295548\nfactor(cp)1   1.69939388  3.4701380328\nfactor(cp)2   1.69363365  3.0951948249\nfactor(cp)3   1.22495261  3.3471173833\nchol         -0.01052805  0.0007980208\n\nexp(confint(logistic_mod))\n\nWaiting for profiling to be done...\n\n\n                   2.5 %       97.5 %\n(Intercept)  13.01392295 1942.9037732\nage           0.90494188    0.9707965\nfactor(sex)1  0.07200785    0.2993237\nfactor(cp)1   5.47063055   32.1411787\nfactor(cp)2   5.43920900   22.0915421\nfactor(cp)3   3.40400477   28.4206895\nchol          0.98952718    1.0007983\n\n\nLog odds scale:\nWith each additional year, the log odds of heart disease decrease by 0.06, all else held constant.\nThe log odds of heart disease for males are 1.89 lower than the log odds of heart disease for females.\nWe are 95% confident that the true difference in log odds of heart disease between males and females is between -2.6 and -1.2.\nOdds/odds ratio scale:\nWith each additional year, the odds of heart disease decrease 0.94 times (or: the odds decrease by 6%).\nThe odds of heart disease for males are .15 times the odds of heart disease for females (or: the odds are 85% lower).\nWe are 95% confidence that the true odds ratio of heart disease for males to females is between 0.07 and 0.3."
   },
   {
+    "objectID": "materials/unit2/ordinal.html",
+    "href": "materials/unit2/ordinal.html",
+    "title": "10.24: Ordinal regression",
+    "section": "",
+    "text": "Identify when to use an ordinal regression model\nInterpret an ordinal regression model\nGenerate an ordinal regression model in R"
+  },
+  {
+    "objectID": "materials/unit2/ordinal.html#classwise-videos",
+    "href": "materials/unit2/ordinal.html#classwise-videos",
+    "title": "10.24: Ordinal regression",
+    "section": "Classwise videos",
+    "text": "Classwise videos\nIf you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.\nDr. Väisänan does a great job of explaining ordinal regression, though the code is in Stata. The lab exercise in class will introduce the R code."
+  },
+  {
+    "objectID": "materials/unit2/ordinal.html#textbook",
+    "href": "materials/unit2/ordinal.html#textbook",
+    "title": "10.24: Ordinal regression",
+    "section": "Textbook",
+    "text": "Textbook\nISLR does not cover ordinal regression."
+  },
+  {
     "objectID": "materials/unit1/prediction.html",
     "href": "materials/unit1/prediction.html",
     "title": "9.19 and 9.21: Prediction",
