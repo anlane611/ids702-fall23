@@ -721,6 +721,20 @@
     "text": "Suggestions\n\nYou might consider using one of the EDA packages mentioned in one of the class exercises: DataExplorer and SmartEDA. Make sure you can modify the table and figure labels.\nIf you have a binary/categorical variable of interest, you should consider generating a table 1, in which descriptive statistics are given for different levels of a categorical variable. This page has examples, but if you use the package, make sure it will render to pdf.\nIt is fine to use visual editor to produce tables. However, if you want to generate a more advanced (and “prettier”) table, the kableExtra package is a good option.\nUse github to share code among group members. As a group, plan the tables and figures you want to generate, and split them up among the group members. Then you can consolidate your code to generate the report."
   },
   {
+    "objectID": "project/sap.html",
+    "href": "project/sap.html",
+    "title": "Team Project Statistical Analysis Plan",
+    "section": "",
+    "text": "The purpose of the statistical analysis plan is to practice articulating the process you will use to answer your research questions. Some decisions about the modeling and analysis process must be made a priori. This is a chance to practice making those decisions and get feedback on your analysis plan prior to completing your final report."
+  },
+  {
+    "objectID": "project/sap.html#statistical-analysis-plan",
+    "href": "project/sap.html#statistical-analysis-plan",
+    "title": "Team Project Statistical Analysis Plan",
+    "section": "Statistical Analysis Plan",
+    "text": "Statistical Analysis Plan\nYou will generate a 1-2 page statistical analysis plan that contains the elements listed below. You do not need to run any code for this, so you can generate this plan however you’d like (e.g., quarto, Rmd, Word). Note that you should always use variable descriptions instead of “raw” variable names (e.g., “Salary ($)” instead of “salary_in_usd”).\n\nData Overview: Provide the chief characteristics of your data, including sample size, number of variables, and source (you can use any citation format, but include more than just the link). Briefly describe how the data were collected. What does each row represent? Include your research questions in this section. (This is exactly the same as the EDA report, so you can copy and paste).\nModeling: For each research question, address the following:\n\nWhat kind of model will you fit?\nIs your question related to inference or prediction? How does this affect your modeling process including variable selection and model assessment?\nList the variables that you are selecting a priori to include in your model (if there are many predictors in your dataset, you can specify broad categories instead of specific variables. Remember to use variable labels instead of raw variable names).\nYou are required to include at least one interaction term in your model. Specify the interaction term that is meaningful for your research question. For example, you could say something like “we are interested in how the relationship between vaccination rate and COVID infection totals changed over time, so we will include an interaction term with month and vaccination rate.”\n\nPotential challenges: How might you address the challenges that you identified in your EDA report?\n\nSubmit one report per group. One person will submit and select the other group members in the Gradescope submission. Be sure to assign pages in Gradescope when you submit."
+  },
+  {
     "objectID": "project/proposal.html",
     "href": "project/proposal.html",
     "title": "Team Project Proposal",

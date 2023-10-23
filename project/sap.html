@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IDS 702 - Data analysis assignment 2</title>
+<title>IDS 702 - Team Project Statistical Analysis Plan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Data analysis assignment 2</h1>
+      <h1 class="quarto-secondary-nav-title">Team Project Statistical Analysis Plan</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -245,7 +245,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/sap.html" class="sidebar-item-text sidebar-link">Team Project Statistical Analysis Plan</a>
+  <a href="../project/sap.html" class="sidebar-item-text sidebar-link active">Team Project Statistical Analysis Plan</a>
   </div>
 </li>
       </ul>
@@ -265,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../DAA/DA2.html" class="sidebar-item-text sidebar-link active">Data analysis assignment 2</a>
+  <a href="../DAA/DA2.html" class="sidebar-item-text sidebar-link">Data analysis assignment 2</a>
   </div>
 </li>
       </ul>
@@ -284,14 +284,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#deadlines" id="toc-deadlines" class="nav-link active" data-scroll-target="#deadlines">Deadlines</a></li>
-  <li><a href="#logistic-regression-model-documentation" id="toc-logistic-regression-model-documentation" class="nav-link" data-scroll-target="#logistic-regression-model-documentation">Logistic regression model documentation</a></li>
-  <li><a href="#the-datasets" id="toc-the-datasets" class="nav-link" data-scroll-target="#the-datasets">The datasets</a></li>
-  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables">Deliverables:</a>
-  <ul class="collapse">
-  <li><a href="#model-documentation-3-5-pages" id="toc-model-documentation-3-5-pages" class="nav-link" data-scroll-target="#model-documentation-3-5-pages">Model documentation (3-5 pages)</a></li>
-  <li><a href="#peer-review" id="toc-peer-review" class="nav-link" data-scroll-target="#peer-review">Peer Review</a></li>
-  </ul></li>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link active" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#statistical-analysis-plan" id="toc-statistical-analysis-plan" class="nav-link" data-scroll-target="#statistical-analysis-plan">Statistical Analysis Plan</a></li>
   </ul>
 </nav>
     </div>
@@ -300,7 +294,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Data analysis assignment 2</h1>
+<h1 class="title d-none d-lg-block">Team Project Statistical Analysis Plan</h1>
+<p class="subtitle lead">Due: Friday, November 3 11:59 PM</p>
 </div>
 
 
@@ -315,111 +310,30 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="deadlines" class="level2">
-<h2 class="anchored" data-anchor-id="deadlines">Deadlines</h2>
-<p>First due date for peer review: Thursday, October 19 in class (Log in to <a href="canvas.duke.edu">canvas.duke.edu</a> with your Duke netID and click “Assignments &gt; Data analysis assignment 2 - peer review” to submit your assignment for peer review. You can do this before class or during the first few minutes of class)</p>
-<p>Final product due date: Friday, October 27, 11:59 PM</p>
+<section id="purpose" class="level2">
+<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
+<p>The purpose of the statistical analysis plan is to practice articulating the process you will use to answer your research questions. Some decisions about the modeling and analysis process must be made <em>a priori</em>. This is a chance to practice making those decisions and get feedback on your analysis plan prior to completing your final report.</p>
 </section>
-<section id="logistic-regression-model-documentation" class="level2">
-<h2 class="anchored" data-anchor-id="logistic-regression-model-documentation">Logistic regression model documentation</h2>
-<p>An important part of being a data scientist is documenting your modeling process. You are often not the only person who will analyze a given dataset. A data scientist who analyzes data after you should be able to clearly understand (and be able to replicate) your modeling decisions.</p>
-<p>For this assignment, you will be assigned one of two datasets. Your deliverable will be a model documentation report for your dataset. Then, you will swap with someone with the other dataset, and you will each evaluate the documentation based on clarity. After the peer review, you will be able to revise your documentation before final submission.</p>
-<p>Given this structure, your grade will be based on the following three components:</p>
-<ol type="1">
-<li>Quality of your peer review for a classmate (Oct 19)</li>
-<li>Feedback from peer review of your initial document (Oct 19)</li>
-<li>Your final documentation report (due Oct 27)</li>
-</ol>
-</section>
-<section id="the-datasets" class="level2">
-<h2 class="anchored" data-anchor-id="the-datasets">The datasets</h2>
-<p><a href="https://duke.box.com/s/9vfz4j2429pcfv6aelsgyvu8lnaip58z">Click here for the dataset assignments</a> (you must use the one you are assigned).</p>
-<div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header anchored" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Financial independence survey
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong> This dataset contains a subset of the official results of the 2020 Financial Independence Survey from Reddit. <br>
-        Research Question: Which factors contribute to whether or not someone considers themselves to be financially independent?<br>
-        <a href="https://www.openintro.org/data/index.php?data=reddit_finance" target="_blank" rel="noopener noreferrer">Click here for the data dictionary and source information</a> <br>
-        You can access the data using the openintro library:<br>
-        <code>library(openintro)<br>data("reddit_finance")</code><br>
-      </strong></div><strong>
-    </strong></div><strong>
-  </strong></div><strong>
-  <div class="accordion-item">
-    <h2 class="accordion-header anchored" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Resume data
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong> This dataset contains experimental data from a study seeking to understand factors that influence whether or not a resume is selected for a callback. <br>
-        Research Question: How do race and gender influence job application callback rates?<br>
-        <a href="https://www.openintro.org/data/index.php?data=resume" target="_blank" rel="noopener noreferrer">Click here for the data dictionary and source information</a> <br>
-        You can access the data using the openintro library:<br>
-        <code>library(openintro)<br>data("resume")</code><br>      </strong></div><strong>
-    </strong></div><strong>
-  </strong></div><strong>
- </strong></strong></div><strong><strong>
-</strong></strong></section><strong><strong>
-<section id="deliverables" class="level2">
-<h2 class="anchored" data-anchor-id="deliverables">Deliverables:</h2>
-<section id="model-documentation-3-5-pages" class="level3">
-<h3 class="anchored" data-anchor-id="model-documentation-3-5-pages">Model documentation (3-5 pages)</h3>
-<p>Your model documentation should demonstrate how you analyzed the dataset and justify the decisions you made during the analysis. The intended audience is someone who is familiar with statistical modeling but new to the project/dataset. You can choose how to organize and format your report. For example, you may choose to use bullet points in some sections instead of paragraphs. You may also include code chunks in the documentation, but presenting code should have a clear purpose.</p>
-<p>Your documentation should cover the following elements:</p>
+<section id="statistical-analysis-plan" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-analysis-plan">Statistical Analysis Plan</h2>
+<p>You will generate a 1-2 page statistical analysis plan that contains the elements listed below. You do not need to run any code for this, so you can generate this plan however you’d like (e.g., quarto, Rmd, Word). Note that you should always use variable descriptions instead of “raw” variable names (e.g., “Salary ($)” instead of “salary_in_usd”).</p>
 <ul>
-<li><p>Overview: Provide an overview of the dataset and the goals of the analysis. Provide basic information about the data (e.g., sample size).</p></li>
-<li><p>Data cleaning: Which variables required cleaning? Are there any missing values? Did you make any assumptions during the data cleaning process?</p></li>
-<li><p>Modeling:</p>
+<li><p>Data Overview: Provide the chief characteristics of your data, including sample size, number of variables, and source (you can use any citation format, but include more than just the link). Briefly describe how the data were collected. What does each row represent? Include your research questions in this section. (This is exactly the same as the EDA report, so you can copy and paste).</p></li>
+<li><p>Modeling: For each research question, address the following:</p>
 <ul>
-<li><p>Justify the choice to use logistic regression to answer the research question.</p></li>
-<li><p>Variable selection: Which variables did you include in your model? Start with <em>a priori</em> variable selection, keeping in mind the principle of confounding. If you decide to exclude variables after the initial <em>a priori</em> selection, explain why/how you selected the variables. You do not need to do feature selection with cross validation, but you can if you want to. Remember that we should not select variables based on p-values.</p></li>
-<li><p>Summary output table: coefficient estimates, standard errors, p-values, confidence intervals</p></li>
-<li><p>Model assessment: Which metric did you use to assess your model and why? Include at least one figure that relates to the model assessment.</p></li>
+<li><p>What kind of model will you fit?</p></li>
+<li><p>Is your question related to inference or prediction? How does this affect your modeling process including variable selection and model assessment?</p></li>
+<li><p>List the variables that you are selecting a priori to include in your model (if there are many predictors in your dataset, you can specify broad categories instead of specific variables. Remember to use variable labels instead of raw variable names).</p></li>
+<li><p>You are required to include at least one interaction term in your model. Specify the interaction term that is meaningful for your research question. For example, you could say something like “we are interested in how the relationship between vaccination rate and COVID infection totals changed over time, so we will include an interaction term with month and vaccination rate.”</p></li>
 </ul></li>
-<li><p>Results: Interpret key results that relate to the research question. Include at least one figure to illustrate results. Note that this should be a descriptive figure related to the relationship of interest in the research question; this should not be a diagnostic plot.</p></li>
-<li><p>Future work: What are the strengths and limitations of this analysis?</p></li>
+<li><p>Potential challenges: How might you address the challenges that you identified in your EDA report?</p></li>
 </ul>
-</section>
-<section id="peer-review" class="level3">
-<h3 class="anchored" data-anchor-id="peer-review">Peer Review</h3>
-<p>In class on Oct 19, you will evaluate a classmate’s documentation. Detailed instructions will be provided on that day. Part of your grade for this assignment is based on the quality of the feedback you give your classmate and the feedback you receive from your classmate.</p>
-<p>Log in to <a href="canvas.duke.edu">canvas.duke.edu</a> to submit your assignment for peer review. You can do this before class or at the beginning of class.</p>
-<p>Submit the review of your peer’s assignment by Friday, Oct 20 11:59 PM.</p>
-<div class="alert alert-dismissible alert-warning">
-  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-  <h4 class="alert-heading anchored">Important!</h4>
-  <p class="mb-0">You need to tell me ahead of time if you cannot be in class on Oct 19. Contact me by Oct 12 if you know you will not be in class that day so that I can make alternative arrangements for your peer review.<br><br> The peer review should be anonymous, but to do this, you will need to make sure your name is not shown in the pdf that you submit.</p>
-</div>
-<div class="card border-info mb-3" style="max-width: 60rem;">
-  <div class="card-header">Submission &amp; Formatting Instructions/Tips</div>
-  <div class="card-body">
-    <p class="card-text">You will submit two files to gradescope for the final submission on Oct 27: 1) a PDF that contains the documentation report, and 2) the qmd file you used to produce the reports <br>
-    </p><ul>
-      <li>Your quarto document should be rendered directly to PDF, not to HTML and then saved as a PDF, and not with a different word processor.</li>
-      <li>Any plots must be appropriately formatted (axis labels, legends where appropriate)</li>
-      <li>The quarto website includes lots of helpful information for generating your report. I recommend that you use the <a href="https://quarto.org/docs/visual-editor/" target="_blank" rel="noopener noreferrer">visual editor </a> to make formatting easier. The visual editor has several features that look like a generic word processor</li>
-      <li><a href="https://quarto.org/docs/output-formats/pdf-basics.html" target="_blank" rel="noopener noreferrer">PDF Basics </a></li>
-      <li><a href="https://quarto.org/docs/gallery/#articles-reports" target="_blank" rel="noopener noreferrer">Gallery for advanced Quarto formatting (not necessary, but could be helpful) </a></li>
-    </ul><p></p>
-  </div>
-</div>
-<section id="section" class="level4">
-<h4 class="anchored" data-anchor-id="section"></h4>
+<p>Submit one report per group. <strong>One person will submit and select the other group members in the Gradescope submission</strong>. Be sure to assign pages in Gradescope when you submit.</p>
 
 
 </section>
-</section>
-</section>
 
-</strong></strong></main><strong><strong> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -553,8 +467,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-</strong></strong></div><strong><strong> <!-- /content -->
+</div> <!-- /content -->
 
 
 
-</strong></strong></body></html>
+</body></html>
