@@ -74,7 +74,7 @@
     "href": "materials/unit2/poisson.html#textbook",
     "title": "10.26: Poisson regression",
     "section": "Textbook",
-    "text": "Textbook\nISLR briefly covers multinomial logistic regression in section 4.3.5"
+    "text": "Textbook\nISLR 4.6.2"
   },
   {
     "objectID": "materials/unit2/logisticintro.html",
@@ -702,63 +702,63 @@
   {
     "objectID": "project/eda.html",
     "href": "project/eda.html",
-    "title": "Team Project Exploratory Data Analysis Report",
+    "title": "Exploratory Data Analysis Report",
     "section": "",
     "text": "The purpose of the exploratory data analysis report is to practice thinking critically about your dataset and how it connects to your research questions. You will always need to explore data before you analyze it, but this should be an intentional process. Additionally, when you present EDA results to a client, they should always be well-formatted and clearly connected to the research question. Therefore, the purpose of this part of the group project is to practice exploring data and effectively communicating the results of the exploratory data analysis."
   },
   {
     "objectID": "project/eda.html#eda-report",
     "href": "project/eda.html#eda-report",
-    "title": "Team Project Exploratory Data Analysis Report",
+    "title": "Exploratory Data Analysis Report",
     "section": "EDA Report",
     "text": "EDA Report\nYou will generate a report (in Quarto) detailing your exploratory data analysis results. The report is required to be at most 5 pages, including tables and figures. Tables and figures must be well-formatted with clear labels and descriptions. This means you should always use variable descriptions instead of “raw” variable names (e.g., “Salary ($)” instead of “salary_in_usd”).\nThe report should be organized in the following sections.\n\nData Overview: Provide the chief characteristics of your data, including sample size, number of variables, and source (you can use any citation format, but include more than just the link). Briefly describe how the data were collected. What does each row represent? Include your research questions in this section.\nOutcome variables: Present a plot for each of your outcome variables. Describe the plots.\nPrimary relationships of interest: Present descriptive statistics and exploratory plots in whichever format you think is best (tables, figures) for your primary relationship of interest (dependent variable and primary independent variable, if applicable). Describe your findings. Whether you have one primary independent variable of interest or multiple will depend on your research question.\nOther characteristics: Briefly describe other variables in the data. If there are many, do not list them all. Rather, describe the types of variables that are present (e.g., “demographic information”).\nPotential challenges: Describe aspects of the data that may present challenges in the modeling stage. For example, might certain categorical variables need to be collapsed? Do you have any missingness, particularly in key variables of interest? Could the size of the dataset present model selection challenges?\n\nNo data cleaning is required for the EDA report, with the exception of combining datasets or creating an outcome variable, if applicable. Your report is required to be generated with Quarto and rendered directly to PDF. You will not be required to submit the quarto file. You will submit a single qmd when you submit your final report at the end of the semester.\nSubmit one report per group. One person will submit and select the other group members in the Gradescope submission. Be sure to assign pages in Gradescope when you submit."
   },
   {
     "objectID": "project/eda.html#suggestions",
     "href": "project/eda.html#suggestions",
-    "title": "Team Project Exploratory Data Analysis Report",
+    "title": "Exploratory Data Analysis Report",
     "section": "Suggestions",
     "text": "Suggestions\n\nYou might consider using one of the EDA packages mentioned in one of the class exercises: DataExplorer and SmartEDA. Make sure you can modify the table and figure labels.\nIf you have a binary/categorical variable of interest, you should consider generating a table 1, in which descriptive statistics are given for different levels of a categorical variable. This page has examples, but if you use the package, make sure it will render to pdf.\nIt is fine to use visual editor to produce tables. However, if you want to generate a more advanced (and “prettier”) table, the kableExtra package is a good option.\nUse github to share code among group members. As a group, plan the tables and figures you want to generate, and split them up among the group members. Then you can consolidate your code to generate the report."
   },
   {
     "objectID": "project/sap.html",
     "href": "project/sap.html",
-    "title": "Team Project Statistical Analysis Plan",
+    "title": "Statistical Analysis Plan",
     "section": "",
     "text": "The purpose of the statistical analysis plan is to practice articulating the process you will use to answer your research questions. Some decisions about the modeling and analysis process must be made a priori. This is a chance to practice making those decisions and get feedback on your analysis plan prior to completing your final report."
   },
   {
     "objectID": "project/sap.html#statistical-analysis-plan",
     "href": "project/sap.html#statistical-analysis-plan",
-    "title": "Team Project Statistical Analysis Plan",
+    "title": "Statistical Analysis Plan",
     "section": "Statistical Analysis Plan",
     "text": "Statistical Analysis Plan\nYou will generate a 1-2 page statistical analysis plan that contains the elements listed below. You do not need to run any code for this, so you can generate this plan however you’d like (e.g., quarto, Rmd, Word). Note that you should always use variable descriptions instead of “raw” variable names (e.g., “Salary ($)” instead of “salary_in_usd”).\n\nData Overview: Provide the chief characteristics of your data, including sample size, number of variables, and source (you can use any citation format, but include more than just the link). Briefly describe how the data were collected. What does each row represent? Include your research questions in this section. (This is exactly the same as the EDA report, so you can copy and paste).\nModeling: For each research question, address the following:\n\nWhat kind of model will you fit?\nIs your question related to inference or prediction? How does this affect your modeling process including variable selection and model assessment?\nList the variables that you are selecting a priori to include in your model (if there are many predictors in your dataset, you can specify broad categories instead of specific variables. Remember to use variable labels instead of raw variable names).\nYou are required to include at least one interaction term in your model. Specify the interaction term that is meaningful for your research question. For example, you could say something like “we are interested in how the relationship between vaccination rate and COVID infection totals changed over time, so we will include an interaction term with month and vaccination rate.”\n\nPotential challenges: How might you address the challenges that you identified in your EDA report?\n\nSubmit one report per group. One person will submit and select the other group members in the Gradescope submission. Be sure to assign pages in Gradescope when you submit."
   },
   {
     "objectID": "project/proposal.html",
     "href": "project/proposal.html",
-    "title": "Team Project Proposal",
+    "title": "Proposal",
     "section": "",
     "text": "The purpose of the team project is to provide an opportunity to complete a data analysis project from start to finish. This includes:\n\nSelecting data\nWriting research questions\nPerforming exploratory data analysis\nDeveloping appropriate statistical models\nCommunicating results through a written report and presentation\nWorking with a team"
   },
   {
     "objectID": "project/proposal.html#teams",
     "href": "project/proposal.html#teams",
-    "title": "Team Project Proposal",
+    "title": "Proposal",
     "section": "Teams",
     "text": "Teams\nSee this sheet for your team assignment. You are responsible for dividing the work equitably among team members. Every team member is required to contribute to each portion of the project: coding, writing, and presenting. Learn from each other and, most of all, be kind. You will receive individual grades for the project that incorporate feedback from fellow team members."
   },
   {
     "objectID": "project/proposal.html#data",
     "href": "project/proposal.html#data",
-    "title": "Team Project Proposal",
+    "title": "Proposal",
     "section": "Data",
     "text": "Data\nYour first step is to select the dataset that you are most interested in analyzing. Below is a list of datasets or sources that you can consider using to find a dataset. You are not require to use these.\nYour dataset must have at least 500 observations, 10 variables, and a mix of numeric and categorical variables. You may not use a dataset that we have used in class.\n\nR Data Sources for Regression Analysis\nFiveThirtyEight data\nWorld Health Organization\nThe National Bureau of Economic Research\nInternational Monetary Fund\nGeneral Social Survey\nUnited Nations Data\nPew Research\n2021 CDC Behavioral Risk Factor Surveillance System Survey\nWorld Inequality Database\n\nYou are welcome to specify a subset of a particular dataset (e.g., only North Carolina in the CDC BRFSS). Be sure to look at the data to understand its scope."
   },
   {
     "objectID": "project/proposal.html#proposal",
     "href": "project/proposal.html#proposal",
-    "title": "Team Project Proposal",
+    "title": "Proposal",
     "section": "Proposal",
     "text": "Proposal\nYour proposal should list the following:\n\nTeam member names\n2 or 3 datasets of interest (list in order of preference with 1 being the top choice). For each dataset, provide:\n\n\nThe source of the data, when and how it was originally collected, and a brief description of the observations. This information is likely found on the website where you found the data, so be sure to cite your source\nTWO research questions you are interested in exploring for each dataset. Explicitly state the outcome variables in the dataset that you will use to answer each question. You are required to use two different types of outcome variables for your research questions. For example, one research question may use a continuous outcome variable while the other uses an ordinal outcome variable. Variable types may include: continuous, binary, ordinal, nominal, time-to-event\na glimpse() of each dataset to show that you can access it in R\n\nConsult this helpful guide for writing a good research question\nNo data cleaning is required in the proposal. Your proposal should be generated with a Quarto document, but you will not be required to submit the code.\nSubmit one proposal per group. One person will submit and select the other group members in the Gradescope submission. After you submit, I will provide feedback to help you decide which dataset to choose for your project."
   },
