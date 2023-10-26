@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IDS 702 - 8.31: Introduction to Multiple Linear Regression</title>
+<title>IDS 702 - 10.31: Survival Analysis I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -132,7 +69,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">8.31: Introduction to Multiple Linear Regression</h1>
+      <h1 class="quarto-secondary-nav-title">10.31: Survival Analysis I</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -190,12 +127,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Unit 1: Linear Regression</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Unit 1: Linear Regression</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../materials/unit1/SLR.html" class="sidebar-item-text sidebar-link">8.29: Simple linear regression</a>
@@ -203,7 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/introMLR.html" class="sidebar-item-text sidebar-link active">8.31: Introduction to Multiple Linear Regression</a>
+  <a href="../../materials/unit1/introMLR.html" class="sidebar-item-text sidebar-link">8.31: Introduction to Multiple Linear Regression</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -285,15 +222,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">Unit 3: Special Topics</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Unit 3: Special Topics</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit3/survival1.html" class="sidebar-item-text sidebar-link">10.31: Survival Analysis I</a>
+  <a href="../../materials/unit3/survival1.html" class="sidebar-item-text sidebar-link active">10.31: Survival Analysis I</a>
   </div>
 </li>
       </ul>
@@ -367,8 +304,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#classwise-videos" id="toc-classwise-videos" class="nav-link" data-scroll-target="#classwise-videos">Classwise videos</a></li>
   <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook">Textbook</a></li>
-  <li><a href="#survey" id="toc-survey" class="nav-link" data-scroll-target="#survey">Survey</a></li>
-  <li><a href="#class-code" id="toc-class-code" class="nav-link" data-scroll-target="#class-code">Class code</a></li>
   <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a></li>
   </ul>
 </nav>
@@ -378,7 +313,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">8.31: Introduction to Multiple Linear Regression</h1>
+<h1 class="title d-none d-lg-block">10.31: Survival Analysis I</h1>
 </div>
 
 
@@ -396,65 +331,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <ul>
-<li><p>distinguish between the simple linear regression model and the multiple linear regression (MLR) model</p></li>
-<li><p>interpret coefficient estimates for continuous and categorical variables in MLR</p></li>
-<li><p>interpret interaction terms in MLR</p></li>
-<li><p>fit MLR models in R</p></li>
+<li><p>Give an example of a research question for which survival analysis could be used</p></li>
+<li><p>Describe the purpose of the Kaplan-Meier curve</p></li>
+<li><p>Generate a Kaplan-Meier curve in R</p></li>
 </ul>
 </section>
 <section id="classwise-videos" class="level2">
 <h2 class="anchored" data-anchor-id="classwise-videos">Classwise videos</h2>
-<p>These videos cover the concepts. We’ll look at how to do these things in R during class on Thursday. If you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.</p>
-<p>Click this invite link to join the Classwise course: <a href="http://classwise.org/home/joinLink/4ff2b472-b8cd-48d9-8d18-d7b535ed13bc">Classwise join link</a></p>
-<p>If you have problems with the invite link, try going directly to <a href="https://classwise.org/">classwise.org</a> and click “Login” and then “School SSO.” Then you should be able to use your email to access the videos directly on this page or on the classwise site. You do not need to create a new account.</p>
-<p>After joining the course, you should be able to view the videos directly from the course website</p>
-<iframe height="600" width="100%" src="https://classwise.org/home/openItem/202308-3000-4435-e5f068f1-8ecb-4494-bfb6-363be59604d1&amp;lecture&amp;embed"></iframe>
-<iframe height="600" width="100%" src="https://classwise.org/home/openItem/202308-3001-0111-94fac9df-3581-4111-b01e-c52b99cdc36f&amp;lecture&amp;embed"></iframe>
-<iframe height="600" width="100%" src="https://classwise.org/home/openItem/202308-3001-5012-d73fd61f-8b38-4692-910f-2e5016171c5b&amp;lecture&amp;embed"></iframe>
+<p>If you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.</p>
 </section>
 <section id="textbook" class="level2">
 <h2 class="anchored" data-anchor-id="textbook">Textbook</h2>
-<p>ISLR sections 3.1-3.3</p>
-</section>
-<section id="survey" class="level2">
-<h2 class="anchored" data-anchor-id="survey">Survey</h2>
-<p><a href="https://forms.gle/n968vd2wchUSv7MR9">Click here to complete the survey</a></p>
-</section>
-<section id="class-code" class="level2">
-<h2 class="anchored" data-anchor-id="class-code">Class code</h2>
-<p>In RStudio, run the following in the console:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://raw.githubusercontent.com/anlane611/702-classcode/main/introtoMLRcode.qmd"</span>, <span class="at">destfile=</span><span class="st">"introtomlrcode.qmd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>ISLR chapter 11 through section 11.4</p>
 </section>
 <section id="application-exercise" class="level2">
 <h2 class="anchored" data-anchor-id="application-exercise">Application exercise</h2>
-<p>Palmer penguins data</p>
-<p>Data were collected and made available by <a href="https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php">Dr.&nbsp;Kristen Gorman</a> and the <a href="https://pallter.marine.rutgers.edu/">Palmer Station, Antarctica LTER</a>, a member of the <a href="https://lternet.edu/">Long Term Ecological Research Network</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="1">
-<li><p>Use the <code>glimpse()</code> output to determine the following:</p>
-<ul>
-<li><p>sample size and number of variables</p></li>
-<li><p>which variables are categorical and which are numeric? is there any missing data? are the categorical variables stored appropriately?</p></li>
-</ul></li>
-<li><p>Select an appropriate outcome and primary (continuous) predictor of interest.</p>
-<ul>
-<li><p>generate a scatter plot for the two variables (remember to label your axes!)</p></li>
-<li><p>color the scatter plot by <code>sex</code>. Does an interaction term seem appropriate?</p></li>
-<li><p>color the scatter plot by <code>species</code>. Does an interaction term seem appropriate?</p></li>
-</ul></li>
-<li><p>Fit a model regressing the outcome variable you selected onto the primary predictor of interest, sex, and species.</p>
-<ul>
-<li><p>Write interpretations for the coefficient estimates, p-values, and confidence intervals</p></li>
-<li><p>Is the species variable statistically significant? Conduct the appropriate test.</p></li>
-</ul></li>
-<li><p>Add an interaction term that seems appropriate based on the EDA from #2. Interpret the p-value and coefficient estimate for the interaction term in the context of the dataset.</p></li>
-</ol>
 
 
 </section>
