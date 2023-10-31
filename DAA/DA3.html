@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IDS 702 - 10.31: Survival Analysis I</title>
+<title>IDS 702 - Data analysis assignment 3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -60,7 +60,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked">
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">10.31: Survival Analysis I</h1>
+      <h1 class="quarto-secondary-nav-title">Data analysis assignment 3</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">IDS 702</a> 
+      <a href="../">IDS 702</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -94,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -115,12 +115,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit0/unit0b.html" class="sidebar-item-text sidebar-link">Cleaning and exploring data in R</a>
+  <a href="../materials/unit0/unit0b.html" class="sidebar-item-text sidebar-link">Cleaning and exploring data in R</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit0/unit0.html" class="sidebar-item-text sidebar-link">Key Principles of Statistics</a>
+  <a href="../materials/unit0/unit0.html" class="sidebar-item-text sidebar-link">Key Principles of Statistics</a>
   </div>
 </li>
       </ul>
@@ -135,47 +135,47 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/SLR.html" class="sidebar-item-text sidebar-link">8.29: Simple linear regression</a>
+  <a href="../materials/unit1/SLR.html" class="sidebar-item-text sidebar-link">8.29: Simple linear regression</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/introMLR.html" class="sidebar-item-text sidebar-link">8.31: Introduction to Multiple Linear Regression</a>
+  <a href="../materials/unit1/introMLR.html" class="sidebar-item-text sidebar-link">8.31: Introduction to Multiple Linear Regression</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/estimation.html" class="sidebar-item-text sidebar-link">9.05: Estimating coefficients and assessing the model</a>
+  <a href="../materials/unit1/estimation.html" class="sidebar-item-text sidebar-link">9.05: Estimating coefficients and assessing the model</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/assumptions.html" class="sidebar-item-text sidebar-link">9.07: Addressing the assumptions</a>
+  <a href="../materials/unit1/assumptions.html" class="sidebar-item-text sidebar-link">9.07: Addressing the assumptions</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/problems.html" class="sidebar-item-text sidebar-link">9.12: Problems that can arise</a>
+  <a href="../materials/unit1/problems.html" class="sidebar-item-text sidebar-link">9.12: Problems that can arise</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/modelselection.html" class="sidebar-item-text sidebar-link">9.14: Model selection</a>
+  <a href="../materials/unit1/modelselection.html" class="sidebar-item-text sidebar-link">9.14: Model selection</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/prediction.html" class="sidebar-item-text sidebar-link">9.19 and 9.21: Prediction</a>
+  <a href="../materials/unit1/prediction.html" class="sidebar-item-text sidebar-link">9.19 and 9.21: Prediction</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/miscMLR.html" class="sidebar-item-text sidebar-link">9.26: Wrapping up MLR</a>
+  <a href="../materials/unit1/miscMLR.html" class="sidebar-item-text sidebar-link">9.26: Wrapping up MLR</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit1/penalized.html" class="sidebar-item-text sidebar-link">9.28: Penalized Regression</a>
+  <a href="../materials/unit1/penalized.html" class="sidebar-item-text sidebar-link">9.28: Penalized Regression</a>
   </div>
 </li>
       </ul>
@@ -190,47 +190,47 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit2/logisticintro.html" class="sidebar-item-text sidebar-link">10.3: Introduction to GLMs</a>
+  <a href="../materials/unit2/logisticintro.html" class="sidebar-item-text sidebar-link">10.3: Introduction to GLMs</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit2/logisticestimation.html" class="sidebar-item-text sidebar-link">10.5: Logistic Regression estimation and interpretation</a>
+  <a href="../materials/unit2/logisticestimation.html" class="sidebar-item-text sidebar-link">10.5: Logistic Regression estimation and interpretation</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit2/logisticmetrics.html" class="sidebar-item-text sidebar-link">10.10: Logistic Regression assessment</a>
+  <a href="../materials/unit2/logisticmetrics.html" class="sidebar-item-text sidebar-link">10.10: Logistic Regression assessment</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit2/multinomial.html" class="sidebar-item-text sidebar-link">10.12: Multinomial logistic regression</a>
+  <a href="../materials/unit2/multinomial.html" class="sidebar-item-text sidebar-link">10.12: Multinomial logistic regression</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit2/ordinal.html" class="sidebar-item-text sidebar-link">10.24: Ordinal regression</a>
+  <a href="../materials/unit2/ordinal.html" class="sidebar-item-text sidebar-link">10.24: Ordinal regression</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit2/poisson.html" class="sidebar-item-text sidebar-link">10.26: Poisson regression</a>
+  <a href="../materials/unit2/poisson.html" class="sidebar-item-text sidebar-link">10.26: Poisson regression</a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Unit 3: Special Topics</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">Unit 3: Special Topics</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit3/survival1.html" class="sidebar-item-text sidebar-link active">10.31: Survival Analysis I</a>
+  <a href="../materials/unit3/survival1.html" class="sidebar-item-text sidebar-link">10.31: Survival Analysis I</a>
   </div>
 </li>
       </ul>
@@ -239,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../reflections.html" class="sidebar-item-text sidebar-link">Statistics Reflections</a>
+  <a href="../reflections.html" class="sidebar-item-text sidebar-link">Statistics Reflections</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -252,17 +252,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../project/proposal.html" class="sidebar-item-text sidebar-link">Proposal</a>
+  <a href="../project/proposal.html" class="sidebar-item-text sidebar-link">Proposal</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../project/eda.html" class="sidebar-item-text sidebar-link">Exploratory Data Analysis Report</a>
+  <a href="../project/eda.html" class="sidebar-item-text sidebar-link">Exploratory Data Analysis Report</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../project/sap.html" class="sidebar-item-text sidebar-link">Statistical Analysis Plan</a>
+  <a href="../project/sap.html" class="sidebar-item-text sidebar-link">Statistical Analysis Plan</a>
   </div>
 </li>
       </ul>
@@ -277,19 +277,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../DAA/DA1.html" class="sidebar-item-text sidebar-link">Data analysis assignment 1</a>
+  <a href="../DAA/DA1.html" class="sidebar-item-text sidebar-link">Data analysis assignment 1</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../DAA/DA2.html" class="sidebar-item-text sidebar-link">Data analysis assignment 2</a>
+  <a href="../DAA/DA2.html" class="sidebar-item-text sidebar-link">Data analysis assignment 2</a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../resources.html" class="sidebar-item-text sidebar-link">Resources</a>
+  <a href="../resources.html" class="sidebar-item-text sidebar-link">Resources</a>
   </div>
 </li>
     </ul>
@@ -301,10 +301,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#classwise-videos" id="toc-classwise-videos" class="nav-link" data-scroll-target="#classwise-videos">Classwise videos</a></li>
-  <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook">Textbook</a></li>
-  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a></li>
+  <li><a href="#deadline-friday-november-17-1159-pm" id="toc-deadline-friday-november-17-1159-pm" class="nav-link active" data-scroll-target="#deadline-friday-november-17-1159-pm">Deadline: Friday, November 17, 11:59 PM</a></li>
+  <li><a href="#generalized-linear-model-tutorial" id="toc-generalized-linear-model-tutorial" class="nav-link" data-scroll-target="#generalized-linear-model-tutorial">Generalized Linear Model Tutorial</a></li>
+  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
+  <li><a href="#deliverable-4-6-pages" id="toc-deliverable-4-6-pages" class="nav-link" data-scroll-target="#deliverable-4-6-pages">Deliverable (4-6 pages)</a></li>
   </ul>
 </nav>
     </div>
@@ -313,7 +313,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">10.31: Survival Analysis I</h1>
+<h1 class="title d-none d-lg-block">Data analysis assignment 3</h1>
 </div>
 
 
@@ -328,35 +328,38 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
+<section id="deadline-friday-november-17-1159-pm" class="level3">
+<h3 class="anchored" data-anchor-id="deadline-friday-november-17-1159-pm">Deadline: Friday, November 17, 11:59 PM</h3>
+</section>
+<section id="generalized-linear-model-tutorial" class="level2">
+<h2 class="anchored" data-anchor-id="generalized-linear-model-tutorial">Generalized Linear Model Tutorial</h2>
+<p>For this assignment, you will write a tutorial for one of three generalized linear models that we have covered. Writing a tutorial will help you to solidify your conceptual understanding of the model and practice applying the model in R. You will be assigned one of three types of GLMs: multinomial, ordinal, or poisson.</p>
+</section>
+<section id="datasets" class="level2">
+<h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
+<p>Click on the link below to download the dataset that corresponds to the model you have been assigned. Note that these are simulated datasets, which means I generated them using probability distribution functions in R. They are all clean, contain no missing data, and have three variables: Y, X1, and X2. While it is ok to use these variable names, I encourage you to create your own variable names that apply to your area of interest. You should note in your tutorial that the data are simulated.</p>
+<a href="DA3_Multinomial.csv" download="">Multinomial data</a>
+<a href="DA3_Ordinal.csv" download="">Ordinal data</a>
+<a href="DA3_Poisson.csv" download="">Poisson data</a>
+</section>
+<section id="deliverable-4-6-pages" class="level2">
+<h2 class="anchored" data-anchor-id="deliverable-4-6-pages">Deliverable (4-6 pages)</h2>
+<p>Your tutorial should describe and demonstrate the GLM using the appropriate dataset. The intended audience is someone who is familiar with linear regression but unfamiliar with GLMs.</p>
+<p>For this assignment, it is important to include code chunks in your tutorial. Your task is to explain the concepts and provide the code that your audience will need to replicate the example. Recall that you can do this with the <code>echo: TRUE</code> option under <code>eval</code> in your YAML header. Note that only code that is directly relevant to the tutorial should be included. Extraneous code such as <code>install.packages()</code> or debugging code should not be included. You should also show relevant “raw” output, such as the <code>summary(model)</code> output, to describe how to interpret it.</p>
+<p>Your tutorial should contain the following sections and content:</p>
 <ul>
-<li><p>Give an example of a research question for which survival analysis could be used</p></li>
-<li><p>Describe the purpose of the Kaplan-Meier curve</p></li>
-<li><p>Generate a Kaplan-Meier curve in R</p></li>
+<li><p>Overview: Provide a few sentences describing the purpose of GLMs and the general structure of a GLM. As part of this, describe the purpose of a link function. Provide a few sentences to describe the purpose of your particular GLM. Include 2 examples of research questions that could be answered with your GLM.</p></li>
+<li><p>Probability Distribution: Briefly describe the probability distribution that is assumed for the outcome. What is the support? What are the parameters and what values can they take?</p></li>
+<li><p>The Model: Write out the general form of your GLM. What is the link function and why is it appropriate for that type of outcome? What are the model assumptions?</p></li>
+<li><p>Data Example:</p>
+<ul>
+<li><p>Introduce the dataset. Provide a few summary statistics and/or plots. Include the fact that this is a simulated dataset.</p></li>
+<li><p>Fit the model. Include all relevant code, including <code>library()</code> for packages if needed.</p></li>
+<li><p>Explain how to interpret coefficient estimates for the predictors.</p></li>
+<li><p>Show and describe a plot that illustrates the results of the model.</p></li>
+<li><p>Describe how to assess the model and include the code to do so. Include how to assess any assumptions that are unique to that model (e.g., proportional odds, overdispersion). <em>Note: For the ordinal model, assess the assumption using the method shown in the class exercise, not the hypothesis test shown in the videos.</em></p></li>
+</ul></li>
 </ul>
-</section>
-<section id="classwise-videos" class="level2">
-<h2 class="anchored" data-anchor-id="classwise-videos">Classwise videos</h2>
-<p>If you have questions as you watch the videos, feel free to send me an email or slack message! I will address common questions at the beginning of class.</p>
-<iframe height="600" width="100%" src="https://classwise.org/home/openItem/202310-2915-0830-3a5bbf25-a779-40c4-b23b-2de140680402&amp;video&amp;embed"></iframe>
-</section>
-<section id="textbook" class="level2">
-<h2 class="anchored" data-anchor-id="textbook">Textbook</h2>
-<p>ISLR chapter 11 through section 11.4</p>
-</section>
-<section id="application-exercise" class="level2">
-<h2 class="anchored" data-anchor-id="application-exercise">Application exercise</h2>
-<p>ISLR Lab 11.8. Stop when it says “Next, we fit the Cox model”</p>
-<p>As you work through the lab, discuss the following:</p>
-<ol type="1">
-<li>What does the <code>status</code> variable mean?</li>
-<li>What is the outcome?</li>
-<li>What does the y-axis of the Kaplan-Meier plot mean?</li>
-<li>What do you observe with the Kaplan-Meier plot?</li>
-<li>What do you conclude from the log-rank test?</li>
-<li>Create another Kaplan-Meier plot using a covariate other than <code>sex</code>. Compute the log-rank test. What do you observe from the plot and what do you conclude from the test?</li>
-</ol>
 
 
 </section>
