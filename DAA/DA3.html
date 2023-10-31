@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -305,6 +368,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#generalized-linear-model-tutorial" id="toc-generalized-linear-model-tutorial" class="nav-link" data-scroll-target="#generalized-linear-model-tutorial">Generalized Linear Model Tutorial</a></li>
   <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
   <li><a href="#deliverable-4-6-pages" id="toc-deliverable-4-6-pages" class="nav-link" data-scroll-target="#deliverable-4-6-pages">Deliverable (4-6 pages)</a></li>
+  <li><a href="#data-generation" id="toc-data-generation" class="nav-link" data-scroll-target="#data-generation">Data Generation</a></li>
   </ul>
 </nav>
     </div>
@@ -334,10 +398,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="generalized-linear-model-tutorial" class="level2">
 <h2 class="anchored" data-anchor-id="generalized-linear-model-tutorial">Generalized Linear Model Tutorial</h2>
 <p>For this assignment, you will write a tutorial for one of three generalized linear models that we have covered. Writing a tutorial will help you to solidify your conceptual understanding of the model and practice applying the model in R. You will be assigned one of three types of GLMs: multinomial, ordinal, or poisson.</p>
+<p><a href="https://duke.box.com/s/x1no9kj6c1r2v86wzubzjm1ar45f7zyt">Click here for your GLM assignment</a> (you must use the one you are assigned)</p>
 </section>
 <section id="datasets" class="level2">
 <h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
-<p>Click on the link below to download the dataset that corresponds to the model you have been assigned. Note that these are simulated datasets, which means I generated them using probability distribution functions in R. They are all clean, contain no missing data, and have three variables: Y, X1, and X2. While it is ok to use these variable names, I encourage you to create your own variable names that apply to your area of interest. You should note in your tutorial that the data are simulated.</p>
+<p>Click on the link below to download the dataset that corresponds to the model you have been assigned. Note that these are simulated datasets, which means I generated them using probability distribution functions in R. They are all clean, contain no missing data, and have three variables: Y, X1, and X2. While it is ok to use these variable names, I encourage you to create your own variable names that apply to your area of interest. You should note in your tutorial that the data are simulated. More detail about the data generation is included at the end of this page if you are interested.</p>
 <a href="DA3_Multinomial.csv" download="">Multinomial data</a>
 <a href="DA3_Ordinal.csv" download="">Ordinal data</a>
 <a href="DA3_Poisson.csv" download="">Poisson data</a>
@@ -360,6 +425,66 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Describe how to assess the model and include the code to do so. Include how to assess any assumptions that are unique to that model (e.g., proportional odds, overdispersion). <em>Note: For the ordinal model, assess the assumption using the method shown in the class exercise, not the hypothesis test shown in the videos.</em></p></li>
 </ul></li>
 </ul>
+</section>
+<section id="data-generation" class="level2">
+<h2 class="anchored" data-anchor-id="data-generation">Data Generation</h2>
+<p>See the code below if you want to learn more about how the datasets were generated. This is not required. If you would like to change the values of the coefficients or the mean/sd of the predictor(s) to better fit your application of interest, you are welcome to do that.</p>
+<p>References to learn more:</p>
+<p><a href="https://library.virginia.edu/data/articles/simulating-multinomial-logistic-regression-data">Simulating multinomial logistic regression data</a> (also used for ordinal)</p>
+<p><a href="https://library.virginia.edu/data/articles/simulating-data-for-count-models">Simulating data for count models</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># simulating data for GLMs</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#first, we specify the sample size and generate the predictors</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">344</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span>n, <span class="at">mean=</span><span class="dv">20</span>, <span class="at">sd=</span><span class="dv">3</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>x2a <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span>n, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">1</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x2<span class="sc">&lt;</span><span class="fl">0.3</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#for each model, we generate the outcome based on the specified model</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#poisson</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>lambda.out <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">3.5</span> <span class="sc">+</span> <span class="fl">0.2</span><span class="sc">*</span>x1 <span class="sc">+</span> <span class="fl">0.5</span><span class="sc">*</span>x2) <span class="co">#first generate the mean</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="at">n=</span>n, <span class="at">lambda=</span>lambda.out) <span class="co">#use the mean to generate the poisson outcome</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>pois_dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Y=</span>y,<span class="at">X1=</span>x1,<span class="at">X2=</span>x2) <span class="co">#create the dataframe</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#multinomial</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#recall that multinomial fits different logistic models. Here, we want an outcome with 3 levels, so we specify two different logistic models below.</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>lp2 <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2</span><span class="sc">*</span>x1 <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.7</span><span class="sc">*</span>x2</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>lp3 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">4</span> <span class="sc">+</span> <span class="fl">0.2</span><span class="sc">*</span>x1 <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.3</span><span class="sc">*</span>x2</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>den <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(lp2)<span class="sc">+</span><span class="fu">exp</span>(lp3)) <span class="co">#ensures the probabilities sum to 1</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#we generate a probability of each outcome level for each subject</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>den</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">exp</span>(lp2)<span class="sc">/</span>den</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">exp</span>(lp3)<span class="sc">/</span>den</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">cbind</span>(p1, p2, p3)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(p) <span class="co">#shows the matrix structure of the probabilities</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co">#the apply function takes each row of probabilities and generates and outcome based on those probabilities for each subject.</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>y.mult <span class="ot">&lt;-</span> <span class="fu">apply</span>(p, <span class="at">MARGIN=</span><span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">sample</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">prob=</span>x))</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>mult_dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Y=</span>y.mult,<span class="at">X1=</span>x1,<span class="at">X2=</span>x2)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co">#ordinal - same as multinomial above, I just used different coefficients</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>lp2 <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2</span><span class="sc">*</span>x1 <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.6</span><span class="sc">*</span>x2</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>lp3 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">4</span> <span class="sc">+</span> <span class="fl">0.2</span><span class="sc">*</span>x1 <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2</span><span class="sc">*</span>x2</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>den <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(lp2)<span class="sc">+</span><span class="fu">exp</span>(lp3))</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>den</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">exp</span>(lp2)<span class="sc">/</span>den</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">exp</span>(lp3)<span class="sc">/</span>den</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">cbind</span>(p1, p2, p3)</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(p)</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>y.ord <span class="ot">&lt;-</span> <span class="fu">apply</span>(p, <span class="at">MARGIN=</span><span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">sample</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">prob=</span>x))</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>ord_dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Y=</span>y.ord,<span class="at">X1=</span>x1,<span class="at">X2=</span>x2)</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(y.ord)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
