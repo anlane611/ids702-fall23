@@ -721,6 +721,13 @@
     "text": "Deliverable (4-6 pages)\nYour tutorial should describe and demonstrate the GLM using the appropriate dataset. The intended audience is someone who is familiar with linear regression but unfamiliar with GLMs.\nFor this assignment, it is important to include code chunks in your tutorial. Your task is to explain the concepts and provide the code that your audience will need to replicate the example. Recall that you can do this with the echo: TRUE option under eval in your YAML header. Note that only code that is directly relevant to the tutorial should be included. Extraneous code such as install.packages() or debugging code should not be included. You should also show relevant “raw” output, such as the summary(model) output, to describe how to interpret it.\nYour tutorial should contain the following sections and content:\n\nOverview: Provide a few sentences describing the purpose of GLMs and the general structure of a GLM. As part of this, describe the purpose of a link function. Provide a few sentences to describe the purpose of your particular GLM. Include 2 examples of research questions that could be answered with your GLM.\nProbability Distribution: Briefly describe the probability distribution that is assumed for the outcome. What is the support? What are the parameters and what values can they take?\nThe Model: Write out the general form of your GLM. What is the link function and why is it appropriate for that type of outcome? What are the model assumptions?\nData Example:\n\nIntroduce the dataset. Provide a few summary statistics and/or plots. Include the fact that this is a simulated dataset.\nFit the model. Include all relevant code, including library() for packages if needed.\nExplain how to interpret coefficient estimates for the predictors.\nShow and describe a plot that illustrates the results of the model.\nDescribe how to assess the model and include the code to do so. Include how to assess any assumptions that are unique to that model (e.g., proportional odds, overdispersion). Note: For the ordinal model, assess the assumption using the method shown in the class exercise, not the hypothesis test shown in the videos."
   },
   {
+    "objectID": "DAA/DA3.html#example-tutorial",
+    "href": "DAA/DA3.html#example-tutorial",
+    "title": "Data analysis assignment 3",
+    "section": "Example tutorial",
+    "text": "Example tutorial\nGetting started with linear regression"
+  },
+  {
     "objectID": "DAA/DA3.html#data-generation",
     "href": "DAA/DA3.html#data-generation",
     "title": "Data analysis assignment 3",
