@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -315,6 +378,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#classwise-videos" id="toc-classwise-videos" class="nav-link" data-scroll-target="#classwise-videos">Classwise videos</a></li>
   <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook">Textbook</a></li>
   <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a></li>
+  <li><a href="#additional-practice" id="toc-additional-practice" class="nav-link" data-scroll-target="#additional-practice">Additional practice</a></li>
   </ul>
 </nav>
     </div>
@@ -357,6 +421,135 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="application-exercise" class="level2">
 <h2 class="anchored" data-anchor-id="application-exercise">Application exercise</h2>
+<p>For this exercise, we will use the breast cancer data used in the first survival analysis lecture.</p>
+<p>Code book:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pid</td>
+<td>patient identifier</td>
+</tr>
+<tr class="even">
+<td>age</td>
+<td>age, years</td>
+</tr>
+<tr class="odd">
+<td>meno</td>
+<td>menopausal status (0=premenopausal, 1=postmenopausal)</td>
+</tr>
+<tr class="even">
+<td>size</td>
+<td>tumor size, mm</td>
+</tr>
+<tr class="odd">
+<td>grade</td>
+<td>tumor grade</td>
+</tr>
+<tr class="even">
+<td>nodes</td>
+<td>number of positive lymph nodes</td>
+</tr>
+<tr class="odd">
+<td>pgr</td>
+<td>progesterone receptors (fmol/l)</td>
+</tr>
+<tr class="even">
+<td>er</td>
+<td>estrogen receptors (fmol/l)</td>
+</tr>
+<tr class="odd">
+<td>hormon</td>
+<td>hormonal therapy (0=no, 1=yes)</td>
+</tr>
+<tr class="even">
+<td>rfstime</td>
+<td>recurrence-free survival time</td>
+</tr>
+<tr class="odd">
+<td>status</td>
+<td>0=alive w/o recurrence, 1=recurrence or death</td>
+</tr>
+</tbody>
+</table>
+<p>First, get a glimpse of the data and calculate some summary statistics. For example, what percentage of observations are censored?</p>
+<p>Use the code below to generate Kaplan-Meier curves and perform the log-rank test.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>breastcancer <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/anlane611/datasets/main/breastcancer.csv"</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(breastcancer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Kaplan-Meier curve for all patients</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>surv.fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(rfstime,status)<span class="sc">~</span><span class="dv">1</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(surv.fit, <span class="at">xlab=</span><span class="st">"Days"</span>, <span class="at">ylab=</span><span class="st">"Estimated probability of survival"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Kaplan-Meier curve by treatment group</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>surv.fit.trt <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(rfstime, status) <span class="sc">~</span> <span class="fu">factor</span>(hormon))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(surv.fit.trt, <span class="at">xlab=</span><span class="st">"Days"</span>, <span class="at">ylab=</span><span class="st">"Estimated probability of survival"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="fu">c</span>(<span class="st">"Trt"</span>, <span class="st">"No Trt"</span>), <span class="at">col=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">2</span>), <span class="at">lty=</span><span class="dv">1</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Log-rank test</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">survdiff</span>(<span class="fu">Surv</span>(rfstime, status) <span class="sc">~</span> <span class="fu">factor</span>(hormon))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, let’s fit a Cox proportional hazards model. Let’s start by just using the main predictor of interest, hormone therapy treatment. We can use the <code>coxph</code> function in the survival package to fit the model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fit.cox <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(rfstime, status) <span class="sc">~</span> <span class="fu">factor</span>(hormon))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit.cox)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+coxph(formula = Surv(rfstime, status) ~ factor(hormon))
+
+  n= 686, number of events= 299 
+
+                   coef exp(coef) se(coef)      z Pr(&gt;|z|)   
+factor(hormon)1 -0.3640    0.6949   0.1250 -2.911   0.0036 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+                exp(coef) exp(-coef) lower .95 upper .95
+factor(hormon)1    0.6949      1.439    0.5438    0.8879
+
+Concordance= 0.543  (se = 0.014 )
+Likelihood ratio test= 8.82  on 1 df,   p=0.003
+Wald test            = 8.47  on 1 df,   p=0.004
+Score (logrank) test = 8.57  on 1 df,   p=0.003</code></pre>
+</div>
+</div>
+<p>Examine the summary output for the model with only hormonal treatment group as a predictor.</p>
+<ul>
+<li><p>What are the meanings and values of n and number of events?</p></li>
+<li><p>How does the p-value of the hormonal treatment variable compare to the p-value obtained from the log-rank test?</p></li>
+</ul>
+<p>Note that the exponentiated value of the coefficient estimate is already provided in the summary output. We can interpret exp(coef)=0.7 by saying the risk of death/recurrence for the treatment group is 30% lower than the risk of death/recurrence for the non-experimental treatment group.</p>
+<p>Calculate the mean survival time for each treatment group without considering censoring. What is the difference between the groups and how does this compare to the results obtained with the model?</p>
+<p>Recall that the Cox model relies on the key assumption of proportional hazards: the ratio of hazards is constant over time. Let’s check this assumption for the model. We can do this using the cox.zph function in the survival package. This generates a p-value for each predictor to test the proportional hazards assumption. A significant p-value here indicates that the assumption may be violated.</p>
+<p>The GLOBAL line performs a test for the full model. Here, since we only have one predictor, the global test is the same as the predictor test.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>test.ph <span class="ot">&lt;-</span> <span class="fu">cox.zph</span>(fit.cox)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can also look at a plot of the Schoenfeld Residuals, which are a residual measure unique to survival models that are commonly used to test the proportional hazards assumption. A straight line indicates proportional hazards. Here, we see a fairly straight line with some veering off at later time points.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(test.ph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="survival2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Now, add a few predictors to the model that you think are most relevant to accurately assess the relationship between treatment and survival time.</p>
+<ul>
+<li><p>Fit the model and interpret the coefficient estimates. Which predictor(s) are statistically significant? Controlling for the other predictors, is there still a significant relationship between hormonal treatment group and survival time?</p></li>
+<li><p>Use the cox.zph function to assess the proportional hazards assumption.</p></li>
+</ul>
+</section>
+<section id="additional-practice" class="level2">
+<h2 class="anchored" data-anchor-id="additional-practice">Additional practice</h2>
+<p>Labs in ISLR section 11.8</p>
 
 
 </section>
