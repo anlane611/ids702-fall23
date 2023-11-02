@@ -487,21 +487,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Kaplan-Meier curve for all patients</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>surv.fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(rfstime,status)<span class="sc">~</span><span class="dv">1</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(surv.fit, <span class="at">xlab=</span><span class="st">"Days"</span>, <span class="at">ylab=</span><span class="st">"Estimated probability of survival"</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Kaplan-Meier curve by treatment group</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>surv.fit.trt <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(rfstime, status) <span class="sc">~</span> <span class="fu">factor</span>(hormon))</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(surv.fit.trt, <span class="at">xlab=</span><span class="st">"Days"</span>, <span class="at">ylab=</span><span class="st">"Estimated probability of survival"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>))</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="fu">c</span>(<span class="st">"Trt"</span>, <span class="st">"No Trt"</span>), <span class="at">col=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">2</span>), <span class="at">lty=</span><span class="dv">1</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Log-rank test</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">survdiff</span>(<span class="fu">Surv</span>(rfstime, status) <span class="sc">~</span> <span class="fu">factor</span>(hormon))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(surv.fit, <span class="at">xlab=</span><span class="st">"Days"</span>, <span class="at">ylab=</span><span class="st">"Estimated probability of survival"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="survival2_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Kaplan-Meier curve by treatment group</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>surv.fit.trt <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(rfstime, status) <span class="sc">~</span> <span class="fu">factor</span>(hormon))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(surv.fit.trt, <span class="at">xlab=</span><span class="st">"Days"</span>, <span class="at">ylab=</span><span class="st">"Estimated probability of survival"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="fu">c</span>(<span class="st">"Trt"</span>, <span class="st">"No Trt"</span>), <span class="at">col=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">2</span>), <span class="at">lty=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="survival2_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Log-rank test</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">survdiff</span>(<span class="fu">Surv</span>(rfstime, status) <span class="sc">~</span> <span class="fu">factor</span>(hormon))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+survdiff(formula = Surv(rfstime, status) ~ factor(hormon))
+
+                   N Observed Expected (O-E)^2/E (O-E)^2/V
+factor(hormon)=0 440      205      180      3.37      8.56
+factor(hormon)=1 246       94      119      5.12      8.56
+
+ Chisq= 8.6  on 1 degrees of freedom, p= 0.003 </code></pre>
+</div>
 </div>
 <p>Now, let’s fit a Cox proportional hazards model. Let’s start by just using the main predictor of interest, hormone therapy treatment. We can use the <code>coxph</code> function in the survival package to fit the model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fit.cox <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(rfstime, status) <span class="sc">~</span> <span class="fu">factor</span>(hormon))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit.cox)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fit.cox <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(rfstime, status) <span class="sc">~</span> <span class="fu">factor</span>(hormon))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit.cox)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Call:
 coxph(formula = Surv(rfstime, status) ~ factor(hormon))
@@ -532,11 +546,17 @@ Score (logrank) test = 8.57  on 1 df,   p=0.003</code></pre>
 <p>Recall that the Cox model relies on the key assumption of proportional hazards: the ratio of hazards is constant over time. Let’s check this assumption for the model. We can do this using the cox.zph function in the survival package. This generates a p-value for each predictor to test the proportional hazards assumption. A significant p-value here indicates that the assumption may be violated.</p>
 <p>The GLOBAL line performs a test for the full model. Here, since we only have one predictor, the global test is the same as the predictor test.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>test.ph <span class="ot">&lt;-</span> <span class="fu">cox.zph</span>(fit.cox)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>test.ph <span class="ot">&lt;-</span> <span class="fu">cox.zph</span>(fit.cox)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>test.ph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               chisq df    p
+factor(hormon) 0.227  1 0.63
+GLOBAL         0.227  1 0.63</code></pre>
+</div>
 </div>
 <p>We can also look at a plot of the Schoenfeld Residuals, which are a residual measure unique to survival models that are commonly used to test the proportional hazards assumption. A straight line indicates proportional hazards. Here, we see a fairly straight line with some veering off at later time points.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(test.ph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(test.ph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="survival2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
