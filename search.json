@@ -907,7 +907,14 @@
     "href": "project/reportandpres.html#submission",
     "title": "Final Report and Presentation",
     "section": "Submission",
-    "text": "Submission\nSubmit one report per group. One person will submit and select the other group members in the Gradescope submission. Be sure to assign pages in Gradescope when you submit.\nOptional: If you would like me to provide some feedback on your report, you can submit a draft by Nov 22."
+    "text": "Submission\nSubmit one report and one qmd file per group. One person will submit and select the other group members in the Gradescope submission. Be sure to assign pages in Gradescope when you submit.\nOptional: If you would like me to provide some feedback on your report, you can submit a draft by Nov 22."
+  },
+  {
+    "objectID": "project/reportandpres.html#example",
+    "href": "project/reportandpres.html#example",
+    "title": "Final Report and Presentation",
+    "section": "Example",
+    "text": "Example\nRefer to this paper that presents a statistical analysis on low birth weight infants who receive blood transfusions. In particular, notice the distinction between the methods and results section. Notice how the methods section describes how the analysis was carried out without reporting any results.\nThe length of the sections of this paper will likely differ from your report. I would expect your introduction and conclusion sections to be shorter, but your methods and results to be longer (if for no other reason than you have two research questions to present)."
   },
   {
     "objectID": "project/proposal.html",
