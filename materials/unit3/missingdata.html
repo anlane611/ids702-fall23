@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IDS 702 - Intro to MLR</title>
+<title>IDS 702 - 11.7: Missing Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,6 +122,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -132,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Intro to MLR</h1>
+      <h1 class="quarto-secondary-nav-title">11.7: Missing Data</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -285,12 +286,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">Unit 3: Special Topics</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Unit 3: Special Topics</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../materials/unit3/survival1.html" class="sidebar-item-text sidebar-link">10.31: Survival Analysis I</a>
@@ -303,7 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../materials/unit3/missingdata.html" class="sidebar-item-text sidebar-link">11.7: Missing Data</a>
+  <a href="../../materials/unit3/missingdata.html" class="sidebar-item-text sidebar-link active">11.7: Missing Data</a>
   </div>
 </li>
       </ul>
@@ -384,8 +385,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#fitting-an-mlr-model" id="toc-fitting-an-mlr-model" class="nav-link active" data-scroll-target="#fitting-an-mlr-model">Fitting an MLR model</a></li>
-  <li><a href="#interaction" id="toc-interaction" class="nav-link" data-scroll-target="#interaction">Interaction</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#the-problem-of-missingness" id="toc-the-problem-of-missingness" class="nav-link" data-scroll-target="#the-problem-of-missingness">The Problem of Missingness</a></li>
+  <li><a href="#missing-data-mechanisms" id="toc-missing-data-mechanisms" class="nav-link" data-scroll-target="#missing-data-mechanisms">Missing Data Mechanisms</a></li>
+  <li><a href="#types-of-imputation" id="toc-types-of-imputation" class="nav-link" data-scroll-target="#types-of-imputation">Types of Imputation</a>
+  <ul class="collapse">
+  <li><a href="#imputation-methods" id="toc-imputation-methods" class="nav-link" data-scroll-target="#imputation-methods">Imputation methods</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -394,7 +400,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Intro to MLR</h1>
+<h1 class="title d-none d-lg-block">11.7: Missing Data</h1>
 </div>
 
 
@@ -409,193 +415,114 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="fitting-an-mlr-model" class="level2">
-<h2 class="anchored" data-anchor-id="fitting-an-mlr-model">Fitting an MLR model</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>✔ ggplot2 3.4.0     ✔ purrr   0.3.4
-✔ tibble  3.1.8     ✔ dplyr   1.1.0
-✔ tidyr   1.2.0     ✔ stringr 1.4.0
-✔ readr   2.1.2     ✔ forcats 0.5.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR2)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"Auto"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 392
-Columns: 9
-$ mpg          &lt;dbl&gt; 18, 15, 18, 16, 17, 15, 14, 14, 14, 15, 15, 14, 15, 14, 2…
-$ cylinders    &lt;int&gt; 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 4, 6, 6, 6, 4, …
-$ displacement &lt;dbl&gt; 307, 350, 318, 304, 302, 429, 454, 440, 455, 390, 383, 34…
-$ horsepower   &lt;int&gt; 130, 165, 150, 150, 140, 198, 220, 215, 225, 190, 170, 16…
-$ weight       &lt;int&gt; 3504, 3693, 3436, 3433, 3449, 4341, 4354, 4312, 4425, 385…
-$ acceleration &lt;dbl&gt; 12.0, 11.5, 11.0, 12.0, 10.5, 10.0, 9.0, 8.5, 10.0, 8.5, …
-$ year         &lt;int&gt; 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 7…
-$ origin       &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 3, …
-$ name         &lt;fct&gt; chevrolet chevelle malibu, buick skylark 320, plymouth sa…</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR2)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"Auto"</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 392
-Columns: 9
-$ mpg          &lt;dbl&gt; 18, 15, 18, 16, 17, 15, 14, 14, 14, 15, 15, 14, 15, 14, 2…
-$ cylinders    &lt;int&gt; 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 4, 6, 6, 6, 4, …
-$ displacement &lt;dbl&gt; 307, 350, 318, 304, 302, 429, 454, 440, 455, 390, 383, 34…
-$ horsepower   &lt;int&gt; 130, 165, 150, 150, 140, 198, 220, 215, 225, 190, 170, 16…
-$ weight       &lt;int&gt; 3504, 3693, 3436, 3433, 3449, 4341, 4354, 4312, 4425, 385…
-$ acceleration &lt;dbl&gt; 12.0, 11.5, 11.0, 12.0, 10.5, 10.0, 9.0, 8.5, 10.0, 8.5, …
-$ year         &lt;int&gt; 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 7…
-$ origin       &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 3, …
-$ name         &lt;fct&gt; chevrolet chevelle malibu, buick skylark 320, plymouth sa…</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Auto, <span class="fu">aes</span>(<span class="at">x=</span>weight,<span class="at">y=</span>mpg,<span class="at">col=</span>origin))<span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Vehicle weight (lbs)"</span>,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"MPG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="introtomlrcode_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#MLR model regressing mpg on weight and origin</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mlr_mod_auto <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg<span class="sc">~</span>weight<span class="sc">+</span>origin,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data=</span>Auto)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mlr_mod_auto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = mpg ~ weight + origin, data = Auto)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--13.0698  -2.7888  -0.3122   2.4489  15.4816 
-
-Coefficients:
-              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 42.4908175  1.3266161   32.03  &lt; 2e-16 ***
-weight      -0.0070071  0.0003136  -22.34  &lt; 2e-16 ***
-origin       1.1540278  0.3306915    3.49 0.000539 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 4.272 on 389 degrees of freedom
-Multiple R-squared:  0.702, Adjusted R-squared:  0.7004 
-F-statistic: 458.1 on 2 and 389 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a factor variable</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>Auto<span class="sc">$</span>origin_fac <span class="ot">&lt;-</span> <span class="fu">factor</span>(Auto<span class="sc">$</span>origin,</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"American"</span>,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"European"</span>,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"Japanese"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Auto, <span class="fu">aes</span>(<span class="at">x=</span>weight,<span class="at">y=</span>mpg,<span class="at">col=</span>origin_fac))<span class="sc">+</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Vehicle weight (lbs)"</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"MPG"</span>,<span class="at">col=</span><span class="st">"Origin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="introtomlrcode_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mlr_mod_fac <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg<span class="sc">~</span>weight<span class="sc">+</span>origin_fac,</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data=</span>Auto)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mlr_mod_fac)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = mpg ~ weight + origin_fac, data = Auto)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--13.1339  -2.7358  -0.3032   2.4307  15.4544 
-
-Coefficients:
-                     Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)        43.7322362  1.1134286  39.277  &lt; 2e-16 ***
-weight             -0.0070271  0.0003201 -21.956  &lt; 2e-16 ***
-origin_facEuropean  0.9709056  0.6587673   1.474 0.141340    
-origin_facJapanese  2.3271499  0.6648043   3.501 0.000518 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 4.277 on 388 degrees of freedom
-Multiple R-squared:  0.702, Adjusted R-squared:  0.6997 
-F-statistic: 304.7 on 3 and 388 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-</div>
-<p>On average, European cars’ mpg is 0.97 higher than American cars’ mpg, holding all else constant. This difference is not statistically significant at the 0.05 level (p=0.14).</p>
-<p>On average, per increase in weight (lb), mpg decreases by 0.007, all else constant. This is statistically significant (p&lt;0.001), so vehicle weight is associated with mpg.</p>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
+<ul>
+<li><p>Identify 3 mechanisms of missingness</p></li>
+<li><p>Describe 5 imputation methods</p></li>
+</ul>
 </section>
-<section id="interaction" class="level2">
-<h2 class="anchored" data-anchor-id="interaction">Interaction</h2>
+<section id="the-problem-of-missingness" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem-of-missingness">The Problem of Missingness</h2>
+<ul>
+<li><p>Missing data is a common problem</p></li>
+<li><p>Always start by exploring the missingness!</p>
+<ul>
+<li><p>Number/proportion of observations with any missing data?</p></li>
+<li><p>Missing in one or more variables?</p></li>
+<li><p>Missing in outcome, predictors, or both?</p></li>
+<li><p>Pattern of missingness? (e.g., <span class="math inline">\(X_1\)</span> always missing when <span class="math inline">\(X_2=1\)</span> ?)</p></li>
+</ul></li>
+<li><p>Even the best analysis cannot make up for poor study design/data collection</p></li>
+</ul>
+</section>
+<section id="missing-data-mechanisms" class="level2">
+<h2 class="anchored" data-anchor-id="missing-data-mechanisms">Missing Data Mechanisms</h2>
+<ol type="1">
+<li>Missing completely at random (MCAR)</li>
+</ol>
+<ul>
+<li><p>Reason for missingness does not depend on the values of the observed data</p></li>
+<li><p>Each observation has an equal probability of missingness</p></li>
+<li><p>Example: A survey has a front and back, and some participants have missing data for the questions on the back page</p></li>
+</ul>
+<ol start="2" type="1">
+<li>Missing at random (MAR)</li>
+</ol>
+<ul>
+<li><p>Reason for missingness depends on the values of the observed data</p></li>
+<li><p>Probability of missingness is the same for each participant conditional on observed variables</p></li>
+<li><p>Example: Some responses for a survey question about income are missing, but the survey includes questions about age, and younger people are less likely to answer income questions than older people</p></li>
+</ul>
+<ol start="3" type="1">
+<li>Missing not at random (MNAR)</li>
+</ol>
+<ul>
+<li><p>Reason for missingness depends on the actual values of the missing data, or unobserved predictors</p></li>
+<li><p>Example: People who have higher income are less likely to respond to income-related questions</p></li>
+</ul>
+<p>How can we tell which mechanism is present?</p>
+<p>In general, we don’t know, and there is not a statistical way to tell</p>
+<ul>
+<li><p>Rare that data are MCAR, though we sometimes assume they are</p></li>
+<li><p>Possible, perhaps likely that data are MNAR, but difficult to account for this</p></li>
+<li><p>Generally assume/hope that data are MAR</p></li>
+</ul>
+</section>
+<section id="types-of-imputation" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-imputation">Types of Imputation</h2>
+<p>In your group, research your assigned imputation method and create 1-2 slides in <a href="https://docs.google.com/presentation/d/1HR6zdu1D7IFdY3-BsK3mjMu8RyvkmAVZW5PS-TTndlc/edit?usp=sharing">this google slide deck</a> with the following information:</p>
+<ol type="1">
+<li>Explain the method(s) conceptually</li>
+<li>Address the pros and cons of your method(s)</li>
+<li>Show how you can implement the method in R using the bikeshare dataset that contains simulated missingness (use the code below to access the data). After imputing the missing values with your assigned method(s), compare the results of the model without missingness (shown below) to the results obtained with your imputed dataset(s).</li>
+</ol>
+<p>NOTE: Implement the methods with the basic R functions that we’ve used in the course such as <code>lm</code>. Do not use the MICE package to implement the methods.</p>
+<p>Model using the complete dataset without missingness:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Auto, <span class="fu">aes</span>(<span class="at">x=</span>weight,<span class="at">y=</span>mpg,<span class="at">col=</span>origin_fac))<span class="sc">+</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>,<span class="at">se=</span>F)<span class="sc">+</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Vehicle weight (lbs)"</span>,</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"MPG"</span>,<span class="at">col=</span><span class="st">"Origin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="introtomlrcode_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mlr_mod_interact <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg<span class="sc">~</span>weight<span class="sc">*</span>origin_fac,</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">data=</span>Auto)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mlr_mod_interact)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## use this code to access the data that contains missing values</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>bikedat.miss <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/anlane611/datasets/main/bike_miss.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="do">## compare results to the model that uses the full dataset (use the same variables)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>bikedat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/anlane611/datasets/main/bike_full.csv"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(bikers <span class="sc">~</span> windspeed <span class="sc">+</span> hum <span class="sc">+</span> temp, <span class="at">data=</span>bikedat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = mpg ~ weight * origin_fac, data = Auto)
+lm(formula = bikers ~ windspeed + hum + temp, data = bikedat)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--13.4928  -2.7715  -0.3895   2.2397  15.5163 
+    Min      1Q  Median      3Q     Max 
+-230.66  -76.07  -28.36   57.88  377.15 
 
 Coefficients:
-                            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                4.315e+01  1.186e+00  36.378  &lt; 2e-16 ***
-weight                    -6.854e-03  3.423e-04 -20.020  &lt; 2e-16 ***
-origin_facEuropean         1.125e+00  2.878e+00   0.391  0.69616    
-origin_facJapanese         1.111e+01  3.574e+00   3.109  0.00202 ** 
-weight:origin_facEuropean  3.575e-06  1.111e-03   0.003  0.99743    
-weight:origin_facJapanese -3.865e-03  1.541e-03  -2.508  0.01255 *  
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    90.32      35.25   2.562  0.01099 *  
+windspeed     -56.21      61.03  -0.921  0.35796    
+hum          -131.89      37.78  -3.491  0.00057 ***
+temp          296.25      39.88   7.429  1.8e-12 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 4.253 on 386 degrees of freedom
-Multiple R-squared:  0.7068,    Adjusted R-squared:  0.703 
-F-statistic: 186.1 on 5 and 386 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 120.4 on 246 degrees of freedom
+Multiple R-squared:  0.2131,    Adjusted R-squared:  0.2035 
+F-statistic:  22.2 on 3 and 246 DF,  p-value: 9.345e-13</code></pre>
 </div>
 </div>
-<p>Per lb increase in weight, mpg increases by an <strong>additional</strong> 0.0000036, on average, all else held constant, for European cars compared to American cars. This difference is not statistically significant (p&gt;0.99).</p>
-<p>Per lb increase in weight, mpg decreases by 0.011, on average, for European cars. For American cars, mpg decreases by 0.007, on average, per lb increase in weight. The difference in effects, 0.004, is statistically significant at the 0.05 level (p=0.013).</p>
+<section id="imputation-methods" class="level3">
+<h3 class="anchored" data-anchor-id="imputation-methods">Imputation methods</h3>
+<ol type="1">
+<li>Mean/median imputation, complete case analysis</li>
+<li>Hot deck imputation, cold deck imputation (you do not need to implement these in R. Focus on the concepts and brainstorm ways that you might implement them)</li>
+<li>Regression imputation - deterministic</li>
+<li>Stochastic regression imputation - random</li>
+<li>Multiple imputation (you do not need to implement this in R. Focus on clearly describing the steps)</li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
