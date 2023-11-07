@@ -487,28 +487,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="do">## compare results to the model that uses the full dataset (use the same variables)</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>bikedat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/anlane611/datasets/main/bike_full.csv"</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(bikers <span class="sc">~</span> windspeed <span class="sc">+</span> hum <span class="sc">+</span> temp, <span class="at">data=</span>bikedat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">glm</span>(bikers <span class="sc">~</span> windspeed <span class="sc">+</span> hum <span class="sc">+</span> temp, <span class="at">family=</span><span class="st">"poisson"</span>, <span class="at">data=</span>bikedat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = bikers ~ windspeed + hum + temp, data = bikedat)
+glm(formula = bikers ~ windspeed + hum + temp, family = "poisson", 
+    data = bikedat)
 
-Residuals:
-    Min      1Q  Median      3Q     Max 
--230.66  -76.07  -28.36   57.88  377.15 
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-20.982  -10.134   -2.662    5.122   26.192  
 
 Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)    90.32      35.25   2.562  0.01099 *  
-windspeed     -56.21      61.03  -0.921  0.35796    
-hum          -131.89      37.78  -3.491  0.00057 ***
-temp          296.25      39.88   7.429  1.8e-12 ***
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  4.45017    0.02643  168.40   &lt;2e-16 ***
+windspeed   -0.38077    0.04459   -8.54   &lt;2e-16 ***
+hum         -0.87922    0.02676  -32.85   &lt;2e-16 ***
+temp         2.10498    0.02852   73.81   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 120.4 on 246 degrees of freedom
-Multiple R-squared:  0.2131,    Adjusted R-squared:  0.2035 
-F-statistic:  22.2 on 3 and 246 DF,  p-value: 9.345e-13</code></pre>
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 32460  on 249  degrees of freedom
+Residual deviance: 25631  on 246  degrees of freedom
+AIC: 27131
+
+Number of Fisher Scoring iterations: 5</code></pre>
 </div>
 </div>
 <section id="imputation-methods" class="level3">
