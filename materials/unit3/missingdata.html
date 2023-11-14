@@ -397,6 +397,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#multiple-imputation-with-the-mice-package" id="toc-multiple-imputation-with-the-mice-package" class="nav-link" data-scroll-target="#multiple-imputation-with-the-mice-package">Multiple imputation with the mice package</a></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -623,11 +624,11 @@ Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
 
 Coefficients:
 (Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
-    3.13238     -1.14287     -2.07681     -0.02441     -2.56041     -0.11282  
+    3.15196     -1.14771     -2.09174     -0.02483     -2.56497     -0.10596  
 
 Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
 Null Deviance:      1741 
-Residual Deviance: 1237     AIC: 1249
+Residual Deviance: 1236     AIC: 1248
 
 [[2]]
 
@@ -635,11 +636,11 @@ Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
 
 Coefficients:
 (Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
-    3.15307     -1.14716     -2.08663     -0.02424     -2.53876     -0.11777  
+    3.73152     -1.37216     -2.26201     -0.03787     -2.54663     -0.16109  
 
 Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
 Null Deviance:      1741 
-Residual Deviance: 1236     AIC: 1248
+Residual Deviance: 1207     AIC: 1219
 
 [[3]]
 
@@ -647,11 +648,11 @@ Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
 
 Coefficients:
 (Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
-    3.97063     -1.38024     -2.44335     -0.04352     -2.59076     -0.12274  
+    3.60168     -1.26968     -2.34715     -0.03583     -2.53106     -0.11753  
 
 Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
 Null Deviance:      1741 
-Residual Deviance: 1193     AIC: 1205
+Residual Deviance: 1217     AIC: 1229
 
 [[4]]
 
@@ -659,11 +660,11 @@ Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
 
 Coefficients:
 (Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
-     2.9232      -1.0965      -2.0059      -0.0190      -2.5283      -0.1038  
+    3.63901     -1.30946     -2.37544     -0.03557     -2.55360     -0.10009  
 
 Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
 Null Deviance:      1741 
-Residual Deviance: 1244     AIC: 1256
+Residual Deviance: 1211     AIC: 1223
 
 [[5]]
 
@@ -671,11 +672,11 @@ Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
 
 Coefficients:
 (Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
-    2.95805     -1.07981     -2.00593     -0.01992     -2.54914     -0.09983  
+    3.80222     -1.36768     -2.41381     -0.03993     -2.50553     -0.13345  
 
 Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
 Null Deviance:      1741 
-Residual Deviance: 1242     AIC: 1254</code></pre>
+Residual Deviance: 1202     AIC: 1214</code></pre>
 </div>
 </div>
 <p>Finally, we can combine the results from these models using the <code>pool</code> function. How do the results compare to the complete case model?</p>
@@ -683,18 +684,23 @@ Residual Deviance: 1242     AIC: 1254</code></pre>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>imp.mods <span class="ot">&lt;-</span> <span class="fu">with</span>(titanic.imp, <span class="fu">glm</span>(survived <span class="sc">~</span> pclass <span class="sc">+</span> age <span class="sc">+</span> sex <span class="sc">+</span> parch, <span class="at">family=</span><span class="st">"binomial"</span>))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">pool</span>(imp.mods))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>         term    estimate  std.error  statistic          df      p.value
-1 (Intercept)  3.22747497 0.55553365   5.809684    7.737060 4.540828e-04
-2   pclass2nd -1.16931826 0.24925604  -4.691233   46.817526 2.385267e-05
-3   pclass3rd -2.12371615 0.27990554  -7.587260   14.946718 1.680062e-06
-4         age -0.02621831 0.01225033  -2.140211    6.158435 7.495219e-02
-5     sexmale -2.55347422 0.15541621 -16.429909 1003.285929 0.000000e+00
-6       parch -0.11138800 0.08439013  -1.319917 1191.780632 1.871160e-01</code></pre>
+<pre><code>         term    estimate   std.error  statistic         df      p.value
+1 (Intercept)  3.58527906 0.414439148   8.650918   18.97038 5.209746e-08
+2   pclass2nd -1.29333874 0.236475902  -5.469220  109.38008 2.886596e-07
+3   pclass3rd -2.29802990 0.246900374  -9.307519   36.70745 3.375789e-11
+4         age -0.03480504 0.008537889  -4.076539   12.36528 1.446138e-03
+5     sexmale -2.54035757 0.155987642 -16.285633 1041.57295 0.000000e+00
+6       parch -0.12362418 0.089225955  -1.385518  345.35685 1.667882e-01</code></pre>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>Regression Modeling Strategies by Frank E Harrell Jr (Book linked above)</p>
+<p><a href="https://dept.stat.lsa.umich.edu/~jerrick/courses/stat701/notes/mi.html">Multiple Imputation</a></p>
+
+
 </section>
 
 </main> <!-- /main -->
