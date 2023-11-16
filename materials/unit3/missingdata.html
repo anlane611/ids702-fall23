@@ -376,6 +376,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../../resources.html" class="sidebar-item-text sidebar-link">Resources</a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../extracredit.html" class="sidebar-item-text sidebar-link">Extra Credit Assignment</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -494,33 +499,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>bikedat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/anlane611/datasets/main/bike_full.csv"</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">glm</span>(bikers <span class="sc">~</span> windspeed <span class="sc">+</span> hum <span class="sc">+</span> temp, <span class="at">family=</span><span class="st">"poisson"</span>, <span class="at">data=</span>bikedat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-glm(formula = bikers ~ windspeed + hum + temp, family = "poisson", 
-    data = bikedat)
-
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--20.982  -10.134   -2.662    5.122   26.192  
-
-Coefficients:
-            Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)  4.45017    0.02643  168.40   &lt;2e-16 ***
-windspeed   -0.38077    0.04459   -8.54   &lt;2e-16 ***
-hum         -0.87922    0.02676  -32.85   &lt;2e-16 ***
-temp         2.10498    0.02852   73.81   &lt;2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-(Dispersion parameter for poisson family taken to be 1)
-
-    Null deviance: 32460  on 249  degrees of freedom
-Residual deviance: 25631  on 246  degrees of freedom
-AIC: 27131
-
-Number of Fisher Scoring iterations: 5</code></pre>
-</div>
 </div>
 <section id="imputation-methods" class="level3">
 <h3 class="anchored" data-anchor-id="imputation-methods">Imputation methods</h3>
@@ -541,26 +519,20 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <h2 class="anchored" data-anchor-id="application-exercise">Application exercise</h2>
 <p>For this exercise, we will use the titanic3 dataset in the Hmisc library. The dataset contains information about passengers on the Titanic, including whether or not the passenger survived.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">getHdata</span>(titanic3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">getHdata</span>(titanic3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>First, fit a logistic regression model regressing the <code>survived</code> outcome on the predictors <code>pclass</code>, <code>sex</code>, <code>parch</code>, and <code>age</code> using complete case analysis (the default method in R). Note that <code>parch</code> is the number of parents/children the passenger has aboard. What is the sample size that is used for the model?</p>
 <p>Now, let’s explore the missing data. The Hmisc package has some useful functions for exploring missing data. First, we can generate a plot to show the fraction of missing values for each variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>na.patterns <span class="ot">&lt;-</span> <span class="fu">naclus</span>(titanic3)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">naplot</span>(na.patterns, <span class="st">'na per var'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="missingdata_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
-</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>na.patterns <span class="ot">&lt;-</span> <span class="fu">naclus</span>(titanic3)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">naplot</span>(na.patterns, <span class="st">'na per var'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next, we can generate a plot that shows any hierarchical structure of the missing data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(na.patterns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="missingdata_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(na.patterns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This plot indicates that the variable age is missing when body and/or home.dest are also missing. Confirm that this is true at least for the body variable.</p>
 <p>It is also useful to examine the characteristics of passengers that have missing data for the age variable. Fit a logistic regression model where the outcome is an indicator for whether or not the age variable is missing. Regress this outcome on sex, pclass, survived, and parch. Focusing on the p-values and the signs of the coefficient estimates, what do you observe about the pattern of missingness in the age variable?</p>
@@ -575,123 +547,35 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <p>The options in the mice function indicate the number of <span class="math inline">\(m\)</span> replicated datasets (5 is the default) and the imputation method to use. “pmm” refers to predictive mean matching. Predictive mean matching combines the regression method and the hot deck imputation that we covered last week by taking a donor value from the observation with the predicted value closest to the predicted value of the observation with missing data. This is beneficial because the imputed values will still be in a plausible range.</p>
 <p>Let’s use a subset that only contains the predictors age, pclass, parch, sex, and the outcome survived.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>titanic.sub <span class="ot">&lt;-</span> titanic3 <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">"age"</span>,<span class="st">"pclass"</span>,<span class="st">"parch"</span>,<span class="st">"sex"</span>,<span class="st">"survived"</span>))</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>titanic.sub <span class="ot">&lt;-</span> <span class="fu">unlabel</span>(titanic.sub) <span class="co">#unlabel the data (labels cause problem for the mice function)</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>titanic.imp <span class="ot">&lt;-</span> <span class="fu">mice</span>(titanic.sub, <span class="at">m=</span><span class="dv">5</span>, <span class="at">method=</span><span class="st">"pmm"</span>, <span class="at">print=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>titanic.sub <span class="ot">&lt;-</span> titanic3 <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">"age"</span>,<span class="st">"pclass"</span>,<span class="st">"parch"</span>,<span class="st">"sex"</span>,<span class="st">"survived"</span>))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>titanic.sub <span class="ot">&lt;-</span> <span class="fu">unlabel</span>(titanic.sub) <span class="co">#unlabel the data (labels cause problem for the mice function)</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>titanic.imp <span class="ot">&lt;-</span> <span class="fu">mice</span>(titanic.sub, <span class="at">m=</span><span class="dv">5</span>, <span class="at">method=</span><span class="st">"pmm"</span>, <span class="at">print=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The titanic.imp list contains a lot of information about the imputed values. The <code>imp</code> element of the list contains the actual imputed values, with an additional index for each variable that has missing data. Age is the only variable in our set with missing values. Note the dimension of this matrix. Each row represents an observation, and each column contains one of the <span class="math inline">\(m=5\)</span> imputed values.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(titanic.imp<span class="sc">$</span>imp<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 263   5</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(titanic.imp<span class="sc">$</span>imp<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now let’s visualize the distribution of the observed and imputed values of age. What do you observe in this plot?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>titanic.comp <span class="ot">&lt;-</span> <span class="fu">complete</span>(titanic.imp, <span class="st">"long"</span>, <span class="at">include=</span><span class="cn">TRUE</span>) <span class="co">#stack the imputed values into one variable and include the observed values</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>titanic.comp<span class="sc">$</span>age.NA <span class="ot">&lt;-</span> <span class="fu">cci</span>(titanic3<span class="sc">$</span>age) <span class="co">#create an indicator for missingness</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(titanic.comp, <span class="fu">aes</span>(<span class="at">x=</span> .imp, <span class="at">y=</span>age, <span class="at">col=</span>age.NA))<span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="missingdata_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
-</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>titanic.comp <span class="ot">&lt;-</span> <span class="fu">complete</span>(titanic.imp, <span class="st">"long"</span>, <span class="at">include=</span><span class="cn">TRUE</span>) <span class="co">#stack the imputed values into one variable and include the observed values</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>titanic.comp<span class="sc">$</span>age.NA <span class="ot">&lt;-</span> <span class="fu">cci</span>(titanic3<span class="sc">$</span>age) <span class="co">#create an indicator for missingness</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(titanic.comp, <span class="fu">aes</span>(<span class="at">x=</span> .imp, <span class="at">y=</span>age, <span class="at">col=</span>age.NA))<span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can use the <code>with</code> function to fit the regression model on each of the imputed datasets</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(titanic.imp, <span class="fu">glm</span>(survived <span class="sc">~</span> pclass <span class="sc">+</span> age <span class="sc">+</span> sex <span class="sc">+</span> parch, <span class="at">family=</span><span class="st">"binomial"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>call :
-with.mids(data = titanic.imp, expr = glm(survived ~ pclass + 
-    age + sex + parch, family = "binomial"))
-
-call1 :
-mice(data = titanic.sub, m = 5, method = "pmm", printFlag = FALSE)
-
-nmis :
-     age   pclass    parch      sex survived 
-     263        0        0        0        0 
-
-analyses :
-[[1]]
-
-Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
-
-Coefficients:
-(Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
-    3.15196     -1.14771     -2.09174     -0.02483     -2.56497     -0.10596  
-
-Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
-Null Deviance:      1741 
-Residual Deviance: 1236     AIC: 1248
-
-[[2]]
-
-Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
-
-Coefficients:
-(Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
-    3.73152     -1.37216     -2.26201     -0.03787     -2.54663     -0.16109  
-
-Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
-Null Deviance:      1741 
-Residual Deviance: 1207     AIC: 1219
-
-[[3]]
-
-Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
-
-Coefficients:
-(Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
-    3.60168     -1.26968     -2.34715     -0.03583     -2.53106     -0.11753  
-
-Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
-Null Deviance:      1741 
-Residual Deviance: 1217     AIC: 1229
-
-[[4]]
-
-Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
-
-Coefficients:
-(Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
-    3.63901     -1.30946     -2.37544     -0.03557     -2.55360     -0.10009  
-
-Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
-Null Deviance:      1741 
-Residual Deviance: 1211     AIC: 1223
-
-[[5]]
-
-Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
-
-Coefficients:
-(Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
-    3.80222     -1.36768     -2.41381     -0.03993     -2.50553     -0.13345  
-
-Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
-Null Deviance:      1741 
-Residual Deviance: 1202     AIC: 1214</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(titanic.imp, <span class="fu">glm</span>(survived <span class="sc">~</span> pclass <span class="sc">+</span> age <span class="sc">+</span> sex <span class="sc">+</span> parch, <span class="at">family=</span><span class="st">"binomial"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Finally, we can combine the results from these models using the <code>pool</code> function. How do the results compare to the complete case model?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>imp.mods <span class="ot">&lt;-</span> <span class="fu">with</span>(titanic.imp, <span class="fu">glm</span>(survived <span class="sc">~</span> pclass <span class="sc">+</span> age <span class="sc">+</span> sex <span class="sc">+</span> parch, <span class="at">family=</span><span class="st">"binomial"</span>))</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">pool</span>(imp.mods))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>         term    estimate   std.error  statistic         df      p.value
-1 (Intercept)  3.58527906 0.414439148   8.650918   18.97038 5.209746e-08
-2   pclass2nd -1.29333874 0.236475902  -5.469220  109.38008 2.886596e-07
-3   pclass3rd -2.29802990 0.246900374  -9.307519   36.70745 3.375789e-11
-4         age -0.03480504 0.008537889  -4.076539   12.36528 1.446138e-03
-5     sexmale -2.54035757 0.155987642 -16.285633 1041.57295 0.000000e+00
-6       parch -0.12362418 0.089225955  -1.385518  345.35685 1.667882e-01</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>imp.mods <span class="ot">&lt;-</span> <span class="fu">with</span>(titanic.imp, <span class="fu">glm</span>(survived <span class="sc">~</span> pclass <span class="sc">+</span> age <span class="sc">+</span> sex <span class="sc">+</span> parch, <span class="at">family=</span><span class="st">"binomial"</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">pool</span>(imp.mods))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
