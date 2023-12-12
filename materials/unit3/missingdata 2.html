@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>IDS 702 - 11.7: Missing Data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">11.7: Missing Data</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">IDS 702</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Course Materials</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Unit 0: Bootcamp</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit0/unit0b.html" class="sidebar-item-text sidebar-link">Cleaning and exploring data in R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit0/unit0.html" class="sidebar-item-text sidebar-link">Key Principles of Statistics</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Unit 1: Linear Regression</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit1/SLR.html" class="sidebar-item-text sidebar-link">8.29: Simple linear regression</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit1/introMLR.html" class="sidebar-item-text sidebar-link">8.31: Introduction to Multiple Linear Regression</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit1/estimation.html" class="sidebar-item-text sidebar-link">9.05: Estimating coefficients and assessing the model</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit1/assumptions.html" class="sidebar-item-text sidebar-link">9.07: Addressing the assumptions</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit1/problems.html" class="sidebar-item-text sidebar-link">9.12: Problems that can arise</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit1/modelselection.html" class="sidebar-item-text sidebar-link">9.14: Model selection</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit1/prediction.html" class="sidebar-item-text sidebar-link">9.19 and 9.21: Prediction</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit1/miscMLR.html" class="sidebar-item-text sidebar-link">9.26: Wrapping up MLR</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit1/penalized.html" class="sidebar-item-text sidebar-link">9.28: Penalized Regression</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Unit 2: Generalized Linear Models</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit2/logisticintro.html" class="sidebar-item-text sidebar-link">10.3: Introduction to GLMs</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit2/logisticestimation.html" class="sidebar-item-text sidebar-link">10.5: Logistic Regression estimation and interpretation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit2/logisticmetrics.html" class="sidebar-item-text sidebar-link">10.10: Logistic Regression assessment</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit2/multinomial.html" class="sidebar-item-text sidebar-link">10.12: Multinomial logistic regression</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit2/ordinal.html" class="sidebar-item-text sidebar-link">10.24: Ordinal regression</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit2/poisson.html" class="sidebar-item-text sidebar-link">10.26: Poisson regression</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Unit 3: Special Topics</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit3/survival1.html" class="sidebar-item-text sidebar-link">10.31: Survival Analysis I</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit3/survival2.html" class="sidebar-item-text sidebar-link">11.2: The Cox Proportional Hazards Model</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/unit3/missingdata.html" class="sidebar-item-text sidebar-link active">11.7: Missing Data</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../reflections.html" class="sidebar-item-text sidebar-link">Statistics Reflections</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">Team Project</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project/proposal.html" class="sidebar-item-text sidebar-link">Proposal</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project/eda.html" class="sidebar-item-text sidebar-link">Exploratory Data Analysis Report</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project/sap.html" class="sidebar-item-text sidebar-link">Statistical Analysis Plan</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project/reportandpres.html" class="sidebar-item-text sidebar-link">Final Report and Presentation</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">Data analysis assignments</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../DAA/DA1.html" class="sidebar-item-text sidebar-link">Data analysis assignment 1</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../DAA/DA2.html" class="sidebar-item-text sidebar-link">Data analysis assignment 2</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../DAA/DA3.html" class="sidebar-item-text sidebar-link">Data analysis assignment 3</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources.html" class="sidebar-item-text sidebar-link">Resources</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#the-problem-of-missingness" id="toc-the-problem-of-missingness" class="nav-link" data-scroll-target="#the-problem-of-missingness">The Problem of Missingness</a></li>
+  <li><a href="#missing-data-mechanisms" id="toc-missing-data-mechanisms" class="nav-link" data-scroll-target="#missing-data-mechanisms">Missing Data Mechanisms</a></li>
+  <li><a href="#types-of-imputation" id="toc-types-of-imputation" class="nav-link" data-scroll-target="#types-of-imputation">Types of Imputation</a>
+  <ul class="collapse">
+  <li><a href="#imputation-methods" id="toc-imputation-methods" class="nav-link" data-scroll-target="#imputation-methods">Imputation methods</a></li>
+  </ul></li>
+  <li><a href="#textbook" id="toc-textbook" class="nav-link" data-scroll-target="#textbook">Textbook</a></li>
+  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a>
+  <ul class="collapse">
+  <li><a href="#multiple-imputation-with-the-mice-package" id="toc-multiple-imputation-with-the-mice-package" class="nav-link" data-scroll-target="#multiple-imputation-with-the-mice-package">Multiple imputation with the mice package</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">11.7: Missing Data</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
+<ul>
+<li><p>Identify 3 mechanisms of missingness</p></li>
+<li><p>Describe 5 imputation methods</p></li>
+</ul>
+</section>
+<section id="the-problem-of-missingness" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem-of-missingness">The Problem of Missingness</h2>
+<ul>
+<li><p>Missing data is a common problem</p></li>
+<li><p>Always start by exploring the missingness!</p>
+<ul>
+<li><p>Number/proportion of observations with any missing data?</p></li>
+<li><p>Missing in one or more variables?</p></li>
+<li><p>Missing in outcome, predictors, or both?</p></li>
+<li><p>Pattern of missingness? (e.g., <span class="math inline">\(X_1\)</span> always missing when <span class="math inline">\(X_2=1\)</span> ?)</p></li>
+</ul></li>
+<li><p>Even the best analysis cannot make up for poor study design/data collection</p></li>
+</ul>
+</section>
+<section id="missing-data-mechanisms" class="level2">
+<h2 class="anchored" data-anchor-id="missing-data-mechanisms">Missing Data Mechanisms</h2>
+<ol type="1">
+<li>Missing completely at random (MCAR)</li>
+</ol>
+<ul>
+<li><p>Reason for missingness does not depend on the values of the observed data</p></li>
+<li><p>Each observation has an equal probability of missingness</p></li>
+<li><p>Example: A survey has a front and back, and some participants have missing data for the questions on the back page</p></li>
+</ul>
+<ol start="2" type="1">
+<li>Missing at random (MAR)</li>
+</ol>
+<ul>
+<li><p>Reason for missingness depends on the values of the observed data</p></li>
+<li><p>Probability of missingness is the same for each participant conditional on observed variables</p></li>
+<li><p>Example: Some responses for a survey question about income are missing, but the survey includes questions about age, and younger people are less likely to answer income questions than older people</p></li>
+</ul>
+<ol start="3" type="1">
+<li>Missing not at random (MNAR)</li>
+</ol>
+<ul>
+<li><p>Reason for missingness depends on the actual values of the missing data, or unobserved predictors</p></li>
+<li><p>Example: People who have higher income are less likely to respond to income-related questions</p></li>
+</ul>
+<p>How can we tell which mechanism is present?</p>
+<p>In general, we don’t know, and there is not a statistical way to tell</p>
+<ul>
+<li><p>Rare that data are MCAR, though we sometimes assume they are</p></li>
+<li><p>Possible, perhaps likely that data are MNAR, but difficult to account for this</p></li>
+<li><p>Generally assume/hope that data are MAR</p></li>
+</ul>
+</section>
+<section id="types-of-imputation" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-imputation">Types of Imputation</h2>
+<p>In your group, research your assigned imputation method and create 1-2 slides in <a href="https://docs.google.com/presentation/d/1HR6zdu1D7IFdY3-BsK3mjMu8RyvkmAVZW5PS-TTndlc/edit?usp=sharing">this google slide deck</a> with the following information:</p>
+<ol type="1">
+<li>Explain the method(s) conceptually</li>
+<li>Address the pros and cons of your method(s)</li>
+<li>Show how you can implement the method in R using the bikeshare dataset that contains simulated missingness (use the code below to access the data). After imputing the missing values with your assigned method(s), compare the results of the model without missingness (shown below) to the results obtained with your imputed dataset(s).</li>
+</ol>
+<p>NOTE: Implement the methods with the basic R functions that we’ve used in the course such as <code>lm</code>. Do not use the MICE package to implement the methods.</p>
+<p>Model using the complete dataset without missingness:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## use this code to access the data that contains missing values</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>bikedat.miss <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/anlane611/datasets/main/bike_miss.csv"</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="do">## compare results to the model that uses the full dataset (use the same variables)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>bikedat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/anlane611/datasets/main/bike_full.csv"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">glm</span>(bikers <span class="sc">~</span> windspeed <span class="sc">+</span> hum <span class="sc">+</span> temp, <span class="at">family=</span><span class="st">"poisson"</span>, <span class="at">data=</span>bikedat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = bikers ~ windspeed + hum + temp, family = "poisson", 
+    data = bikedat)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-20.982  -10.134   -2.662    5.122   26.192  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  4.45017    0.02643  168.40   &lt;2e-16 ***
+windspeed   -0.38077    0.04459   -8.54   &lt;2e-16 ***
+hum         -0.87922    0.02676  -32.85   &lt;2e-16 ***
+temp         2.10498    0.02852   73.81   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 32460  on 249  degrees of freedom
+Residual deviance: 25631  on 246  degrees of freedom
+AIC: 27131
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+<section id="imputation-methods" class="level3">
+<h3 class="anchored" data-anchor-id="imputation-methods">Imputation methods</h3>
+<ol type="1">
+<li>Mean/median imputation, complete case analysis</li>
+<li>Hot deck imputation, cold deck imputation (you do not need to implement these in R. Focus on the concepts and brainstorm ways that you might implement them)</li>
+<li>Regression imputation - deterministic</li>
+<li>Stochastic regression imputation - random</li>
+<li>Multiple imputation (you do not need to implement this in R. Focus on clearly describing the steps)</li>
+</ol>
+</section>
+</section>
+<section id="textbook" class="level2">
+<h2 class="anchored" data-anchor-id="textbook">Textbook</h2>
+<p>For more information about missing data, see chapter 3 in <a href="https://warin.ca/ressources/books/2015_Book_RegressionModelingStrategies.pdf">Regression Modeling Strategies by Frank E Harrell Jr</a></p>
+</section>
+<section id="application-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="application-exercise">Application exercise</h2>
+<p>For this exercise, we will use the titanic3 dataset in the Hmisc library. The dataset contains information about passengers on the Titanic, including whether or not the passenger survived.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ ggplot2 3.4.0     ✔ purrr   0.3.4
+✔ tibble  3.1.8     ✔ dplyr   1.1.0
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   2.1.2     ✔ forcats 0.5.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lattice</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: survival</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Formula</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'Hmisc'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:dplyr':
+
+    src, summarize</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    format.pval, units</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getHdata</span>(titanic3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>First, fit a logistic regression model regressing the <code>survived</code> outcome on the predictors <code>pclass</code>, <code>sex</code>, <code>parch</code>, and <code>age</code> using complete case analysis (the default method in R). Note that <code>parch</code> is the number of parents/children the passenger has aboard. What is the sample size that is used for the model?</p>
+<p>Now, let’s explore the missing data. The Hmisc package has some useful functions for exploring missing data. First, we can generate a plot to show the fraction of missing values for each variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>na.patterns <span class="ot">&lt;-</span> <span class="fu">naclus</span>(titanic3)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">naplot</span>(na.patterns, <span class="st">'na per var'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="missingdata_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Next, we can generate a plot that shows any hierarchical structure of the missing data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(na.patterns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="missingdata_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This plot indicates that the variable age is missing when body and/or home.dest are also missing. Confirm that this is true at least for the body variable.</p>
+<p>It is also useful to examine the characteristics of passengers that have missing data for the age variable. Fit a logistic regression model where the outcome is an indicator for whether or not the age variable is missing. Regress this outcome on sex, pclass, survived, and parch. Focusing on the p-values and the signs of the coefficient estimates, what do you observe about the pattern of missingness in the age variable?</p>
+<section id="multiple-imputation-with-the-mice-package" class="level3">
+<h3 class="anchored" data-anchor-id="multiple-imputation-with-the-mice-package">Multiple imputation with the mice package</h3>
+<p>Recall the general 3-step process of multiple imputation:</p>
+<ol type="1">
+<li>Replicate the dataset <span class="math inline">\(m\)</span> times and impute the missing values on each of the <span class="math inline">\(m\)</span> datasets. Note that the imputation method must involve some degree of randomness so that the <span class="math inline">\(m\)</span> complete datasets are not all the same.</li>
+<li>Perform the analysis on each of the <span class="math inline">\(m\)</span> datasets</li>
+<li>Combine the analysis results across the <span class="math inline">\(m\)</span> datasets</li>
+</ol>
+<p>The options in the mice function indicate the number of <span class="math inline">\(m\)</span> replicated datasets (5 is the default) and the imputation method to use. “pmm” refers to predictive mean matching. Predictive mean matching combines the regression method and the hot deck imputation that we covered last week by taking a donor value from the observation with the predicted value closest to the predicted value of the observation with missing data. This is beneficial because the imputed values will still be in a plausible range.</p>
+<p>Let’s use a subset that only contains the predictors age, pclass, parch, sex, and the outcome survived.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'mice'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    filter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    cbind, rbind</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'sjlabelled'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:forcats':
+
+    as_factor</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    as_label</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:ggplot2':
+
+    as_label</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>titanic.sub <span class="ot">&lt;-</span> titanic3 <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">"age"</span>,<span class="st">"pclass"</span>,<span class="st">"parch"</span>,<span class="st">"sex"</span>,<span class="st">"survived"</span>))</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>titanic.sub <span class="ot">&lt;-</span> <span class="fu">unlabel</span>(titanic.sub) <span class="co">#unlabel the data (labels cause problem for the mice function)</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>titanic.imp <span class="ot">&lt;-</span> <span class="fu">mice</span>(titanic.sub, <span class="at">m=</span><span class="dv">5</span>, <span class="at">method=</span><span class="st">"pmm"</span>, <span class="at">print=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The titanic.imp list contains a lot of information about the imputed values. The <code>imp</code> element of the list contains the actual imputed values, with an additional index for each variable that has missing data. Age is the only variable in our set with missing values. Note the dimension of this matrix. Each row represents an observation, and each column contains one of the <span class="math inline">\(m=5\)</span> imputed values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(titanic.imp<span class="sc">$</span>imp<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 263   5</code></pre>
+</div>
+</div>
+<p>Now let’s visualize the distribution of the observed and imputed values of age. What do you observe in this plot?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>titanic.comp <span class="ot">&lt;-</span> <span class="fu">complete</span>(titanic.imp, <span class="st">"long"</span>, <span class="at">include=</span><span class="cn">TRUE</span>) <span class="co">#stack the imputed values into one variable and include the observed values</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>titanic.comp<span class="sc">$</span>age.NA <span class="ot">&lt;-</span> <span class="fu">cci</span>(titanic3<span class="sc">$</span>age) <span class="co">#create an indicator for missingness</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(titanic.comp, <span class="fu">aes</span>(<span class="at">x=</span> .imp, <span class="at">y=</span>age, <span class="at">col=</span>age.NA))<span class="sc">+</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 263 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="missingdata_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Now we can use the <code>with</code> function to fit the regression model on each of the imputed datasets</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(titanic.imp, <span class="fu">glm</span>(survived <span class="sc">~</span> pclass <span class="sc">+</span> age <span class="sc">+</span> sex <span class="sc">+</span> parch, <span class="at">family=</span><span class="st">"binomial"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>call :
+with.mids(data = titanic.imp, expr = glm(survived ~ pclass + 
+    age + sex + parch, family = "binomial"))
+
+call1 :
+mice(data = titanic.sub, m = 5, method = "pmm", printFlag = FALSE)
+
+nmis :
+     age   pclass    parch      sex survived 
+     263        0        0        0        0 
+
+analyses :
+[[1]]
+
+Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
+
+Coefficients:
+(Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
+     3.9090      -1.3657      -2.3753      -0.0422      -2.6054      -0.1230  
+
+Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
+Null Deviance:      1741 
+Residual Deviance: 1200     AIC: 1212
+
+[[2]]
+
+Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
+
+Coefficients:
+(Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
+    3.56615     -1.28143     -2.23524     -0.03382     -2.55197     -0.12870  
+
+Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
+Null Deviance:      1741 
+Residual Deviance: 1218     AIC: 1230
+
+[[3]]
+
+Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
+
+Coefficients:
+(Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
+    3.39578     -1.22200     -2.15872     -0.03132     -2.51158     -0.12272  
+
+Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
+Null Deviance:      1741 
+Residual Deviance: 1225     AIC: 1237
+
+[[4]]
+
+Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
+
+Coefficients:
+(Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
+     3.5587      -1.2340      -2.2615      -0.0361      -2.4973      -0.1139  
+
+Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
+Null Deviance:      1741 
+Residual Deviance: 1216     AIC: 1228
+
+[[5]]
+
+Call:  glm(formula = survived ~ pclass + age + sex + parch, family = "binomial")
+
+Coefficients:
+(Intercept)    pclass2nd    pclass3rd          age      sexmale        parch  
+     3.4459      -1.2294      -2.1705      -0.0318      -2.5237      -0.1331  
+
+Degrees of Freedom: 1308 Total (i.e. Null);  1303 Residual
+Null Deviance:      1741 
+Residual Deviance: 1220     AIC: 1232</code></pre>
+</div>
+</div>
+<p>Finally, we can combine the results from these models using the <code>pool</code> function. How do the results compare to the complete case model?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>imp.mods <span class="ot">&lt;-</span> <span class="fu">with</span>(titanic.imp, <span class="fu">glm</span>(survived <span class="sc">~</span> pclass <span class="sc">+</span> age <span class="sc">+</span> sex <span class="sc">+</span> parch, <span class="at">family=</span><span class="st">"binomial"</span>))</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">pool</span>(imp.mods))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         term    estimate std.error  statistic         df      p.value
+1 (Intercept)  3.57511621 0.3763908   9.498416   33.19800 5.443379e-11
+2   pclass2nd -1.26649553 0.2227578  -5.685527  362.44033 2.686526e-08
+3   pclass3rd -2.24024268 0.2200089 -10.182511  102.81284 0.000000e+00
+4         age -0.03504761 0.0074806  -4.685133   22.08224 1.122336e-04
+5     sexmale -2.53798825 0.1608392 -15.779658  379.98751 0.000000e+00
+6       parch -0.12425723 0.0851571  -1.459153 1259.35503 1.447724e-01</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

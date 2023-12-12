@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>IDS 702 - Data analysis assignment 3</title>
+<title>IDS 702 - Data analysis assignment 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -132,7 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Data analysis assignment 3</h1>
+      <h1 class="quarto-secondary-nav-title">Data analysis assignment 1</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -355,7 +355,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../DAA/DA1.html" class="sidebar-item-text sidebar-link">Data analysis assignment 1</a>
+  <a href="../DAA/DA1.html" class="sidebar-item-text sidebar-link active">Data analysis assignment 1</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -365,7 +365,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../DAA/DA3.html" class="sidebar-item-text sidebar-link active">Data analysis assignment 3</a>
+  <a href="../DAA/DA3.html" class="sidebar-item-text sidebar-link">Data analysis assignment 3</a>
   </div>
 </li>
       </ul>
@@ -373,11 +373,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../resources.html" class="sidebar-item-text sidebar-link">Resources</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../extracredit.html" class="sidebar-item-text sidebar-link">Extra Credit Assignment</a>
   </div>
 </li>
     </ul>
@@ -389,13 +384,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#deadline-friday-november-17-1159-pm" id="toc-deadline-friday-november-17-1159-pm" class="nav-link active" data-scroll-target="#deadline-friday-november-17-1159-pm">Deadline: Friday, November 17, 11:59 PM</a></li>
-  <li><a href="#generalized-linear-model-tutorial" id="toc-generalized-linear-model-tutorial" class="nav-link" data-scroll-target="#generalized-linear-model-tutorial">Generalized Linear Model Tutorial</a></li>
-  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
-  <li><a href="#deliverable-4-6-pages" id="toc-deliverable-4-6-pages" class="nav-link" data-scroll-target="#deliverable-4-6-pages">Deliverable (4-6 pages)</a></li>
-  <li><a href="#example-tutorial" id="toc-example-tutorial" class="nav-link" data-scroll-target="#example-tutorial">Example tutorial</a></li>
-  <li><a href="#data-generation" id="toc-data-generation" class="nav-link" data-scroll-target="#data-generation">Data Generation</a></li>
-  <li><a href="#stellar-tutorials" id="toc-stellar-tutorials" class="nav-link" data-scroll-target="#stellar-tutorials">Stellar Tutorials</a></li>
+  <li><a href="#airbnb-pricing-in-asheville-nc" id="toc-airbnb-pricing-in-asheville-nc" class="nav-link active" data-scroll-target="#airbnb-pricing-in-asheville-nc">Airbnb pricing in Asheville, NC</a></li>
+  <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link" data-scroll-target="#the-dataset">The dataset</a></li>
+  <li><a href="#cleaning-and-model-requirements" id="toc-cleaning-and-model-requirements" class="nav-link" data-scroll-target="#cleaning-and-model-requirements">Cleaning and model requirements</a></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables">Deliverables</a>
+  <ul class="collapse">
+  <li><a href="#report-for-airbnb-executives-1-2-pages" id="toc-report-for-airbnb-executives-1-2-pages" class="nav-link" data-scroll-target="#report-for-airbnb-executives-1-2-pages">Report for Airbnb executives (1-2 pages)</a></li>
+  <li><a href="#report-for-data-science-team" id="toc-report-for-data-science-team" class="nav-link" data-scroll-target="#report-for-data-science-team">Report for data science team</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -404,7 +400,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Data analysis assignment 3</h1>
+<h1 class="title d-none d-lg-block">Data analysis assignment 1</h1>
+<p class="subtitle lead">Due: Sunday, October 1 11:59 PM</p>
 </div>
 
 
@@ -419,109 +416,101 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="deadline-friday-november-17-1159-pm" class="level3">
-<h3 class="anchored" data-anchor-id="deadline-friday-november-17-1159-pm">Deadline: Friday, November 17, 11:59 PM</h3>
+<section id="airbnb-pricing-in-asheville-nc" class="level2">
+<h2 class="anchored" data-anchor-id="airbnb-pricing-in-asheville-nc">Airbnb pricing in Asheville, NC</h2>
+<p>Airbnb wants to help new hosts set prices for their Airbnb listings in Asheville, NC. They have hired your data science consulting company to build a model to generate prices based on a variety of factors.</p>
+<p>For this assignment, you will write your report in two parts: 1) a report (1-2 pages) describing your model to (non-technical) Airbnb executives, and 2) a report (3-4 pages) justifying your model to your (technical) data science team</p>
 </section>
-<section id="generalized-linear-model-tutorial" class="level2">
-<h2 class="anchored" data-anchor-id="generalized-linear-model-tutorial">Generalized Linear Model Tutorial</h2>
-<p>For this assignment, you will write a tutorial for one of three generalized linear models that we have covered. Writing a tutorial will help you to solidify your conceptual understanding of the model and practice applying the model in R. You will be assigned one of three types of GLMs: multinomial, ordinal, or poisson.</p>
-<p><a href="https://duke.box.com/s/x1no9kj6c1r2v86wzubzjm1ar45f7zyt">Click here for your GLM assignment</a> (you must use the one you are assigned)</p>
+<section id="the-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="the-dataset">The dataset</h2>
+<a href="listings.csv" download="">Click here to download the data</a>
+<p>The data is from <a href="http://insideairbnb.com/get-the-data">Inside Airbnb</a>.</p>
+<p><a href="https://docs.google.com/spreadsheets/d/1iWCNJcSutYqpULSQHlNyGInUvHg2BoUGoNRIGa6Szc4/edit#gid=1322284596">Click here for the data dictionary</a></p>
 </section>
-<section id="datasets" class="level2">
-<h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
-<p>Click on the link below to download the dataset that corresponds to the model you have been assigned. Note that these are simulated datasets, which means I generated them using probability distribution functions in R. They are all clean, contain no missing data, and have three variables: Y, X1, and X2. While it is ok to use these variable names, I encourage you to create your own variable names that apply to your area of interest. You should note in your tutorial that the data are simulated. More detail about the data generation is included at the end of this page if you are interested.</p>
-<a href="DA3_Multinomial.csv" download="">Multinomial data</a>
-<a href="DA3_Ordinal.csv" download="">Ordinal data</a>
-<a href="DA3_Poisson.csv" download="">Poisson data</a>
-</section>
-<section id="deliverable-4-6-pages" class="level2">
-<h2 class="anchored" data-anchor-id="deliverable-4-6-pages">Deliverable (4-6 pages)</h2>
-<p>Your tutorial should describe and demonstrate the GLM using the appropriate dataset. The intended audience is someone who is familiar with linear regression but unfamiliar with GLMs.</p>
-<p>For this assignment, it is important to include code chunks in your tutorial. Your task is to explain the concepts and provide the code that your audience will need to replicate the example. Recall that you can do this with the <code>echo: TRUE</code> option under <code>eval</code> in your YAML header. Note that only code that is directly relevant to the tutorial should be included. Extraneous code such as <code>install.packages()</code> or debugging code should not be included. You should also show relevant “raw” output, such as the <code>summary(model)</code> output, to describe how to interpret it.</p>
-<p>Your tutorial should contain the following sections and content:</p>
+<section id="cleaning-and-model-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-and-model-requirements">Cleaning and model requirements</h2>
+<p>You must include the following variables in your model:</p>
 <ul>
-<li><p>Overview: Provide a few sentences describing the purpose of GLMs and the general structure of a GLM. As part of this, describe the purpose of a link function. Provide a few sentences to describe the purpose of your particular GLM. Include 2 examples of research questions that could be answered with your GLM.</p></li>
-<li><p>Probability Distribution: Briefly describe the probability distribution that is assumed for the outcome. What is the support? What are the parameters and what values can they take?</p></li>
-<li><p>The Model: Write out the general form of your GLM. What is the link function and why is it appropriate for that type of outcome? What are the model assumptions?</p></li>
-<li><p>Data Example:</p>
+<li><p>room_type (you may need to combine categories)</p></li>
+<li><p>number of bedrooms</p></li>
+<li><p>number of bathrooms (note that this variable needs to be cleaned, as the bathrooms variable is empty. I recommend using the <code>str_sub()</code> function from the <a href="https://cran.r-project.org/web/packages/stringr/index.html">stringr package</a> and <code>as.numeric()</code> to extract the number of bathrooms</p></li>
+<li><p>create a new variable that gives the distance to downtown. There may be multiple ways to do this, but you can use the code below. This uses the <code>apply</code> function, which is a useful function in R to perform an operation on all rows (or columns) of a matrix. Then it uses the <code>distm()</code> function in the <a href="https://cran.r-project.org/web/packages/geosphere/index.html">geosphere package</a> to calculate the distance in meters from a latitude and longitude in downtown Asheville. Finally, it multiplies by the appropriate constant to convert the value to miles.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geosphere) <span class="co">#you will need to install this package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>airbnb<span class="sc">$</span>dist_to_dt <span class="ot">&lt;-</span> <span class="fu">apply</span>(airbnb[,<span class="fu">c</span>(<span class="st">"longitude"</span>,<span class="st">"latitude"</span>)],<span class="dv">1</span>,<span class="cf">function</span>(x) <span class="fu">distm</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="sc">-</span><span class="fl">82.55481168521978</span>,<span class="fl">35.59701329976918</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  x,<span class="at">fun=</span>distHaversine))<span class="sc">*</span><span class="fl">0.00062137</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that you will also need to clean the <code>price</code> variable. You can use the <code>str_sub()</code> function again here.</p>
+<p>Choose at least one other variable to include in your model. Consider what is appropriate for a new host to set a price.</p>
+<div class="card border-info mb-3" style="max-width: 60rem;">
+  <div class="card-header">Extra credit</div>
+  <div class="card-body">
+    <p class="card-text">Earn extra points on this assignment by finding a way to incorporate amenity features in your model. For example, a host may want to change the price based on whether or not they allow pets.
+    </p>
+  </div>
+</div>
+<p>As you fit and assess your model, consider the following elements that we have discussed in class:</p>
 <ul>
-<li><p>Introduce the dataset. Provide a few summary statistics and/or plots. Include the fact that this is a simulated dataset.</p></li>
-<li><p>Fit the model. Include all relevant code, including <code>library()</code> for packages if needed.</p></li>
-<li><p>Explain how to interpret coefficient estimates for the predictors.</p></li>
-<li><p>Show and describe a plot that illustrates the results of the model.</p></li>
-<li><p>Describe how to assess the model and include the code to do so. Include how to assess any assumptions that are unique to that model (e.g., proportional odds, overdispersion). <em>Note: For the ordinal model, assess the assumption using the method shown in the class exercise, not the hypothesis test shown in the videos.</em></p></li>
-</ul></li>
+<li><p>Is this a prediction or inference problem? Should model interpretability be prioritized in this situation?</p></li>
+<li><p>Look at the diagnostic plots for your model. Determine if you need to transform predictor(s) or the outcome variable to improve the model.</p></li>
+<li><p>Evaluate influential points and multicollinearity and make adjustments accordingly. If you remove any observations, be sure to include this information in your report.</p></li>
+<li><p>Which model metric(s) are appropriate to assess the model?</p></li>
 </ul>
 </section>
-<section id="example-tutorial" class="level2">
-<h2 class="anchored" data-anchor-id="example-tutorial">Example tutorial</h2>
-<p><a href="https://www.simplilearn.com/tutorials/data-science-tutorial/linear-regression-in-r">Getting started with linear regression</a></p>
+<section id="deliverables" class="level2">
+<h2 class="anchored" data-anchor-id="deliverables">Deliverables</h2>
+<section id="report-for-airbnb-executives-1-2-pages" class="level3">
+<h3 class="anchored" data-anchor-id="report-for-airbnb-executives-1-2-pages">Report for Airbnb executives (1-2 pages)</h3>
+<p>The report for the Airbnb executives should explain your model to a non-technical audience. No code or “raw” R output should be in the report.</p>
+<p>Specifically, your report should contain the following elements:</p>
+<ul>
+<li><p>Introduction: Provide an overview of the dataset and the goals of the analysis. Provide basic information about the data (e.g., sample size). You may choose to include summary statistics or basic plots.</p></li>
+<li><p>Methods: Explain the model you used to analyze the data without getting into technical details. Why did you decide to use that model for this dataset and how does it accomplish their goal? Which variables did you include in the model and why?</p></li>
+<li><p>Results: Justify your model with the appropriate model metric(s). Explain them in non-technical terms. Then, provide an example of how the model can be used by giving the projected price for a particular combination of variables in your model (e.g., “for a listing with 2 bedrooms, 2 bathrooms, …, the price would be —”)</p></li>
+<li><p>Conclusion: Do you feel that the model is good enough to be deployed? If not, can you think of additional data that Airbnb could collect to improve the model?</p></li>
+</ul>
 </section>
-<section id="data-generation" class="level2">
-<h2 class="anchored" data-anchor-id="data-generation">Data Generation</h2>
-<p>See the code below if you want to learn more about how the datasets were generated. This is not required. If you would like to change the values of the coefficients or the mean/sd of the predictor(s) to better fit your application of interest, you are welcome to do that.</p>
-<p>References to learn more:</p>
-<p><a href="https://library.virginia.edu/data/articles/simulating-multinomial-logistic-regression-data">Simulating multinomial logistic regression data</a> (also used for ordinal)</p>
-<p><a href="https://library.virginia.edu/data/articles/simulating-data-for-count-models">Simulating data for count models</a></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-overflow-wrap code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># simulating data for GLMs</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#first, we specify the sample size and generate the predictors</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">344</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span>n, <span class="at">mean=</span><span class="dv">20</span>, <span class="at">sd=</span><span class="dv">3</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>x2a <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span>n, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">1</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x2<span class="sc">&lt;</span><span class="fl">0.3</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#for each model, we generate the outcome based on the specified model</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#poisson</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>lambda.out <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">3.5</span> <span class="sc">+</span> <span class="fl">0.2</span><span class="sc">*</span>x1 <span class="sc">+</span> <span class="fl">0.5</span><span class="sc">*</span>x2) <span class="co">#first generate the mean</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="at">n=</span>n, <span class="at">lambda=</span>lambda.out) <span class="co">#use the mean to generate the poisson outcome</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>pois_dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Y=</span>y,<span class="at">X1=</span>x1,<span class="at">X2=</span>x2) <span class="co">#create the dataframe</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#multinomial</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#recall that multinomial fits different logistic models. Here, we want an outcome with 3 levels, so we specify two different logistic models below.</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>lp2 <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2</span><span class="sc">*</span>x1 <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.7</span><span class="sc">*</span>x2</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>lp3 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">4</span> <span class="sc">+</span> <span class="fl">0.2</span><span class="sc">*</span>x1 <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.3</span><span class="sc">*</span>x2</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>den <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(lp2)<span class="sc">+</span><span class="fu">exp</span>(lp3)) <span class="co">#ensures the probabilities sum to 1</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#we generate a probability of each outcome level for each subject</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>den</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">exp</span>(lp2)<span class="sc">/</span>den</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">exp</span>(lp3)<span class="sc">/</span>den</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">cbind</span>(p1, p2, p3)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(p) <span class="co">#shows the matrix structure of the probabilities</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co">#the apply function takes each row of probabilities and generates and outcome based on those probabilities for each subject.</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>y.mult <span class="ot">&lt;-</span> <span class="fu">apply</span>(p, <span class="at">MARGIN=</span><span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">sample</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">prob=</span>x))</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>mult_dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Y=</span>y.mult,<span class="at">X1=</span>x1,<span class="at">X2=</span>x2)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co">#ordinal - same as multinomial above, I just used different coefficients</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>lp2 <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2</span><span class="sc">*</span>x1 <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.6</span><span class="sc">*</span>x2</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>lp3 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">4</span> <span class="sc">+</span> <span class="fl">0.2</span><span class="sc">*</span>x1 <span class="sc">+</span> <span class="sc">-</span><span class="fl">0.2</span><span class="sc">*</span>x2</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>den <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(lp2)<span class="sc">+</span><span class="fu">exp</span>(lp3))</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>den</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">exp</span>(lp2)<span class="sc">/</span>den</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">exp</span>(lp3)<span class="sc">/</span>den</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">cbind</span>(p1, p2, p3)</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(p)</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>y.ord <span class="ot">&lt;-</span> <span class="fu">apply</span>(p, <span class="at">MARGIN=</span><span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">sample</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">prob=</span>x))</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>ord_dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Y=</span>y.ord,<span class="at">X1=</span>x1,<span class="at">X2=</span>x2)</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(y.ord)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="report-for-data-science-team" class="level3">
+<h3 class="anchored" data-anchor-id="report-for-data-science-team">Report for data science team</h3>
+<p>The second part of the assignment will be a 3-4 page report that is suitable for other data scientists. Here, you will present details of your model to justify the conclusions you presented to the client. This section should present technical details that someone with a data science background can understand. This report must include the following, though you may wish to provide additional details relevant to the analysis:</p>
+<ul>
+<li><p>Introduction: Provide details about the dataset, including any data cleaning that needed to be done. Was there any missing data? Did you make any assumptions during the data cleaning process?</p></li>
+<li><p>Methods: Describe your model assessment and building process. Did you include any interaction terms? Why or why not? Did you transform any variables? If so, why? Provide the model diagnostic plots. Did you exclude any observations? Did you make any adjustments because of multicollinearity? How did you assess your model?</p></li>
+<li><p>Conclusion: What do you conclude about the validity of this analysis?</p></li>
+</ul>
+
+<div class="card border-info mb-3" style="max-width: 60rem;">
+  <div class="card-header">Submission &amp; Formatting Instructions/Tips</div>
+  <div class="card-body">
+    <p class="card-text">You will submit two files to gradescope: 1) a PDF that contains the two requested reports, and 2) the qmd file you used to produce the reports <br>
+    </p><ul>
+      <li>All code must be hidden in the PDF. You can hide all code by adding the following to your YAML Header:<br> execute:<br> &nbsp; echo: false</li>
+      <li>Your quarto document should be rendered directly to PDF, not to HTML and then saved as a PDF</li>
+      <li>The PDF should be 5-6 pages: 1-2 pages for the non-technical report and 3-4 pages for the technical report. These ranges are intentional; reports that fall outside of this range will be penalized. </li>
+      <li>Any plots (including diagnostic plots) must be appropriately formatted (axis labels, legends where appropriate)</li>
+      <li>"Raw" R output and variable names should not be in the report. For example, in the writing, tables, plots, etc, you should say "room type" instead of "room_type"</li>
+      <li>The quarto website includes lots of helpful information for generating your report. I recommend that you use the <a href="https://quarto.org/docs/visual-editor/" target="_blank" rel="noopener noreferrer">visual editor </a> to make formatting easier. The visual editor has several features that look like a generic word processor</li>
+      <li><a href="https://quarto.org/docs/output-formats/pdf-basics.html" target="_blank" rel="noopener noreferrer">PDF Basics </a></li>
+      <li><a href="https://quarto.org/docs/gallery/#articles-reports" target="_blank" rel="noopener noreferrer">Gallery for advanced Quarto formatting (not necessary, but could be helpful) </a></li>
+    </ul><p></p>
+  </div>
 </div>
+<section id="example-of-good-formatting" class="level4">
+<h4 class="anchored" data-anchor-id="example-of-good-formatting"><a href="https://github.com/anlane611/datasets/blob/5be4833370d66056b50484ea0288fb07b65f17e7/DA_2_Submission.pdf">Example of good formatting</a></h4>
+<p>This is a different assignment structure, but notice the following elements of this report:</p>
+<ul>
+<li><p>code is hidden</p></li>
+<li><p>tables/plots are labeled with the variable descriptions instead of the variable names</p></li>
+<li><p>sections are labeled</p></li>
+<li><p>variables in the text are referred to by description instead of variable name</p></li>
+<li><p>All output is presented in text, table, or plot (no raw output)</p></li>
+</ul>
+
+
 </section>
-<section id="stellar-tutorials" class="level2">
-<h2 class="anchored" data-anchor-id="stellar-tutorials">Stellar Tutorials</h2>
-<p>The teaching team selected 3 excellent tutorials (one for each type of GLM) that you can access to reference in the future should the need arise to use one of these models. You can access them via Duke box here: <a href="https://duke.box.com/s/gn0dy5xcsqqpqtn2jh1afoam4rgky9p2">Duke box folder for tutorials</a></p>
-
-
+</section>
 </section>
 
 </main> <!-- /main -->
